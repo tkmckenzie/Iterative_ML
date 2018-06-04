@@ -1,0 +1,200 @@
+
+SAMPLING FOR MODEL 'stan_model' NOW (CHAIN 1).
+
+Gradient evaluation took 0.001 seconds
+1000 transitions using 10 leapfrog steps per transition would take 10 seconds.
+Adjust your expectations accordingly!
+
+
+Iteration:    1 / 5500 [  0%]  (Warmup)
+Iteration:  501 / 5500 [  9%]  (Sampling)
+Iteration: 1050 / 5500 [ 19%]  (Sampling)
+Iteration: 1600 / 5500 [ 29%]  (Sampling)
+Iteration: 2150 / 5500 [ 39%]  (Sampling)
+Iteration: 2700 / 5500 [ 49%]  (Sampling)
+Iteration: 3250 / 5500 [ 59%]  (Sampling)
+Iteration: 3800 / 5500 [ 69%]  (Sampling)
+Iteration: 4350 / 5500 [ 79%]  (Sampling)
+Iteration: 4900 / 5500 [ 89%]  (Sampling)
+Iteration: 5450 / 5500 [ 99%]  (Sampling)
+Iteration: 5500 / 5500 [100%]  (Sampling)
+
+ Elapsed Time: 0.138 seconds (Warm-up)
+               1.347 seconds (Sampling)
+               1.485 seconds (Total)
+
+
+SAMPLING FOR MODEL 'stan_model_iterative_singlefree' NOW (CHAIN 1).
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+Iteration:    1 / 5500 [  0%]  (Warmup)
+Iteration:  501 / 5500 [  9%]  (Sampling)
+Iteration: 1050 / 5500 [ 19%]  (Sampling)
+Iteration: 1600 / 5500 [ 29%]  (Sampling)
+Iteration: 2150 / 5500 [ 39%]  (Sampling)
+Iteration: 2700 / 5500 [ 49%]  (Sampling)
+Iteration: 3250 / 5500 [ 59%]  (Sampling)
+Iteration: 3800 / 5500 [ 69%]  (Sampling)
+Iteration: 4350 / 5500 [ 79%]  (Sampling)
+Iteration: 4900 / 5500 [ 89%]  (Sampling)
+Iteration: 5450 / 5500 [ 99%]  (Sampling)
+Iteration: 5500 / 5500 [100%]  (Sampling)
+
+ Elapsed Time: 0.039 seconds (Warm-up)
+               0.347 seconds (Sampling)
+               0.386 seconds (Total)
+
+
+SAMPLING FOR MODEL 'stan_logit_model' NOW (CHAIN 1).
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+Iteration:    1 / 5500 [  0%]  (Warmup)
+Iteration:  501 / 5500 [  9%]  (Sampling)
+Iteration: 1050 / 5500 [ 19%]  (Sampling)
+Iteration: 1600 / 5500 [ 29%]  (Sampling)
+Iteration: 2150 / 5500 [ 39%]  (Sampling)
+Iteration: 2700 / 5500 [ 49%]  (Sampling)
+Iteration: 3250 / 5500 [ 59%]  (Sampling)
+Iteration: 3800 / 5500 [ 69%]  (Sampling)
+Iteration: 4350 / 5500 [ 79%]  (Sampling)
+Iteration: 4900 / 5500 [ 89%]  (Sampling)
+Iteration: 5450 / 5500 [ 99%]  (Sampling)
+Iteration: 5500 / 5500 [100%]  (Sampling)
+
+ Elapsed Time: 0.07 seconds (Warm-up)
+               0.67 seconds (Sampling)
+               0.74 seconds (Total)
+
+
+SAMPLING FOR MODEL 'stan_logit_model_iterative_singlefree' NOW (CHAIN 1).
+
+Gradient evaluation took 0.001 seconds
+1000 transitions using 10 leapfrog steps per transition would take 10 seconds.
+Adjust your expectations accordingly!
+
+
+Iteration:    1 / 5500 [  0%]  (Warmup)
+Iteration:  501 / 5500 [  9%]  (Sampling)
+Iteration: 1050 / 5500 [ 19%]  (Sampling)
+Iteration: 1600 / 5500 [ 29%]  (Sampling)
+Iteration: 2150 / 5500 [ 39%]  (Sampling)
+Iteration: 2700 / 5500 [ 49%]  (Sampling)
+Iteration: 3250 / 5500 [ 59%]  (Sampling)
+Iteration: 3800 / 5500 [ 69%]  (Sampling)
+Iteration: 4350 / 5500 [ 79%]  (Sampling)
+Iteration: 4900 / 5500 [ 89%]  (Sampling)
+Iteration: 5450 / 5500 [ 99%]  (Sampling)
+Iteration: 5500 / 5500 [100%]  (Sampling)
+
+ Elapsed Time: 0.028 seconds (Warm-up)
+               0.259 seconds (Sampling)
+               0.287 seconds (Total)
+
+
+SAMPLING FOR MODEL 'stan_model' NOW (CHAIN 1).
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+Iteration:    1 / 5500 [  0%]  (Warmup)
+Iteration:  501 / 5500 [  9%]  (Sampling)
+Iteration: 1050 / 5500 [ 19%]  (Sampling)
+Iteration: 1600 / 5500 [ 29%]  (Sampling)
+Iteration: 2150 / 5500 [ 39%]  (Sampling)
+Iteration: 2700 / 5500 [ 49%]  (Sampling)
+Iteration: 3250 / 5500 [ 59%]  (Sampling)
+Iteration: 3800 / 5500 [ 69%]  (Sampling)
+Iteration: 4350 / 5500 [ 79%]  (Sampling)
+Iteration: 4900 / 5500 [ 89%]  (Sampling)
+Iteration: 5450 / 5500 [ 99%]  (Sampling)
+Iteration: 5500 / 5500 [100%]  (Sampling)
+
+ Elapsed Time: 0.118 seconds (Warm-up)
+               1.05 seconds (Sampling)
+               1.168 seconds (Total)
+
+
+SAMPLING FOR MODEL 'stan_model_iterative_singlefree' NOW (CHAIN 1).
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+Iteration:    1 / 5500 [  0%]  (Warmup)
+Iteration:  501 / 5500 [  9%]  (Sampling)
+Iteration: 1050 / 5500 [ 19%]  (Sampling)
+Iteration: 1600 / 5500 [ 29%]  (Sampling)
+Iteration: 2150 / 5500 [ 39%]  (Sampling)
+Iteration: 2700 / 5500 [ 49%]  (Sampling)
+Iteration: 3250 / 5500 [ 59%]  (Sampling)
+Iteration: 3800 / 5500 [ 69%]  (Sampling)
+Iteration: 4350 / 5500 [ 79%]  (Sampling)
+Iteration: 4900 / 5500 [ 89%]  (Sampling)
+Iteration: 5450 / 5500 [ 99%]  (Sampling)
+Iteration: 5500 / 5500 [100%]  (Sampling)
+
+ Elapsed Time: 0.038 seconds (Warm-up)
+               0.391 seconds (Sampling)
+               0.429 seconds (Total)
+
+
+SAMPLING FOR MODEL 'stan_logit_model' NOW (CHAIN 1).
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+Iteration:    1 / 5500 [  0%]  (Warmup)
+Iteration:  501 / 5500 [  9%]  (Sampling)
+Iteration: 1050 / 5500 [ 19%]  (Sampling)
+Iteration: 1600 / 5500 [ 29%]  (Sampling)
+Iteration: 2150 / 5500 [ 39%]  (Sampling)
+Iteration: 2700 / 5500 [ 49%]  (Sampling)
+Iteration: 3250 / 5500 [ 59%]  (Sampling)
+Iteration: 3800 / 5500 [ 69%]  (Sampling)
+Iteration: 4350 / 5500 [ 79%]  (Sampling)
+Iteration: 4900 / 5500 [ 89%]  (Sampling)
+Iteration: 5450 / 5500 [ 99%]  (Sampling)
+Iteration: 5500 / 5500 [100%]  (Sampling)
+
+ Elapsed Time: 0.092 seconds (Warm-up)
+               0.64 seconds (Sampling)
+               0.732 seconds (Total)
+
+
+SAMPLING FOR MODEL 'stan_logit_model_iterative_singlefree' NOW (CHAIN 1).
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+Iteration:    1 / 5500 [  0%]  (Warmup)
+Iteration:  501 / 5500 [  9%]  (Sampling)
+Iteration: 1050 / 5500 [ 19%]  (Sampling)
+Iteration: 1600 / 5500 [ 29%]  (Sampling)
+Iteration: 2150 / 5500 [ 39%]  (Sampling)
+Iteration: 2700 / 5500 [ 49%]  (Sampling)
+Iteration: 3250 / 5500 [ 59%]  (Sampling)
+Iteration: 3800 / 5500 [ 69%]  (Sampling)
+Iteration: 4350 / 5500 [ 79%]  (Sampling)
+Iteration: 4900 / 5500 [ 89%]  (Sampling)
+Iteration: 5450 / 5500 [ 99%]  (Sampling)
+Iteration: 5500 / 5500 [100%]  (Sampling)
+
+ Elapsed Time: 0.024 seconds (Warm-up)
+               0.206 seconds (Sampling)
+               0.23 seconds (Total)
+

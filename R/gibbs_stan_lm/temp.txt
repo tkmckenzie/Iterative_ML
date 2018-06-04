@@ -1,0 +1,75 @@
+
+SAMPLING FOR MODEL 'stan_model' NOW (CHAIN 1).
+
+Gradient evaluation took 0.001 seconds
+1000 transitions using 10 leapfrog steps per transition would take 10 seconds.
+Adjust your expectations accordingly!
+
+
+Iteration:     1 / 11000 [  0%]  (Warmup)
+Iteration:  1001 / 11000 [  9%]  (Sampling)
+Iteration:  2100 / 11000 [ 19%]  (Sampling)
+Iteration:  3200 / 11000 [ 29%]  (Sampling)
+Iteration:  4300 / 11000 [ 39%]  (Sampling)
+Iteration:  5400 / 11000 [ 49%]  (Sampling)
+Iteration:  6500 / 11000 [ 59%]  (Sampling)
+Iteration:  7600 / 11000 [ 69%]  (Sampling)
+Iteration:  8700 / 11000 [ 79%]  (Sampling)
+Iteration:  9800 / 11000 [ 89%]  (Sampling)
+Iteration: 10900 / 11000 [ 99%]  (Sampling)
+Iteration: 11000 / 11000 [100%]  (Sampling)
+
+ Elapsed Time: 0.047 seconds (Warm-up)
+               0.565 seconds (Sampling)
+               0.612 seconds (Total)
+
+
+SAMPLING FOR MODEL 'stan_model_beta_restricted_singlefree' NOW (CHAIN 1).
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+Iteration:     1 / 11000 [  0%]  (Warmup)
+Iteration:  1001 / 11000 [  9%]  (Sampling)
+Iteration:  2100 / 11000 [ 19%]  (Sampling)
+Iteration:  3200 / 11000 [ 29%]  (Sampling)
+Iteration:  4300 / 11000 [ 39%]  (Sampling)
+Iteration:  5400 / 11000 [ 49%]  (Sampling)
+Iteration:  6500 / 11000 [ 59%]  (Sampling)
+Iteration:  7600 / 11000 [ 69%]  (Sampling)
+Iteration:  8700 / 11000 [ 79%]  (Sampling)
+Iteration:  9800 / 11000 [ 89%]  (Sampling)
+Iteration: 10900 / 11000 [ 99%]  (Sampling)
+Iteration: 11000 / 11000 [100%]  (Sampling)
+
+ Elapsed Time: 0.022 seconds (Warm-up)
+               0.244 seconds (Sampling)
+               0.266 seconds (Total)
+
+
+SAMPLING FOR MODEL 'stan_model_beta_restricted' NOW (CHAIN 1).
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+Iteration:     1 / 11000 [  0%]  (Warmup)
+Iteration:  1001 / 11000 [  9%]  (Sampling)
+Iteration:  2100 / 11000 [ 19%]  (Sampling)
+Iteration:  3200 / 11000 [ 29%]  (Sampling)
+Iteration:  4300 / 11000 [ 39%]  (Sampling)
+Iteration:  5400 / 11000 [ 49%]  (Sampling)
+Iteration:  6500 / 11000 [ 59%]  (Sampling)
+Iteration:  7600 / 11000 [ 69%]  (Sampling)
+Iteration:  8700 / 11000 [ 79%]  (Sampling)
+Iteration:  9800 / 11000 [ 89%]  (Sampling)
+Iteration: 10900 / 11000 [ 99%]  (Sampling)
+Iteration: 11000 / 11000 [100%]  (Sampling)
+
+ Elapsed Time: 0.037 seconds (Warm-up)
+               0.401 seconds (Sampling)
+               0.438 seconds (Total)
+

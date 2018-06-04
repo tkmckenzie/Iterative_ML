@@ -1,0 +1,43 @@
+% Encoding: UTF-8
+
+@Article{ChibJeliazkov,
+  author    = {Chib, Siddhartha and Jeliazkov, Ivan},
+  title     = {Marginal likelihood from the Metropolis--Hastings output},
+  journal   = {Journal of the American Statistical Association},
+  year      = {2001},
+  volume    = {96},
+  number    = {453},
+  pages     = {270--281},
+  publisher = {Taylor \& Francis},
+}
+
+@Article{Chib,
+  author    = {Chib, Siddhartha},
+  title     = {Marginal likelihood from the Gibbs output},
+  journal   = {Journal of the american statistical association},
+  year      = {1995},
+  volume    = {90},
+  number    = {432},
+  pages     = {1313--1321},
+  publisher = {Taylor \& Francis Group},
+}
+
+@Article{Friel,
+  author    = {Friel, Nial and Pettitt, Anthony N},
+  title     = {Marginal likelihood estimation via power posteriors},
+  journal   = {Journal of the Royal Statistical Society: Series B (Statistical Methodology)},
+  year      = {2008},
+  volume    = {70},
+  number    = {3},
+  pages     = {589--607},
+  publisher = {Wiley Online Library},
+}
+
+@Misc{SilvermanDE,
+  author    = {Silverman, BS},
+  title     = {Density Estimation forStatistical Analysis},
+  year      = {1986},
+  publisher = {New York: Chapman and Hall},
+}
+
+@Comment{jabref-meta: databaseType:bibtex;}

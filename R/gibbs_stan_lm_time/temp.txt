@@ -1,0 +1,100 @@
+
+SAMPLING FOR MODEL 'stan_model' NOW (CHAIN 1).
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+Iteration:    1 / 3000 [  0%]  (Warmup)
+Iteration:  300 / 3000 [ 10%]  (Warmup)
+Iteration:  501 / 3000 [ 16%]  (Sampling)
+Iteration:  800 / 3000 [ 26%]  (Sampling)
+Iteration: 1100 / 3000 [ 36%]  (Sampling)
+Iteration: 1400 / 3000 [ 46%]  (Sampling)
+Iteration: 1700 / 3000 [ 56%]  (Sampling)
+Iteration: 2000 / 3000 [ 66%]  (Sampling)
+Iteration: 2300 / 3000 [ 76%]  (Sampling)
+Iteration: 2600 / 3000 [ 86%]  (Sampling)
+Iteration: 2900 / 3000 [ 96%]  (Sampling)
+Iteration: 3000 / 3000 [100%]  (Sampling)
+
+ Elapsed Time: 0.025 seconds (Warm-up)
+               0.087 seconds (Sampling)
+               0.112 seconds (Total)
+
+
+SAMPLING FOR MODEL 'stan_model_beta_restricted_singlefree' NOW (CHAIN 1).
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+Iteration:    1 / 3000 [  0%]  (Warmup)
+Iteration:  300 / 3000 [ 10%]  (Warmup)
+Iteration:  501 / 3000 [ 16%]  (Sampling)
+Iteration:  800 / 3000 [ 26%]  (Sampling)
+Iteration: 1100 / 3000 [ 36%]  (Sampling)
+Iteration: 1400 / 3000 [ 46%]  (Sampling)
+Iteration: 1700 / 3000 [ 56%]  (Sampling)
+Iteration: 2000 / 3000 [ 66%]  (Sampling)
+Iteration: 2300 / 3000 [ 76%]  (Sampling)
+Iteration: 2600 / 3000 [ 86%]  (Sampling)
+Iteration: 2900 / 3000 [ 96%]  (Sampling)
+Iteration: 3000 / 3000 [100%]  (Sampling)
+
+ Elapsed Time: 0.025 seconds (Warm-up)
+               0.062 seconds (Sampling)
+               0.087 seconds (Total)
+
+
+SAMPLING FOR MODEL 'stan_model_beta_restricted' NOW (CHAIN 1).
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+Iteration:    1 / 3000 [  0%]  (Warmup)
+Iteration:  300 / 3000 [ 10%]  (Warmup)
+Iteration:  501 / 3000 [ 16%]  (Sampling)
+Iteration:  800 / 3000 [ 26%]  (Sampling)
+Iteration: 1100 / 3000 [ 36%]  (Sampling)
+Iteration: 1400 / 3000 [ 46%]  (Sampling)
+Iteration: 1700 / 3000 [ 56%]  (Sampling)
+Iteration: 2000 / 3000 [ 66%]  (Sampling)
+Iteration: 2300 / 3000 [ 76%]  (Sampling)
+Iteration: 2600 / 3000 [ 86%]  (Sampling)
+Iteration: 2900 / 3000 [ 96%]  (Sampling)
+Iteration: 3000 / 3000 [100%]  (Sampling)
+
+ Elapsed Time: 0.017 seconds (Warm-up)
+               0.077 seconds (Sampling)
+               0.094 seconds (Total)
+
+
+SAMPLING FOR MODEL 'stan_model_sigma_sq_restricted' NOW (CHAIN 1).
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+Iteration:    1 / 3000 [  0%]  (Warmup)
+Iteration:  300 / 3000 [ 10%]  (Warmup)
+Iteration:  501 / 3000 [ 16%]  (Sampling)
+Iteration:  800 / 3000 [ 26%]  (Sampling)
+Iteration: 1100 / 3000 [ 36%]  (Sampling)
+Iteration: 1400 / 3000 [ 46%]  (Sampling)
+Iteration: 1700 / 3000 [ 56%]  (Sampling)
+Iteration: 2000 / 3000 [ 66%]  (Sampling)
+Iteration: 2300 / 3000 [ 76%]  (Sampling)
+Iteration: 2600 / 3000 [ 86%]  (Sampling)
+Iteration: 2900 / 3000 [ 96%]  (Sampling)
+Iteration: 3000 / 3000 [100%]  (Sampling)
+
+ Elapsed Time: 0.019 seconds (Warm-up)
+               0.081 seconds (Sampling)
+               0.1 seconds (Total)
+
