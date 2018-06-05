@@ -1,7 +1,7 @@
 library(rstan)
 library(quantreg)
 
-setwd("~/docs/Iterative_ML_paper/R/gibbs_stan_lm")
+setwd("~/git/Iterative_ML/R/gibbs_stan_lm")
 
 # rm(list = ls())
 

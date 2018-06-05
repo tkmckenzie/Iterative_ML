@@ -2,10 +2,10 @@ library(snow)
 
 rm(list = ls())
 
-num.mc.iter = 500
+num.mc.iter = 1000
 
 eval.func = function(i){
-  setwd("~/docs/Iterative_ML_paper/R/gibbs_stan_lm")
+  setwd("~/git/Iterative_ML/R/gibbs_stan_lm")
 
   t1 = proc.time()
   source("gibbs_ml.R")

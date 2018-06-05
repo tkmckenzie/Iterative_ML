@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.4.30)  1 MAY 2018 15:38
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.6.2)  4 JUN 2018 17:32
 entering extended mode
 **./Iterative_ML.tex
 (Iterative_ML.tex
@@ -21,11 +21,10 @@ File: size10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\preprint\fullpage.sty"
+(C:\Users\tkmckenzie\AppData\Roaming\MiKTeX\2.9\tex\latex\preprint\fullpage.sty
 Package: fullpage 1999/02/23 1.1 (PWD)
 \FP@margin=\skip43
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsmath.sty"
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsmath.sty"
 Package: amsmath 2017/09/02 v2.17a AMS math features
 \@mathmargin=\skip44
 
@@ -115,14 +114,14 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@float@everytoks=\toks21
 \@floatcapt=\box29
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\natbib\natbib.sty"
+(C:\Users\tkmckenzie\AppData\Roaming\MiKTeX\2.9\tex\latex\natbib\natbib.sty
 Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibhang=\skip47
 \bibsep=\skip48
 LaTeX Info: Redefining \cite on input line 694.
 \c@NAT@ctr=\count100
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\cleveref\cleveref.sty"
+(C:\Users\tkmckenzie\AppData\Roaming\MiKTeX\2.9\tex\latex\cleveref\cleveref.sty
 Package: cleveref 2018/03/27 v0.21.4 Intelligent cross-referencing
 Package cleveref Info: always capitalise cross-reference names on input line 78
 25.
@@ -130,15 +129,14 @@ Package cleveref Info: always capitalise cross-reference names on input line 78
 52.
 Package cleveref Info: no abbreviation of names on input line 7852.
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\enumitem\enumitem.sty"
+(C:\Users\tkmckenzie\AppData\Roaming\MiKTeX\2.9\tex\latex\enumitem\enumitem.sty
 Package: enumitem 2011/09/28 v3.5.2 Customized lists
 \labelindent=\skip49
 \enit@outerparindent=\dimen114
 \enit@toks=\toks22
 \enit@inbox=\box30
 \enitdp@description=\count101
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\multirow\multirow.sty"
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\multirow\multirow.sty"
 Package: multirow 2016/11/25 v2.2 Span multiple rows of a table
 \multirow@colwidth=\skip50
 \multirow@cntb=\count102
@@ -160,7 +158,8 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 16.
 LaTeX Font Info:    ... okay on input line 16.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 16.
 LaTeX Font Info:    ... okay on input line 16.
- ("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
+
+(C:\Users\tkmckenzie\AppData\Roaming\MiKTeX\2.9\tex\context\base\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count103
 \scratchdimen=\dimen116
@@ -225,53 +224,52 @@ Package grfext Info: Graphics extension search list:
 G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
 )
-Underfull \hbox (badness 1430) in paragraph at lines 34--35
+Underfull \hbox (badness 1430) in paragraph at lines 55--56
 \OT1/cmr/m/n/10 Bayesian frame-work can be com-pared via their
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 62--63
-[]\OT1/cmr/m/n/10 Re-estimate the model, set-ting
- []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[1{C:/Users/tmcken/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
+ [1{C:/Users/tkmckenzie/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
 
 
 ]
-Underfull \hbox (badness 1540) in paragraph at lines 72--73
+Underfull \hbox (badness 10000) in paragraph at lines 83--84
+[]\OT1/cmr/m/n/10 Re-estimate the model, set-ting
+ []
+
+
+Underfull \hbox (badness 1540) in paragraph at lines 93--94
 \OT1/cmr/m/n/10 This sec-tion presents sim-u-la-tion re-sults to first
  []
 
 
-Underfull \hbox (badness 2285) in paragraph at lines 72--73
+Underfull \hbox (badness 2285) in paragraph at lines 93--94
 \OT1/cmr/m/n/10 il-lus-trate the un-bi-ased, lower-variance es-ti-mates
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 74--74
+Underfull \hbox (badness 10000) in paragraph at lines 95--95
 []\OT1/cmr/bx/n/12 Multivariate Nor-mal Lin-ear
  []
 
 
-Underfull \vbox (badness 1147) has occurred while \output is active []
-
-
-Underfull \hbox (badness 1609) in paragraph at lines 98--100
+Underfull \hbox (badness 1609) in paragraph at lines 119--121
 \OT1/cmr/m/n/10 con-stant columns of ones and two in-de-pen-dent
  []
 
-[2] [3]
+[2] [3] [4]
 
 LaTeX Warning: Reference `tab:Probit-Logit-Sim' on page 1 undefined on input li
-ne 200.
+ne 221.
 
-[4] [5]
-<Probit-Logit-Fitted.pdf, id=29, 289.08pt x 289.08pt>
+<Probit-Logit-Fitted.pdf, id=26, 289.08pt x 289.08pt>
 File: Probit-Logit-Fitted.pdf Graphic file (type pdf)
 <use Probit-Logit-Fitted.pdf>
-Package pdftex.def Info: Probit-Logit-Fitted.pdf  used on input line 204.
+Package pdftex.def Info: Probit-Logit-Fitted.pdf  used on input line 225.
 (pdftex.def)             Requested size: 229.8775pt x 229.87483pt.
- (Iterative_ML.bbl
+[5] (Iterative_ML.bbl
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 ) [6 <./Probit-Logit-Fitted.pdf>] (Iterative_ML.aux)
@@ -280,13 +278,13 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 4553 strings out of 493305
- 77748 string characters out of 3138871
+ 4556 strings out of 493305
+ 78044 string characters out of 3138860
  157894 words of memory out of 3000000
- 8070 multiletter control sequences out of 15000+200000
+ 8073 multiletter control sequences out of 15000+200000
  8530 words of font info for 31 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,11n,28p,1782b,334s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 41i,11n,28p,1782b,258s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Pr
 ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Fi
 les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKT
@@ -300,7 +298,7 @@ gram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files
 /MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 
 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.9/fonts
 /type1/public/amsfonts/cm/cmti10.pfb>
-Output written on Iterative_ML.pdf (6 pages, 198324 bytes).
+Output written on Iterative_ML.pdf (6 pages, 202515 bytes).
 PDF statistics:
  83 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

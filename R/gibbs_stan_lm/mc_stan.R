@@ -1,4 +1,4 @@
-setwd("~/code/R/marginal_likelihood/gibbs_stan_lm")
+setwd("~/git/Iterative_ML/R/gibbs_stan_lm")
 
 rm(list = ls())
 

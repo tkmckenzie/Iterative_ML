@@ -2,9 +2,9 @@ library(snow)
 
 rm(list = ls())
 
-setwd("~/docs/Iterative_ML_paper/R/gibbs_stan_lm")
+setwd("~/git/Iterative_ML/R/gibbs_stan_lm")
 
-num.mc.iter = 500
+num.mc.iter = 1000
 
 sim.files = grep("^stan_snow_[0-9]+.csv$", list.files("stan_snow"), value = TRUE)
 sim.nums = as.numeric(gsub("stan_snow_|.csv", "", sim.files))
@@ -13,7 +13,7 @@ remaining.sims = setdiff(1:num.mc.iter, sim.nums)
 print(length(remaining.sims))
 
 eval.func = function(i){
-  setwd("~/docs/Iterative_ML_paper/R/gibbs_stan_lm")
+  setwd("~/git/Iterative_ML/R/gibbs_stan_lm")
   
   t1 = proc.time()
   source("stan_ml_ks_iterative_fit.R")
@@ -26,8 +26,10 @@ eval.func = function(i){
   return(c(log.marginal, t))
 }
 
-cl = makeCluster(rep("localhost", 4), "SOCK")
-log.marginal.results = parSapply(cl, remaining.sims, eval.func)
+if (length(remaining.sims) > 0){
+  cl = makeCluster(rep("localhost", 4), "SOCK")
+  log.marginal.results = parSapply(cl, remaining.sims, eval.func)
+}
 
 #Run after getting all sims
 sim.files = grep("^stan_snow_[0-9]+.csv$", list.files("stan_snow"), value = TRUE)

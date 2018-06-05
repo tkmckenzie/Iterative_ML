@@ -22,12 +22,33 @@
 }]
 
 \begin{abstract}
-	
+	Bayesian statistics provides a very general, well-founded, and intuitive framework for model selection. Any exclusive models that permit a proper posterior distribution can be compared via Bayes' factors, and the probability that any given model from a set of potential models is correct can be calculated. However, it can be difficult to estimate Bayes' factors due to difficulties in computing a model's marginal likelihood. Methods have been developed to make this problem computationally feasible for models that fit with Gibbs or Metropolis-Hastings samplers \citep{ChibJeliazkov}. Unfortunately, many models cannot be fit using Gibbs sampling, and Metropolis-Hastings sampling may be much slower than newer algorithms such as No U-Turn Sampling \citep{NUTS}. This research develops a general algorithm to estimate marginal likelihood and, by extension, Bayes' factors using iterative kernel density estimation. Using this algorithm with No U-Turn Sampling can produce unbiased, lower variance estimates of marginal likelihood than those from other methods for similar numbers of sampling iterations.
 \end{abstract}
 
 \section{Introduction}
 
 \section{Literature Review}
+
+\subsection{Model Selection}
+%Citations here: 
+%Classical: Greene, Akaike, Schwarz (SBIC)
+%Cross-validation: Allen, Golub, Kohavi (machine learning), Arlot (survey of methods)
+%Bayeisan: Chib, Chib & Jeliazkov, Kass & Raftery (Bayes' factor), George (mixed model selection), Berger (?)
+
+Density estimation could theoretically be used to estimate marginal likelihood. However, this method has not been feasible historically due to practical issues with many kernel density estimators, described in greater detail in the following subsection.
+
+\subsection{Kernel Density Estimation}
+%Citations here:
+%Silverman (most density estimation, including standard, adaptive, etc.)
+%Portnoy (application of adaptive KDE and some references)
+%Beran (adaptive rank estimator)
+
+%Idea for this section: Lay out KDE basics (formula), illustrate weakness (bias in density estimates), state how adaptive KDE fixes.
+
+\subsection{Markov Chain Monte Carlo Samplers}
+%Citations here:
+%Gelfand & Smith (overview)
+%Chib & Greenberg (M-H), Geman (Gibbs), Tanner & Wong (data augmentation), Rubin (importance sampling)
 
 \section{Theory and Method}
 

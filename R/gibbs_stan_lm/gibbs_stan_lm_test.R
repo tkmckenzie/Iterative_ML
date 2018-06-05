@@ -1,15 +1,15 @@
 library(ggplot2)
 
-setwd("~/docs/Iterative_ML_paper/R/gibbs_stan_lm")
+setwd("~/git/Iterative_ML/R/gibbs_stan_lm")
 
 rm(list = ls())
 
 #Load MC results
 load("gibbs_mc_results.RData")
-gibbs.results = log.marginal.results[1,1:250]
+gibbs.results = log.marginal.results[1,1:500]
 
 load("stan_mc_results.RData")
-stan.results = log.marginal.results[1,1:250]
+stan.results = log.marginal.results[1,1:500]
 
 rm(log.marginal.results)
 

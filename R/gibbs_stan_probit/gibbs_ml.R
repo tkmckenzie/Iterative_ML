@@ -1,4 +1,4 @@
-setwd("~/docs/Iterative_ML_paper/R/gibbs_stan_probit")
+setwd("~/git/Iterative_ML/R/gibbs_stan_probit")
 
 # rm(list = ls())
 
