@@ -4,7 +4,7 @@ rm(list = ls())
 
 setwd("~/git/Iterative_ML/R/gibbs_stan_probit")
 
-num.mc.iter = 1000
+num.mc.iter = 500
 
 eval.func = function(i){
   setwd("~/git/Iterative_ML/R/gibbs_stan_probit")

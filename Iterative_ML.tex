@@ -22,7 +22,7 @@
 }]
 
 \begin{abstract}
-	Bayesian statistics provides a very general, well-founded, and intuitive framework for model selection. Any exclusive models that permit a proper posterior distribution can be compared via Bayes' factors, and the probability that any given model from a set of potential models is correct can be calculated. However, it can be difficult to estimate Bayes' factors due to difficulties in computing a model's marginal likelihood. Methods have been developed to make this problem computationally feasible for models that fit with Gibbs or Metropolis-Hastings samplers \citep{ChibJeliazkov}. Unfortunately, many models cannot be fit using Gibbs sampling, and Metropolis-Hastings sampling may be much slower than newer algorithms such as No U-Turn Sampling \citep{NUTS}. This research develops a general algorithm to estimate marginal likelihood and, by extension, Bayes' factors using iterative kernel density estimation. Using this algorithm with No U-Turn Sampling can produce unbiased, lower variance estimates of marginal likelihood than those from other methods for similar numbers of sampling iterations.
+	Bayesian statistics provides a very general, well-founded, and intuitive framework for model selection. Any exclusive models that permit a proper posterior distribution can be compared via Bayes' factors, and the probability that any given model from a set of potential models is correct can be calculated. However, it can be difficult to estimate Bayes' factors due to difficulties in computing a model's marginal likelihood. Methods have been developed to make this problem computationally feasible for models that fit with Gibbs or Metropolis-Hastings samplers \citep{ChibJeliazkov}. Unfortunately, many models cannot be fit using Gibbs sampling, and Metropolis-Hastings sampling may be much slower than newer algorithms such as No U-Turn Sampling \citep{NUTS}. This research develops a general algorithm to estimate marginal likelihood and, by extension, Bayes' factors using iterative kernel density estimation. Using this algorithm with No U-Turn Sampling can produce unbiased, lower variance estimates of marginal likelihood for a broader class of models than those from other methods for similar numbers of sampling iterations.
 \end{abstract}
 
 \section{Introduction}
@@ -94,23 +94,7 @@ This section presents simulation results to first illustrate the unbiased, lower
 
 \subsection{Multivariate Normal Linear Model, Comparison With Gibbs Sampling}
 
-\begin{table*}
-	\centering
-	\begin{tabular}{l|c|c|c|c}
-		& & & & Mean Test \\
-		Model & \# Trials & Gibbs & Iterative KDE & $p$-value \\ \hline\hline
-		\multirow{3}{*}{Multivariate Linear} & \multirow{3}{*}{250} & -481.354 & -481.341 & \multirow{3}{*}{0.243}\\
-		& & (0.158) & (0.068) & \\
-		& & Iter = 5,000 & Iter = 5,000 & \\
-		\hline
-		\multirow{3}{*}{Probit} & \multirow{3}{*}{250} & -23.986 & -23.989 & \multirow{3}{*}{0.484} \\
-		& & (0.036) & (0.057) & \\
-		& & Iter = 50,000 & Iter = 5,000 & \\
-		\hline
-	\end{tabular}
-	\caption{Comparison of Gibbs and Iterative KDE}
-	\label{tab:MVN-Probit}
-\end{table*}
+\input{tables/Table1.tex}
 
 These simulations begin with a standard multivariate linear model with iid normal errors. This model takes the form
 \begin{align}
@@ -159,34 +143,7 @@ Results of this simulation are shown in the second row of \Cref{tab:MVN-Probit}.
 
 \subsection{Comparison of Probit and Logit Models: An Example from \cite{Chib}}
 
-\begin{table*}
-	\centering
-	\begin{tabular}{l|c|c|c}
-		& & & Chib Est. \\
-		Specification & Logit & Probit & $p$-value \\
-		\hline \hline
-		\multirow{2}{*}{$C$} & -38.021 & -38.504 & \multirow{2}{*}{0.872} \\
-		& (0.037) & (0.038) & \\ \hline
-		\multirow{2}{*}{$C + x_1$} & -42.303 & -43.165 & \multirow{2}{*}{0.126} \\
-		& (0.071) & (0.065) & \\ \hline
-		\multirow{2}{*}{$C + \log(x_2)$} & -36.847 & -37.909 & \multirow{2}{*}{0.247} \\
-		& (0.064) & (0.062) & \\ \hline
-		\multirow{2}{*}{$C + x_3$} & -34.323 & -35.330 & \multirow{2}{*}{0.249} \\
-		& (0.054) & (0.060) & \\ \hline
-		\multirow{2}{*}{$C + x_4$} & -36.243 & -37.229 & \multirow{2}{*}{0.377} \\
-		& (0.065) & (0.060) & \\ \hline
-		\multirow{2}{*}{$C + x_5$} & -38.111 & -39.079 & \multirow{2}{*}{0.530} \\
-		& (0.059) & (0.058) & \\ \hline
-		\multirow{2}{*}{$C + \log(x_2) + x_4$} & -34.625 & -36.128 & \multirow{2}{*}{0.113} \\
-		& (0.068) & (0.076) & \\ \hline
-		\multirow{2}{*}{$C + \log(x_2) + x_3 + x_4$} & -32.528 & -34.559 & \multirow{2}{*}{0.421} \\
-		& (0.077) & (0.077) & \\ \hline
-		\multirow{2}{*}{$C + \log(x_3) + x_3 + x_4 + x_5$} & -33.738 & -36.240 & \multirow{2}{*}{0.394} \\
-		& (0.092) & (0.079) & \\ \hline
-	\end{tabular}
-	\caption{Comparison of Logit and Probit Models Using an Example from \cite{Chib}}
-	\label{tab:Logit-Probit-Chib}
-\end{table*}
+\input{tables/Table2.tex}
 
 In his seminal work, \cite{Chib} tested several specifications of a binary probit model using data describing prostatic nodal involvement among 53 prostate cancer patients. To test between those probit specifications, one can use a methodology identical to that in the previous subsection. However, one may also wish to test the choice of link function that transforms the latent variable $z$ into a probability of incidence. Specifically, rather than using a probit model, which uses the cumulative normal as a link function, one could use a logit model, which uses the sigmoid function as a link. The choice of one of these specifications over the other is often at the whim of the researcher, and it can be difficult to test between the specifications both in classical and Bayesian frameworks. If using classical statistics, the two specifications are not nested, so methods like likelihood-ratio tests are not valid. On the other hand, logit models can not be estimated via Gibbs sampling (no conditional distributions exist) and can be difficult in M-H sampling, making it hard or impossible to use methods like those presented in \cite{Chib} and \cite{ChibJeliazkov} to estimate marginal likelihoods. Fortunately, both logit and probit models can be estimated in NUTS, so iterative KDE can be used to compare and test those specifications.
 
@@ -202,17 +159,19 @@ The final simulation offered in this paper investigates the ability of iterative
 \end{align}
 where $L$ is the cumulative normal in the probit model and sigmoid function in the logit model. The parameter $\beta$ was arbitrarily chosen to be $(-5, 13)$. The independent variable data $X$ contained 100 observations of 2 columns: one constant column of ones and one column of uniform random data in the interval $[-1, 1]$.\footnote{These parameters and data were chosen in part because they present convergence difficulties for Gibbs sampling but presented no problems for the Stan implementation of NUTS.}
 
-\begin{table*}
-	\centering
-	\begin{tabular}{l|c|c|c|c}
-		Model & Probit Probability & Logit Probability & $\Pr(\mbox{Probit} > \mbox{Logit})$ & $\Pr(\mbox{Logit} > \mbox{Probit})$ \\
-		\hline \hline
-		Probit & 0.679 & 0.321 & 0.96 & 0.04 \\ \hline
-		Logit & 0.459 & 0.541 & 0.33 & 0.67 \\ \hline
-	\end{tabular}
-	\caption{Monte Carlo Comparison of Logit and Probit Models}
-	\label{tab:Logit-Probit-Sim}
-\end{table*}
+%\begin{table*}
+%	\centering
+%	\begin{tabular}{l|c|c|c|c}
+%		Model & Probit Probability & Logit Probability & $\Pr(\mbox{Probit} > \mbox{Logit})$ & $\Pr(\mbox{Logit} > \mbox{Probit})$ \\
+%		\hline \hline
+%		Probit & 0.679 & 0.321 & 0.96 & 0.04 \\ \hline
+%		Logit & 0.459 & 0.541 & 0.33 & 0.67 \\ \hline
+%	\end{tabular}
+%	\caption{Monte Carlo Comparison of Logit and Probit Models}
+%	\label{tab:Logit-Probit-Sim}
+%\end{table*}
+
+\input{tables/Table3.tex}
 
 In both the probit and logit models, the prior assumption over the model parameter was
 \begin{equation}

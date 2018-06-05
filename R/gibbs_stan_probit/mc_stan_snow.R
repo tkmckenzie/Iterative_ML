@@ -4,7 +4,7 @@ rm(list = ls())
 
 setwd("~/git/Iterative_ML/R/gibbs_stan_probit")
 
-num.mc.iter = 1000
+num.mc.iter = 500
 
 sim.files = grep("^stan_snow_[0-9]+.csv$", list.files("stan_snow"), value = TRUE)
 sim.nums = as.numeric(gsub("stan_snow_|.csv", "", sim.files))
