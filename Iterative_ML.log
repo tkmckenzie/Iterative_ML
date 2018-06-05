@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.8.18)  5 JUN 2018 12:21
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.8.18)  5 JUN 2018 12:51
 entering extended mode
 **./Iterative_ML.tex
 (Iterative_ML.tex
@@ -261,27 +261,27 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 83--84
+Underfull \hbox (badness 10000) in paragraph at lines 85--86
 []\OT1/cmr/m/n/10 Re-estimate the model, set-ting
  []
 
 
-Underfull \hbox (badness 1540) in paragraph at lines 93--94
+Underfull \hbox (badness 1540) in paragraph at lines 95--96
 \OT1/cmr/m/n/10 This sec-tion presents sim-u-la-tion re-sults to first
  []
 
 
-Underfull \hbox (badness 2285) in paragraph at lines 93--94
+Underfull \hbox (badness 2285) in paragraph at lines 95--96
 \OT1/cmr/m/n/10 il-lus-trate the un-bi-ased, lower-variance es-ti-mates
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 95--95
+Underfull \hbox (badness 10000) in paragraph at lines 97--97
 []\OT1/cmr/bx/n/12 Multivariate Nor-mal Lin-ear
  []
 
 (tables/Table1.tex)
-Underfull \hbox (badness 1609) in paragraph at lines 103--105
+Underfull \hbox (badness 1609) in paragraph at lines 106--109
 \OT1/cmr/m/n/10 con-stant columns of ones and two in-de-pen-dent
  []
 
@@ -290,17 +290,17 @@ Underfull \hbox (badness 1609) in paragraph at lines 103--105
 File: Probit-Logit-Fitted.pdf Graphic file (type pdf)
 
 <use Probit-Logit-Fitted.pdf>
-Package pdftex.def Info: Probit-Logit-Fitted.pdf used on input line 184.
+Package pdftex.def Info: Probit-Logit-Fitted.pdf used on input line 186.
 (pdftex.def)             Requested size: 229.8775pt x 229.87483pt.
  [5] (Iterative_ML.bbl
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 ) [6 <./Probit-Logit-Fitted.pdf>] (Iterative_ML.aux) ) 
 Here is how much of TeX's memory you used:
- 4588 strings out of 493323
- 79173 string characters out of 3129581
+ 4590 strings out of 493323
+ 79216 string characters out of 3129581
  162805 words of memory out of 3000000
- 8084 multiletter control sequences out of 15000+200000
+ 8086 multiletter control sequences out of 15000+200000
  8222 words of font info for 30 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  39i,11n,28p,1782b,258s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -320,7 +320,7 @@ blic/amsfonts/cm/cmr8.pfb><C:/Users/tmcken/AppData/Local/Programs/MiKTeX 2.9/fo
 nts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/tmcken/AppData/Local/Programs
 /MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/tmcken/AppData/L
 ocal/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on Iterative_ML.pdf (6 pages, 193419 bytes).
+Output written on Iterative_ML.pdf (6 pages, 193430 bytes).
 PDF statistics:
  79 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

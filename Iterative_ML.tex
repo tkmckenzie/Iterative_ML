@@ -22,7 +22,7 @@
 }]
 
 \begin{abstract}
-	Bayesian statistics provides a very general, well-founded, and intuitive framework for model selection. Any exclusive models that permit a proper posterior distribution can be compared via Bayes' factors, and the probability that any given model from a set of potential models is correct can be calculated. However, it can be difficult to estimate Bayes' factors due to difficulties in computing a model's marginal likelihood. Methods have been developed to make this problem computationally feasible for models that fit with Gibbs or Metropolis-Hastings samplers \citep{ChibJeliazkov}. Unfortunately, many models cannot be fit using Gibbs sampling, and Metropolis-Hastings sampling may be much slower than newer algorithms such as No U-Turn Sampling \citep{NUTS}. This research develops a general algorithm to estimate marginal likelihood and, by extension, Bayes' factors using iterative kernel density estimation. Using this algorithm with No U-Turn Sampling can produce unbiased, lower variance estimates of marginal likelihood for a broader class of models than those from other methods for similar numbers of sampling iterations.
+	Bayesian statistics provides a very general, well-founded, and intuitive framework for model selection. Any exclusive models that permit a proper posterior distribution can be compared via Bayes' factors, and the probability that any given model from a set of potential models is correct can be calculated. However, it can be hard to estimate Bayes' factors due to difficulties in computing a model's marginal likelihood. Methods have been developed to make this problem computationally feasible for models that can be fit with Gibbs or Metropolis-Hastings samplers \citep{ChibJeliazkov}. Unfortunately, many models cannot be estimated with Gibbs sampling, and both Gibbs and Metropolis-Hastings sampling may be much slower than newer algorithms such as No U-Turn Sampling \citep{NUTS}. This research develops a general algorithm to estimate marginal likelihood and, by extension, Bayes' factors using iterative kernel density estimation. Using this algorithm with No U-Turn Sampling can produce unbiased, lower variance estimates of marginal likelihood for a broader class of models than those from other methods for similar numbers of sampling iterations.
 \end{abstract}
 
 \section{Introduction}
@@ -65,6 +65,7 @@ where $\theta$ are parameters of the model, $f(y|\theta, M_j)$ is the likelihood
 While a number of methods have been developed to estimate the value of the posterior density in certain cases, a simple and general approach is to use kernel density estimation (KDE), which can be used to construct and estimate values of a density function from samples of a random variable. Since all MCMC methods produce samples of $\theta|y, M_k$, this method can be used for any MCMC algorithm. Howevef, there are two fundamental issues that complicate this approach. First, many standard KDE procedures produce biased estimates of the density function, systematically underestimating values in high-density regions and overestimating values in low-density regions \citep{SilvermanDE}. Fortunately, this is easily remedied via use of more sophisticated KDE methods, such as adaptive KDE.
 
 The other issue complicating the use of KDE to estimate posterior densities is based in the curse of dimensionality. In practice, the posterior density is often a function of several parameters, and KDE becomes less reliable as the number of dimensions and is often completely infeasible for more than five dimensions. To illustrate a solution, first denote the parameter vector as $\theta = (\theta_1, \theta_2, ..., \theta_P)',$ where $P$ is the total number of parameters. Using laws of conditional probability (and now omitting the conditional on model $M_k$), we can write the marginal likelihood as
+\begin{subequations}
 \begin{align}
 	p(\theta|y)
 	&= p(\theta_1, ..., \theta_P|y) \\
@@ -73,6 +74,7 @@ The other issue complicating the use of KDE to estimate posterior densities is b
 	&= ... \\
 	&= p(\theta_1|\theta_2, ..., \theta_P, y)\times p(\theta_2|\theta_3, ..., \theta_P, y)\\ &\qquad\times ...\times p(\theta_P|y).
 \end{align}
+\end{subequations}
 So, the value of the posterior density can be estimated using the following procedure:
 \begin{enumerate}[noitemsep]
 	\item Draw samples of $\theta|y$ using an MCMC algorithm.
@@ -97,28 +99,36 @@ This section presents simulation results to first illustrate the unbiased, lower
 \input{tables/Table1.tex}
 
 These simulations begin with a standard multivariate linear model with iid normal errors. This model takes the form
+\begin{subequations}
 \begin{align}
 	y &= X\beta + \ep \\
 	\ep &\sim iid \mbox{ }N(0, \sigma^2). 
 \end{align}
+\end{subequations}
 The matrix of independent variable data, $X$, contained 100 rows (observations) three columns: one constant columns of ones and two independent columns of uniformly random data in the interval $[-10, 10]$. The parameters of the model were arbitrarily chosen as $\beta = (-2, 5, 3)'$ and $\sigma = 25$. The data was generated once and used repeatedly with a Gibbs sampler and NUTS to estimate an empirical distribution of marginal likelihoods for this data and model.
 
 Priors over parameters were chosen so that conditional distributions of parameters could be derived, thereby allowing estimation via Gibbs sampling. Specifically, the priors chosen were
+\begin{subequations}
 \begin{align}
 	\beta &\sim N(0_3, 100\times I_3)\\
 	\sigma^2 &\sim \Gamma^{-1}(1, 1).
 \end{align}
+\end{subequations}
 Using these priors, Gibbs sampling of the posterior distribution $\beta, \sigma^2|y, X$ can be achieved via alternative sampling of the conditional distributions
+\begin{subequations}
 \begin{align}
 	\beta|\sigma^2, X, y &\sim N(\mu_\beta, \Sigma_\beta) \\
 	\sigma^2|\beta, X, y &\sim \Gamma^{-1}\left(\frac{N}2, \frac{e'e}2 + 1\right),
 \end{align}
+\end{subequations}
 where
+\begin{subequations}
 \begin{align}
 	\Sigma_\beta &= \left(\frac{X'X}{\sigma^2} + \frac1{100}\times I_3\right)^{-1}\\
 	\mu_\beta &= \Sigma_\beta\left(\frac{X'y}{\sigma^2}\right)\\
 	e &= y - X\beta.
 \end{align}
+\end{subequations}
 Estimation of marginal likelihood from this Gibbs sampler followed the three vector block example from \cite{Chib}. The same model and assumptions were also coded in Stan and marginal likelihood was estimated using the previously described methodology. Each method used 500 warm-up and 5,000 sampling iterations and each was run 250 times to sample the distribution of marginal likelihoods.
 
 The results of this simulation can be found in the first row of \Cref{tab:MVN-Probit}. The Gibbs and Iterative KDE columns show the sample mean of marginal likelihood and standard deviation in parentheses. The sample means from each method are approximately equal, and a mean equality test with the alternative hypothesis that the mean marginal likelihoods are not equal yielded a $p$-value of 0.667, indicating that the data do not suggest the true means are different at the 10\% level of significance. Since the method used in \cite{Chib} yields unbiased estimates of marginal likelihood, this finding provides evidence that the proposed method also produces an unbiased estimator of marginal likelihood.
@@ -128,11 +138,13 @@ Further, the standard deviation of the Gibbs sampling based method was 0.132 whi
 \subsection{Probit Model, Comparison With Gibbs Sampling}
 
 Next, the probit model of binary outcomes will be considered. This model has the form
+\begin{subequations}
 \begin{align}
 	z &= X\beta \\
 	\Pr(y=1|X) &= \Phi(z) \\
 	\Pr(y=0|X) &= 1 - \Phi(z),
 \end{align}
+\end{subequations}
 where $\Phi$ is the cumulative normal distribution. The matrix of independent variable data, $X$, had 100 observations and two columns: one constant column of ones and one column of uniformly distributed random numbers in the interval $[-1, 1]$. The parameter of the model was arbitrarily chosen to be $\beta = (-2, 5)'$. The data and parameters did need to be chosen carefully because convergence of the Gibbs sampler can be difficult in the probit model when the latent variable $z$ takes on extreme values (this is much less of a problem in the Stan implementation of NUTS). The priors of the model were specified as
 \begin{align}
 	\beta &\sim N(0_2, 100 \times I_2)
@@ -152,24 +164,14 @@ For both the logit and probit models, the priors used were the same as those use
 \subsection{Comparison of Probit and Logit Models: Simulation Results}
 
 The final simulation offered in this paper investigates the ability of iterative KDE to discriminate between logit and probit models. Data was generated using the following binary models:
+\begin{subequations}
 \begin{align}
 	z &= X\beta \\
 	\Pr(y=1|X) &= L(z) \\
 	\Pr(y=0|X) &= 1 - L(z),
 \end{align}
+\end{subequations}
 where $L$ is the cumulative normal in the probit model and sigmoid function in the logit model. The parameter $\beta$ was arbitrarily chosen to be $(-5, 13)$. The independent variable data $X$ contained 100 observations of 2 columns: one constant column of ones and one column of uniform random data in the interval $[-1, 1]$.\footnote{These parameters and data were chosen in part because they present convergence difficulties for Gibbs sampling but presented no problems for the Stan implementation of NUTS.}
-
-%\begin{table*}
-%	\centering
-%	\begin{tabular}{l|c|c|c|c}
-%		Model & Probit Probability & Logit Probability & $\Pr(\mbox{Probit} > \mbox{Logit})$ & $\Pr(\mbox{Logit} > \mbox{Probit})$ \\
-%		\hline \hline
-%		Probit & 0.679 & 0.321 & 0.96 & 0.04 \\ \hline
-%		Logit & 0.459 & 0.541 & 0.33 & 0.67 \\ \hline
-%	\end{tabular}
-%	\caption{Monte Carlo Comparison of Logit and Probit Models}
-%	\label{tab:Logit-Probit-Sim}
-%\end{table*}
 
 \input{tables/Table3.tex}
 
