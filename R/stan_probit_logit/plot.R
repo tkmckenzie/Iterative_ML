@@ -30,10 +30,10 @@ rm(list = ls())
 #Plotting over range [-1, 1]
 sigmoid = function(x) 1 / (1 + exp(-x))
 X = seq(-1, 1, length.out = 1000)
-plot.df = data.frame(X = rep(X, times = 2),
-                     y = c(sapply(-5 + 13 * X, sigmoid),
-                           sapply(-5 + 13 * X, pnorm)),
-                     Model = rep(c("Logit", "Probit"), each = length(X)))
+plot.data = data.frame(X = rep(X, times = 2),
+                       y = c(sapply(-5 + 13 * X, sigmoid),
+                             sapply(-5 + 13 * X, pnorm)),
+                       Model = rep(c("Logit", "Probit"), each = length(X)))
 
 ggplot(plot.data, aes(X, y)) + geom_line(aes(color = Model)) +
   theme_bw() +
