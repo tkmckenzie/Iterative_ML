@@ -9,14 +9,14 @@ df = read.csv("data_2017/data.csv", stringsAsFactors = FALSE)
 df = df %>%
   # filter(Country == "Argentina")
   # filter(Country == "Bolivia")
-  filter(Country == "Ecuador")
-  # filter(Country == "Paraguay")
+  # filter(Country == "Ecuador")
+  filter(Country == "Paraguay")
   # filter(Country == "Peru")
   # filter(Country == "Uruguay")
 
 X = log(as.matrix(df %>%
                     select(Labor.Cost,
-                           # Raw.Material.Cost,
+                           Raw.Material.Cost,
                            # Electricity.Cost,
                            Capital.Value)))
 y = log(df$Sales.Nominal)

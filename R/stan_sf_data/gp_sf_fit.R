@@ -64,7 +64,7 @@ u.posterior = t(sapply(1:sample.iter, u.mode))
 
 u.posterior = u.posterior
 
-cbind(countries, exp(apply(u.posterior, 2, mean)))
+# cbind(countries, exp(apply(u.posterior, 2, mean)))
 
 #Other posterior estimates
 mean(stan.extract$sigma_u)

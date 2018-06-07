@@ -37,7 +37,7 @@ functions{
 		real lambda
 	)
 	{
-		return log(2) - log(sigma) + normal_lpdf(epsilon ./ sigma | 0, 1) + log(1 - exp(normal_lcdf(epsilon * (lambda / sigma) | 0, 1)));
+		return num_elements(epsilon) * (log(2) - log(sigma)) + normal_lpdf(epsilon ./ sigma | 0, 1) + normal_lcdf(-epsilon * (lambda / sigma) | 0, 1);
 	}
 }
 data{

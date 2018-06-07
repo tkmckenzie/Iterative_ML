@@ -7,8 +7,16 @@ rm(list = ls())
 
 load("data.RData")
 
-burn.iter = 19000
-sample.iter = 1000
+#Transform data for translog
+# combos = combn(ncol(X), 2)
+# X = cbind(X, X^2,
+#           sapply(1:ncol(combos), function(i) X[,combos[1,i]] * X[,combos[2,i]]))
+# 
+# k = ncol(X)
+
+#MCMC Parameters
+burn.iter = 15000
+sample.iter = 5000
 
 # burn.iter = 1
 # sample.iter = 1
@@ -16,7 +24,7 @@ sample.iter = 1000
 load("stan_par_sf.dso")
 
 stan.data = list(N = nrow(X), k = ncol(X), X = X, y = y,
-                 sigma_u_scale = 0.1, sigma_v_scale = 5)
+                 sigma_u_scale = 1, sigma_v_scale = 1)
 stan.fit = stan("stan_par_sf.stan", data = stan.data,
                 control = list(adapt_delta = 0.99, max_treedepth = 12),
                 # fit = stan.fit,
@@ -65,11 +73,11 @@ u.mean = function(i){
 }
 
 u.posterior = t(sapply(1:sample.iter, u.mode))
-
+apply(exp(u.posterior), 2, mean)
 # cbind(countries, exp(apply(u.posterior, 2, mean)))
 
 #Other posterior estimates
-mean(exp(sapply(1:sample.iter, function(i) -sqrt(2 / pi) * stan.extract$sigma_u[i])))
+# mean(exp(sapply(1:sample.iter, function(i) -sqrt(2 / pi) * stan.extract$sigma_u[i])))
 # mean(exp(-stan.extract$sigma_u))
 median(stan.extract$sigma_u)
 median(stan.extract$sigma_v)

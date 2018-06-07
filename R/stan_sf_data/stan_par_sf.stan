@@ -37,14 +37,7 @@ functions{
 		real lambda
 	)
 	{
-		return log(2) - log(sigma) + normal_lpdf(epsilon ./ sigma | 0, 1) + normal_lccdf(epsilon * (lambda / sigma) | 0, 1);
-	}
-	real normal_plus_exponential_lpdf(vector epsilon,
-		real phi,
-		real sigma_v
-	)
-	{
-		return -log(phi) + normal_lccdf(epsilon ./ sigma_v + sigma_v / phi | 0, 1) + sum(epsilon ./ phi + sigma_v^2 / (2 * phi^2));
+		return num_elements(epsilon) * (log(2) - log(sigma)) + normal_lpdf(epsilon ./ sigma | 0, 1) + normal_lcdf(-epsilon * (lambda / sigma) | 0, 1);
 	}
 }
 data{
@@ -53,9 +46,6 @@ data{
 	
 	vector[N] y;
 	matrix[N, k] X;
-	
-	real<lower=0> sigma_u_scale;
-	real<lower=0> sigma_v_scale;
 }
 parameters{
 	real beta_const;
@@ -65,11 +55,10 @@ parameters{
 	real<lower=0> sigma_v;
 }
 model{
-	beta_const ~ normal(0, 5);
+	beta_const ~ normal(0, 10);
 	beta ~ normal(0, 1);
-	sigma_u ~ cauchy(0, sigma_u_scale);
-	sigma_v ~ cauchy(0, sigma_v_scale);
+	sigma_u ~ normal(0, 1);
+	sigma_v ~ normal(0, 1);
 	
 	target += normal_plus_halfnormal_lpdf(y - (beta_const + X * beta) | sqrt(sigma_u^2 + sigma_v^2), sigma_u / sigma_v);
-	//target += normal_plus_exponential_lpdf(y - (beta_const + X * beta) | sigma_u, sigma_v);
 }
