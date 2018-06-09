@@ -8,15 +8,13 @@ rm(list = ls())
 load("data.RData")
 # load("stan_par_fits/restricted_params.RData")
 
-burn.iter = 4000
-sample.iter = 1000
+burn.iter = 10000
+sample.iter = 5000
 
 adapt.delta = 0.9
 
 # burn.iter = 1
 # sample.iter = 1
-
-# load("stan_par_fits/restricted_params.RData")
 
 #Unconditional run:
 load("stan_par_sf.dso")

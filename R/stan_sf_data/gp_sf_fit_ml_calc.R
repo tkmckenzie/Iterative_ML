@@ -6,7 +6,7 @@ setwd("~/git/Iterative_ML/R/stan_sf_data")
 
 rm(list = ls())
 
-show.trace = TRUE
+show.trace = FALSE
 
 load("data.RData")
 
@@ -119,7 +119,7 @@ log.lik.func = function(epsilon, sigma.u, sigma.v){
   sigma = sqrt(sigma.sq)
   lambda = sigma.u / sigma.v
   
-  return(log(2) - log(sigma) + dnorm(epsilon / sigma, log = TRUE) + pnorm(epsilon * lambda / sigma, log = TRUE, lower.tail = FALSE))
+  return(length(epsilon) * (log(2) - log(sigma)) + dnorm(epsilon / sigma, log = TRUE) + pnorm(epsilon * lambda / sigma, log = TRUE, lower.tail = FALSE))
 }
 
 normal.kernel = function(x, alpha, H.inv){

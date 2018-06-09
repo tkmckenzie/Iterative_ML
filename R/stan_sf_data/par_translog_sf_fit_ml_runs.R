@@ -14,8 +14,8 @@ X = cbind(X, X^2,
           sapply(1:ncol(combos), function(i) X[,combos[1,i]] * X[,combos[2,i]]))
 
 #MCMC parameters
-burn.iter = 4000
-sample.iter = 1000
+burn.iter = 10000
+sample.iter = 5000
 
 adapt.delta = 0.9
 max.treedepth = 12

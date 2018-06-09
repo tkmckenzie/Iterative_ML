@@ -57,15 +57,59 @@ u.mean = function(i){
   eval.point = epsilon * lambda / sigma
   
   # return(mu.star + sigma.star * dnorm(-mu.star / sigma.star) / (1 - pnorm(-mu.star / sigma.star)))
-  return(sigma.star * (dnorm(eval.point) / (1 - pnorm(eval.point)) - eval.point))
+  return(-sigma.star * (dnorm(eval.point) / (1 - pnorm(eval.point)) - eval.point))
 }
 
-u.posterior = t(sapply(1:sample.iter, u.mode))
+u.posterior = t(sapply(1:sample.iter, u.mean))
 
-u.posterior = u.posterior
+cbind(countries, apply(exp(u.posterior), 2, mean))
 
 # cbind(countries, exp(apply(u.posterior, 2, mean)))
 
 #Other posterior estimates
 mean(stan.extract$sigma_u)
 mean(stan.extract$sigma_v)
+
+
+##############################
+#Likelihood evaluation
+log.lik.func = function(epsilon, sigma.u, sigma.v){
+  sigma.sq = sigma.u^2 + sigma.v^2
+  sigma = sqrt(sigma.sq)
+  lambda = sigma.u / sigma.v
+  
+  return(length(epsilon) * (log(2) - log(sigma)) + dnorm(epsilon / sigma, log = TRUE) + pnorm(epsilon * lambda / sigma, log = TRUE, lower.tail = FALSE))
+}
+normal.kernel = function(x, alpha, H.inv){
+  return(alpha^2 * exp(-0.5 * t(x) %*% H.inv %*% x))
+}
+normal.cov = function(alpha, H.inv){
+  result = matrix(NA, nrow = N, ncol = N)
+  for (i in 1:(N - 1)){
+    result[i, i] = alpha^2
+    
+    for (j in (i + 1):N){
+      temp.result = normal.kernel(X[i,] - X[j,], alpha, H.inv)
+      result[i, j] = temp.result
+      result[j, i] = temp.result
+    }
+  }
+  result[N, N] = alpha^2
+  
+  return(result)
+}
+
+sigma.u.restricted = mean(stan.extract$sigma_u)
+sigma.v.restricted = mean(stan.extract$sigma_v)
+H.inv.diag.restricted = apply(stan.extract$H_inv_diag, 2, mean)
+alpha.restricted = mean(stan.extract$alpha)
+eta.restricted = apply(stan.extract$eta, 2, mean)
+
+cov = normal.cov(alpha.restricted, diag(H.inv.diag.restricted))
+L = t(chol(cov))
+f = L %*% eta.restricted
+
+epsilon = c(y - f)
+
+log.lik = sum(sapply(epsilon, log.lik.func, sigma.u = sigma.u.restricted, sigma.v = sigma.v.restricted))
+log.lik

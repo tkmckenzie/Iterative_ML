@@ -23,11 +23,10 @@ sample.iter = 5000
 
 load("stan_par_sf.dso")
 
-stan.data = list(N = nrow(X), k = ncol(X), X = X, y = y,
-                 sigma_u_scale = 1, sigma_v_scale = 1)
+stan.data = list(N = nrow(X), k = ncol(X), X = X, y = y)
 stan.fit = stan("stan_par_sf.stan", data = stan.data,
                 control = list(adapt_delta = 0.99, max_treedepth = 12),
-                # fit = stan.fit,
+                fit = stan.fit,
                 chains = 1, iter = burn.iter + sample.iter, warmup = burn.iter)
 stan.extract = extract(stan.fit)
 
@@ -69,12 +68,12 @@ u.mean = function(i){
   eval.point = epsilon * lambda / sigma
   
   # return(mu.star + sigma.star * dnorm(-mu.star / sigma.star) / (1 - pnorm(-mu.star / sigma.star)))
-  return(sigma.star * (dnorm(eval.point) / (1 - pnorm(eval.point)) - eval.point))
+  return(-sigma.star * (dnorm(eval.point) / (1 - pnorm(eval.point)) - eval.point))
 }
 
-u.posterior = t(sapply(1:sample.iter, u.mode))
+u.posterior = t(sapply(1:sample.iter, u.mean))
 apply(exp(u.posterior), 2, mean)
-# cbind(countries, exp(apply(u.posterior, 2, mean)))
+cbind(countries, apply(exp(u.posterior), 2, mean))
 
 #Other posterior estimates
 # mean(exp(sapply(1:sample.iter, function(i) -sqrt(2 / pi) * stan.extract$sigma_u[i])))

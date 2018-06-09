@@ -108,7 +108,7 @@ for (k.restricted in 1:(ncol(X) - 1)){
                                      eta = eta.restricted)),
                     fit = stan.fit,
                     chains = 1, iter = burn.iter + sample.iter, warmup = burn.iter)
-    # save(stan.fit, file = "stan_gp_sf_restr_sigma_uv_H_inv_partial_singlefree.dso")
+    save(stan.fit, file = "stan_gp_sf_restr_sigma_uv_H_inv_partial_singlefree.dso")
   }
   
   save(stan.fit, file = sprintf("stan_gp_fits/stan_gp_sf_restr_sigma_uv_H_inv_partial_%i.RData", k.restricted))
