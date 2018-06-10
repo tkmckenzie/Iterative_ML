@@ -12,10 +12,11 @@ sample.iter = 1000
 
 load("stan_gp_sf.dso")
 
-stan.data = list(N = nrow(X), k = ncol(X), X = X, y = y)
+stan.data = list(N = nrow(X), k = ncol(X), X = X, y = y,
+                 H_inv_diag_prior_rate = 10)
 stan.fit = stan("stan_gp_sf.stan", data = stan.data,
                 control = list(adapt_delta = 0.9),
-                fit = stan.fit,
+                # fit = stan.fit,
                 chains = 1, iter = burn.iter + sample.iter, warmup = burn.iter)
 stan.extract = extract(stan.fit)
 
@@ -73,6 +74,8 @@ mean(stan.extract$sigma_v)
 
 ##############################
 #Likelihood evaluation
+N = nrow(X)
+
 log.lik.func = function(epsilon, sigma.u, sigma.v){
   sigma.sq = sigma.u^2 + sigma.v^2
   sigma = sqrt(sigma.sq)
@@ -104,6 +107,13 @@ sigma.v.restricted = mean(stan.extract$sigma_v)
 H.inv.diag.restricted = apply(stan.extract$H_inv_diag, 2, mean)
 alpha.restricted = mean(stan.extract$alpha)
 eta.restricted = apply(stan.extract$eta, 2, mean)
+
+i = 500
+sigma.u.restricted = stan.extract$sigma_u[i]
+sigma.v.restricted = stan.extract$sigma_v[i]
+H.inv.diag.restricted = stan.extract$H_inv_diag[i,]
+alpha.restricted = stan.extract$alpha[i]
+eta.restricted = stan.extract$eta[i,]
 
 cov = normal.cov(alpha.restricted, diag(H.inv.diag.restricted))
 L = t(chol(cov))
