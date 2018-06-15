@@ -1,4 +1,4 @@
-"alpha_prior_sd","H_inv_diag_prior_rate","log_lik"
+alpha_prior_sd,H_inv_diag_prior_rate,log_lik
 1,10,-18.42819
 10,10,-20.4386
 1,1,-19.05793
@@ -7,4 +7,4 @@
 1,100,-8.983143
 0.1,100,-136.6704
 1,1000,-3.813701
-5,1000,NA
+5,1000,-2.683508
