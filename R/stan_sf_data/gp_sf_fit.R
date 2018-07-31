@@ -10,24 +10,31 @@ load("data.RData")
 burn.iter = 9000
 sample.iter = 1000
 
+# burn.iter = 1
+# sample.iter = 1
+
 load("stan_gp_sf.dso")
 
 stan.data = list(N = nrow(X), k = ncol(X), X = X, y = y,
-                 H_inv_diag_prior_rate = 10)
+                 alpha_prior_sd = 1,
+                 H_inv_diag_prior_shape = 0.1,
+                 H_inv_diag_prior_rate = 0.1)
 stan.fit = stan("stan_gp_sf.stan", data = stan.data,
                 control = list(adapt_delta = 0.9),
-                # fit = stan.fit,
                 chains = 1, iter = burn.iter + sample.iter, warmup = burn.iter)
-stan.extract = extract(stan.fit)
-
 # save(stan.fit, file = "stan_gp_sf.dso")
 
-#Trace plot:
-traceplot(stan.fit)
+save(stan.fit, file = "stan_gp_fits/stan_gp_sf_unconditional.RData")
+load("stan_gp_fits/stan_gp_sf_unconditional.RData")
+
+stan.extract = extract(stan.fit)
 
 #Plot
 e = y - apply(stan.extract$f, 2, mean)
 plot(e ~ y)
+
+#Trace plot:
+traceplot(stan.fit)
 
 #Efficiency estimates
 u.mode = function(i){
@@ -107,13 +114,6 @@ sigma.v.restricted = mean(stan.extract$sigma_v)
 H.inv.diag.restricted = apply(stan.extract$H_inv_diag, 2, mean)
 alpha.restricted = mean(stan.extract$alpha)
 eta.restricted = apply(stan.extract$eta, 2, mean)
-
-i = 500
-sigma.u.restricted = stan.extract$sigma_u[i]
-sigma.v.restricted = stan.extract$sigma_v[i]
-H.inv.diag.restricted = stan.extract$H_inv_diag[i,]
-alpha.restricted = stan.extract$alpha[i]
-eta.restricted = stan.extract$eta[i,]
 
 cov = normal.cov(alpha.restricted, diag(H.inv.diag.restricted))
 L = t(chol(cov))

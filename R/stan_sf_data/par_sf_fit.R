@@ -7,13 +7,6 @@ rm(list = ls())
 
 load("data.RData")
 
-#Transform data for translog
-# combos = combn(ncol(X), 2)
-# X = cbind(X, X^2,
-#           sapply(1:ncol(combos), function(i) X[,combos[1,i]] * X[,combos[2,i]]))
-# 
-# k = ncol(X)
-
 #MCMC Parameters
 burn.iter = 15000
 sample.iter = 5000
@@ -28,9 +21,12 @@ stan.fit = stan("stan_par_sf.stan", data = stan.data,
                 control = list(adapt_delta = 0.99, max_treedepth = 12),
                 fit = stan.fit,
                 chains = 1, iter = burn.iter + sample.iter, warmup = burn.iter)
-stan.extract = extract(stan.fit)
-
 # save(stan.fit, file = "stan_par_sf.dso")
+
+save(stan.fit, file = "stan_par_fits/stan_par_sf_unconditional.RData")
+load("stan_par_fits/stan_par_sf_unconditional.RData")
+
+stan.extract = extract(stan.fit)
 
 #Plot
 e = apply(t(sapply(1:sample.iter, function(i) y - (stan.extract$beta_const[i] + X %*% stan.extract$beta[i,]))), 2, mean)
@@ -80,3 +76,28 @@ cbind(countries, apply(exp(u.posterior), 2, mean))
 # mean(exp(-stan.extract$sigma_u))
 median(stan.extract$sigma_u)
 median(stan.extract$sigma_v)
+
+
+##############################
+#Likelihood evaluation
+N = nrow(X)
+
+log.lik.func = function(epsilon, sigma.u, sigma.v){
+  sigma.sq = sigma.u^2 + sigma.v^2
+  sigma = sqrt(sigma.sq)
+  lambda = sigma.u / sigma.v
+  
+  return(length(epsilon) * (log(2) - log(sigma)) + dnorm(epsilon / sigma, log = TRUE) + pnorm(epsilon * lambda / sigma, log = TRUE, lower.tail = FALSE))
+}
+
+sigma.u.restricted = mean(stan.extract$sigma_u)
+sigma.v.restricted = mean(stan.extract$sigma_v)
+beta.const.restricted = mean(stan.extract$beta_const)
+beta.restricted = apply(stan.extract$beta, 2, mean)
+
+f = beta.const.restricted + X %*% beta.restricted
+
+epsilon = c(y - f)
+
+log.lik = sum(sapply(epsilon, log.lik.func, sigma.u = sigma.u.restricted, sigma.v = sigma.v.restricted))
+log.lik
