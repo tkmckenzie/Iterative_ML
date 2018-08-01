@@ -13,23 +13,24 @@ sample.iter = 1000
 load("stan_gp_sf.dso")
 
 stan.data = list(N = nrow(X), k = ncol(X), X = X, y = y,
-                 H_inv_diag_prior_rate = 10)
+                 H_inv_diag_prior_rate = 0.1,
+                 alpha_prior_sd = 10)
 stan.fit = stan("stan_gp_sf.stan", data = stan.data,
                 control = list(adapt_delta = 0.9),
-                # fit = stan.fit,
+                fit = stan.fit,
                 chains = 1, iter = burn.iter + sample.iter, warmup = burn.iter)
 stan.extract = extract(stan.fit)
 
 # save(stan.fit, file = "stan_gp_sf.dso")
 
-#Trace plot:
-traceplot(stan.fit)
-
 #Plot
 e = y - apply(stan.extract$f, 2, mean)
 plot(e ~ y)
 
-#Efficiency estimates
+#Trace plot:
+traceplot(stan.fit)
+
+ #Efficiency estimates
 u.mode = function(i){
   epsilon = y - stan.extract$f[i,]
   sigma.u = stan.extract$sigma_u[i]
@@ -63,7 +64,7 @@ u.mean = function(i){
 
 u.posterior = t(sapply(1:sample.iter, u.mean))
 
-cbind(countries, apply(exp(u.posterior), 2, mean))
+cbind(countries, round(apply(exp(u.posterior), 2, mean), 5))
 
 # cbind(countries, exp(apply(u.posterior, 2, mean)))
 
@@ -108,16 +109,24 @@ H.inv.diag.restricted = apply(stan.extract$H_inv_diag, 2, mean)
 alpha.restricted = mean(stan.extract$alpha)
 eta.restricted = apply(stan.extract$eta, 2, mean)
 
-i = 500
-sigma.u.restricted = stan.extract$sigma_u[i]
-sigma.v.restricted = stan.extract$sigma_v[i]
-H.inv.diag.restricted = stan.extract$H_inv_diag[i,]
-alpha.restricted = stan.extract$alpha[i]
-eta.restricted = stan.extract$eta[i,]
+# sigma.u.restricted = median(stan.extract$sigma_u)
+# sigma.v.restricted = median(stan.extract$sigma_v)
+# H.inv.diag.restricted = apply(stan.extract$H_inv_diag, 2, median)
+# alpha.restricted = median(stan.extract$alpha)
+# eta.restricted = apply(stan.extract$eta, 2, median)
+
+# i = sample(sample.iter, 1)
+# sigma.u.restricted = stan.extract$sigma_u[i]
+# bsigma.v.restricted = stan.extract$sigma_v[i]
+# H.inv.diag.restricted = stan.extract$H_inv_diag[i,]
+# alpha.restricted = stan.extract$alpha[i]
+# eta.restricted = stan.extract$eta[i,]
 
 cov = normal.cov(alpha.restricted, diag(H.inv.diag.restricted))
 L = t(chol(cov))
 f = L %*% eta.restricted
+
+f - stan.extract$f[i,]
 
 epsilon = c(y - f)
 

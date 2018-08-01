@@ -48,6 +48,7 @@ data{
 	matrix[N, k] X;
 	
 	real<lower=0> H_inv_diag_prior_rate;
+	real<lower=0> alpha_prior_sd;
 }
 transformed data{
 	vector[N] zeros;
@@ -83,7 +84,7 @@ transformed parameters{
 	}
 }
 model{
-	alpha ~ normal(0, 1);
+	alpha ~ normal(0, alpha_prior_sd);
 	H_inv_diag ~ gamma(1, H_inv_diag_prior_rate);
 	sigma_u ~ normal(0, 1);
 	sigma_v ~ normal(0, 1);
