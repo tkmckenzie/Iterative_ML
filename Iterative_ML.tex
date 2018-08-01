@@ -190,6 +190,14 @@ Both estimation models were used against both data generating processes. Each mo
 
 Each of the estimation models was able to successfully select its own data generation process the majority of the time. The average model selection probability of the probit model under the probit data generation process was 0.679, and the probit marginal likelihood exceeded the logit marginal likelihood 96\% of the time in that case. Conversely, the average model selection probability of the logit model under the logit data generation process was 0.541, and the logit was more likely than the probit in 67\% of the simulations. While this result may initially seem underwhelming, it is made more impressive the remarkable similarity in probit and logit curves, as shown in \Cref{fig:Probit-Logit-Fit}.\footnote{These curves were produced using maximum likelihood estimates for each model against simulated data to illustrate similarities of the two curves in practical empirical modeling.}  Further, as mentioned in the previous subsection, model comparison between logit and probit models has presented a struggle for both classical and Bayesian methods. As shown in this example, iterative KDE opens the possibility of comparing these models in a statistically meaningful way.
 
+\section{Parametric and Non-Parametric Stochastic Frontiers}
+
+Stochastic frontier models, developed in the seminal paper \cite{AignerLovellSchmidt}, estimate production frontiers under an error specification with one- and two-sided components. Specifically, the model assumes output can be described by
+\begin{equation}
+	y_i = f(x_i) + \ep_i - \delta_i,
+\end{equation}
+where $y_i$ is log-output, $x_i$ are inputs, $f$ is some function that transforms inputs to outputs, $\ep_i$ is a two-sided error component (e.g., coming from a normal distribution), and $\delta_i$ is a positive one-sided error component (e.g., coming from a half-normal or exponential distribution). Parametric specifications of $f$ have traditionally been used, typically in log-linear (each log-transformed input included) or translog (addition of all second-order log terms) form. Non-parametric forms of $f$ have also been recently proposed, such as in \cite{ParmeterRacine}, and typically involve a two-step procedure: First, the mean of the data is fit using some non-parametric method (such as kernel smoothing), then differences between the fitted curve and the observed data are assumed to be of the above form, from which parameters of the one- and two-sided distributions can be estimated. An integral problem with all classical kernel smoothing methods is the choice of the bandwidth matrix. A 
+
 \section{Conclusion}
 
 \bibliographystyle{chicago}

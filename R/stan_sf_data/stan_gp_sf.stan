@@ -47,7 +47,8 @@ data{
 	vector[N] y;
 	matrix[N, k] X;
 	
-	real<lower=0> alpha_prior_sd;
+	real<lower=0> alpha_prior_shape;
+	real<lower=0> alpha_prior_rate;
 	
 	real<lower=0> H_inv_diag_prior_shape;
 	real<lower=0> H_inv_diag_prior_rate;
@@ -86,7 +87,7 @@ transformed parameters{
 	}
 }
 model{
-	alpha ~ normal(0, 1);
+	alpha ~ inv_gamma(alpha_prior_shape, alpha_prior_rate);
 	H_inv_diag ~ inv_gamma(H_inv_diag_prior_shape, H_inv_diag_prior_rate);
 	sigma_u ~ normal(0, 1);
 	sigma_v ~ normal(0, 1);

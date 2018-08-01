@@ -16,7 +16,8 @@ sample.iter = 1000
 load("stan_gp_sf.dso")
 
 stan.data = list(N = nrow(X), k = ncol(X), X = X, y = y,
-                 alpha_prior_sd = 1,
+                 alpha_prior_shape = 1,
+                 alpha_prior_rate = 1,
                  H_inv_diag_prior_shape = 0.1,
                  H_inv_diag_prior_rate = 0.1)
 stan.fit = stan("stan_gp_sf.stan", data = stan.data,
