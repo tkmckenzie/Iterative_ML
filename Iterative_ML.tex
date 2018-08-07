@@ -194,9 +194,17 @@ Each of the estimation models was able to successfully select its own data gener
 
 Stochastic frontier models, developed in the seminal paper \cite{AignerLovellSchmidt}, estimate production frontiers under an error specification with one- and two-sided components. Specifically, the model assumes output can be described by
 \begin{equation}
-	y_i = f(x_i) + \ep_i - \delta_i,
+	y_i = f(x_i) + \ep_i + \delta_i,
 \end{equation}
-where $y_i$ is log-output, $x_i$ are inputs, $f$ is some function that transforms inputs to outputs, $\ep_i$ is a two-sided error component (e.g., coming from a normal distribution), and $\delta_i$ is a positive one-sided error component (e.g., coming from a half-normal or exponential distribution). Parametric specifications of $f$ have traditionally been used, typically in log-linear (each log-transformed input included) or translog (addition of all second-order log terms) form. Non-parametric forms of $f$ have also been recently proposed, such as in \cite{ParmeterRacine}, and typically involve a two-step procedure: First, the mean of the data is fit using some non-parametric method (such as kernel smoothing), then differences between the fitted curve and the observed data are assumed to be of the above form, from which parameters of the one- and two-sided distributions can be estimated. An integral problem with all classical kernel smoothing methods is the choice of the bandwidth matrix. A 
+where $y_i$ is log-output, $x_i$ are inputs, $f$ is some function that transforms inputs to outputs, $\ep_i$ is a two-sided error component (e.g., coming from a normal distribution), and $\delta_i$ is a negative one-sided error component (e.g., coming from a half-normal or exponential distribution). Estimation is simplified when the density of the sum of one- and two-sided error components is known. As detailed in \cite{AignerLovellSchmidt}, when $\ep\sim N(0, \sigma_\ep^2)$ and $\delta\sim N^-(0, \sigma_\delta^2)$, then the error term $v = \ep + \delta$ has the density function
+\begin{equation}
+	f(v) = \frac2\sigma \phi\left(\frac{v}\sigma\right)\left(1 - \Phi\left(\frac{v\lambda}{\sigma}\right)\right),
+\end{equation}
+where $\sigma^2 = \sigma_\ep^2 + \sigma_\delta^2$, $\lambda = \sigma_\delta / \sigma_\ep$, and $\phi$ and $\Phi$ are standard normal density and distribution functions, respectively. A density function can also be derived if $-\delta$ followed an exponential distribution.
+
+Even with the exact form of the density function of the error composition, estimation of stochastic frontier models is notoriously difficult in a classical framework. Both maximum likelihood and method of moments routines suffer from numerical instability with these models, making it difficult to estimate parameters or even determine if those algorithms have properly converged. 
+
+Parametric specifications of $f$ have traditionally been used, typically in log-linear (each log-transformed input included) or translog (addition of all second-order log terms) form. Non-parametric forms of $f$ have also been recently proposed, such as in \cite{ParmeterRacine}, and typically involve a two-step procedure: First, the mean of the data is fit using some non-parametric method (such as kernel smoothing), then differences between the fitted curve and the observed data are assumed to be of the above form, from which parameters of the one- and two-sided distributions can be estimated. An integral problem with all classical kernel smoothing methods is the choice of the bandwidth matrix. A 
 
 \section{Conclusion}
 

@@ -1,5 +1,12 @@
 \begin{thebibliography}{}
 
+\bibitem[\protect\citeauthoryear{Aigner, Lovell, and Schmidt}{Aigner
+  et~al.}{1977}]{AignerLovellSchmidt}
+Aigner, D., C.~K. Lovell, and P.~Schmidt (1977).
+\newblock Formulation and estimation of stochastic frontier production function
+  models.
+\newblock {\em Journal of econometrics\/}~{\em 6\/}(1), 21--37.
+
 \bibitem[\protect\citeauthoryear{Chib}{Chib}{1995}]{Chib}
 Chib, S. (1995).
 \newblock Marginal likelihood from the gibbs output.
@@ -12,6 +19,13 @@ Chib, S. and I.~Jeliazkov (2001).
 \newblock Marginal likelihood from the metropolis--hastings output.
 \newblock {\em Journal of the American Statistical Association\/}~{\em
   96\/}(453), 270--281.
+
+\bibitem[\protect\citeauthoryear{Du, Parmeter, and Racine}{Du
+  et~al.}{2013}]{ParmeterRacine}
+Du, P., C.~F. Parmeter, and J.~S. Racine (2013).
+\newblock Nonparametric kernel regression with multiple predictors and multiple
+  shape constraints.
+\newblock {\em Statistica Sinica\/}, 1347--1371.
 
 \bibitem[\protect\citeauthoryear{Hoffman and Gelman}{Hoffman and
   Gelman}{2014}]{NUTS}

@@ -1,4 +1,4 @@
-library(quantreg)
+library(ks)
 library(snow)
 
 rm(list = ls())
@@ -10,13 +10,13 @@ d.true = dnorm(eval.point)
 
 N.reps = 10000
 eval.func = function(i){
-  library(quantreg)
+  library(ks)
   
   N = 1000
   eval.point = 0
   
   x = rnorm(N)
-  return(akj(x, eval.point)$dens)
+  return(kde(x, eval.points = eval.point)$estimate)
 }
 
 d.est = parSapply(cl, 1:N.reps, eval.func)

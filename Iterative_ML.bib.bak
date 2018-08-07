@@ -212,7 +212,7 @@
 
 @Misc{SilvermanDE,
   author    = {Silverman, BS},
-  title     = {Density Estimation forStatistical Analysis},
+  title     = {Density Estimation for Statistical Analysis},
   year      = {1986},
   publisher = {New York: Chapman and Hall},
 }
@@ -223,6 +223,37 @@
   year   = {2016},
   note   = {R package version 2.14.1},
   url    = {http://mc-stan.org/},
+}
+
+@Article{AignerLovellSchmidt,
+  author    = {Aigner, Dennis and Lovell, CA Knox and Schmidt, Peter},
+  title     = {Formulation and estimation of stochastic frontier production function models},
+  journal   = {Journal of econometrics},
+  year      = {1977},
+  volume    = {6},
+  number    = {1},
+  pages     = {21--37},
+  publisher = {Elsevier},
+}
+
+@Article{ParmeterRacine,
+  author    = {Du, Pang and Parmeter, Christopher F and Racine, Jeffrey S},
+  title     = {Nonparametric kernel regression with multiple predictors and multiple shape constraints},
+  journal   = {Statistica Sinica},
+  year      = {2013},
+  pages     = {1347--1371},
+  publisher = {JSTOR},
+}
+
+@Article{VenDenBroeck,
+  author    = {Van den Broeck, Julien and Koop, Gary and Osiewalski, Jacek and Steel, Mark FJ},
+  title     = {Stochastic frontier models: A Bayesian perspective},
+  journal   = {Journal of Econometrics},
+  year      = {1994},
+  volume    = {61},
+  number    = {2},
+  pages     = {273--303},
+  publisher = {Elsevier},
 }
 
 @Comment{jabref-meta: databaseType:bibtex;}
