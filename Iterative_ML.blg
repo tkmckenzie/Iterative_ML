@@ -2,4 +2,6 @@ This is BibTeX, Version 0.99dThe top-level auxiliary file: Iterative_ML.aux
 The style file: chicago.bst
 Database file #1: Iterative_ML.bib
 Warning--no number and no volume in ParmeterRacine
-(There was 1 warning)
+Warning--can't use both volume and number fields in Kohavi
+Warning--no number and no volume in NewtonRaferty
+(There were 3 warnings)

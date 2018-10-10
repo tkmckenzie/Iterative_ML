@@ -7,6 +7,31 @@ Aigner, D., C.~K. Lovell, and P.~Schmidt (1977).
   models.
 \newblock {\em Journal of econometrics\/}~{\em 6\/}(1), 21--37.
 
+\bibitem[\protect\citeauthoryear{Akaike}{Akaike}{1974}]{Akaike}
+Akaike, H. (1974).
+\newblock A new look at the statistical model identification.
+\newblock {\em IEEE transactions on automatic control\/}~{\em 19\/}(6),
+  716--723.
+
+\bibitem[\protect\citeauthoryear{Allen}{Allen}{1971}]{Allen}
+Allen, D.~M. (1971).
+\newblock Mean square error of prediction as a criterion for selecting
+  variables.
+\newblock {\em Technometrics\/}~{\em 13\/}(3), 469--475.
+
+\bibitem[\protect\citeauthoryear{Arlot, Celisse, et~al.}{Arlot
+  et~al.}{2010}]{Arlot}
+Arlot, S., A.~Celisse, et~al. (2010).
+\newblock A survey of cross-validation procedures for model selection.
+\newblock {\em Statistics surveys\/}~{\em 4}, 40--79.
+
+\bibitem[\protect\citeauthoryear{Bollen, Ray, Zavisca, and Harden}{Bollen
+  et~al.}{2012}]{Bollen}
+Bollen, K.~A., S.~Ray, J.~Zavisca, and J.~J. Harden (2012).
+\newblock A comparison of bayes factor approximation methods including two new
+  methods.
+\newblock {\em Sociological Methods \& Research\/}~{\em 41\/}(2), 294--324.
+
 \bibitem[\protect\citeauthoryear{Chib}{Chib}{1995}]{Chib}
 Chib, S. (1995).
 \newblock Marginal likelihood from the gibbs output.
@@ -27,6 +52,24 @@ Du, P., C.~F. Parmeter, and J.~S. Racine (2013).
   shape constraints.
 \newblock {\em Statistica Sinica\/}, 1347--1371.
 
+\bibitem[\protect\citeauthoryear{Genz and Kass}{Genz and Kass}{1997}]{GenzKass}
+Genz, A. and R.~E. Kass (1997).
+\newblock Subregion-adaptive integration of functions having a dominant peak.
+\newblock {\em Journal of Computational and Graphical Statistics\/}~{\em
+  6\/}(1), 92--111.
+
+\bibitem[\protect\citeauthoryear{Golub, Heath, and Wahba}{Golub
+  et~al.}{1979}]{Golub}
+Golub, G.~H., M.~Heath, and G.~Wahba (1979).
+\newblock Generalized cross-validation as a method for choosing a good ridge
+  parameter.
+\newblock {\em Technometrics\/}~{\em 21\/}(2), 215--223.
+
+\bibitem[\protect\citeauthoryear{Greene}{Greene}{2003}]{Greene}
+Greene, W.~H. (2003).
+\newblock {\em Econometric analysis}.
+\newblock Pearson Education India.
+
 \bibitem[\protect\citeauthoryear{Hoffman and Gelman}{Hoffman and
   Gelman}{2014}]{NUTS}
 Hoffman, M.~D. and A.~Gelman (2014).
@@ -35,9 +78,49 @@ Hoffman, M.~D. and A.~Gelman (2014).
 \newblock {\em Journal of Machine Learning Research\/}~{\em 15\/}(1),
   1593--1623.
 
+\bibitem[\protect\citeauthoryear{Kass and Raftery}{Kass and
+  Raftery}{1995}]{KassRaftery}
+Kass, R.~E. and A.~E. Raftery (1995).
+\newblock Bayes factors.
+\newblock {\em Journal of the american statistical association\/}~{\em
+  90\/}(430), 773--795.
+
+\bibitem[\protect\citeauthoryear{Kohavi et~al.}{Kohavi et~al.}{1995}]{Kohavi}
+Kohavi, R. et~al. (1995).
+\newblock A study of cross-validation and bootstrap for accuracy estimation and
+  model selection.
+\newblock In {\em IJCAI}, Volume~14, pp.\  1137--1145. Montreal, Canada.
+
+\bibitem[\protect\citeauthoryear{Morgan}{Morgan}{1939}]{Morgan}
+Morgan, W. (1939).
+\newblock A test for the significance of the difference between the two
+  variances in a sample from a normal bivariate population.
+\newblock {\em Biometrika\/}~{\em 31\/}(1/2), 13--19.
+
+\bibitem[\protect\citeauthoryear{Newton and Raftery}{Newton and
+  Raftery}{1994}]{NewtonRaferty}
+Newton, M.~A. and A.~E. Raftery (1994).
+\newblock Approximate bayesian inference with the weighted likelihood
+  bootstrap.
+\newblock {\em Journal of the Royal Statistical Society. Series B
+  (Methodological)\/}, 3--48.
+
+\bibitem[\protect\citeauthoryear{Schwarz et~al.}{Schwarz
+  et~al.}{1978}]{Schwarz}
+Schwarz, G. et~al. (1978).
+\newblock Estimating the dimension of a model.
+\newblock {\em The annals of statistics\/}~{\em 6\/}(2), 461--464.
+
 \bibitem[\protect\citeauthoryear{Silverman}{Silverman}{1986}]{SilvermanDE}
 Silverman, B. (1986).
 \newblock Density estimation for statistical analysis.
+
+\bibitem[\protect\citeauthoryear{Slate}{Slate}{1994}]{Slate}
+Slate, E.~H. (1994).
+\newblock Parameterizations for natural exponential families with quadratic
+  variance functions.
+\newblock {\em Journal of the American Statistical Association\/}~{\em
+  89\/}(428), 1471--1482.
 
 \bibitem[\protect\citeauthoryear{{Stan Development Team}}{{Stan Development
   Team}}{2016}]{rstan}

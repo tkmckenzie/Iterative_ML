@@ -31,11 +31,39 @@
 
 \subsection{Model Selection}
 %Citations here: 
-%Classical: Greene, Akaike, Schwarz (SBIC)
+%Classical: Greene, Morgan (LR Test), Akaike, Schwarz (SBIC), Bollen (performance of AIC/SBIC in small samples)
 %Cross-validation: Allen, Golub, Kohavi (machine learning), Arlot (survey of methods)
 %Bayeisan: Chib, Chib & Jeliazkov, Kass & Raftery (Bayes' factor), George (mixed model selection), Berger (?)
 
-Density estimation could theoretically be used to estimate marginal likelihood. However, this method has not been feasible historically due to practical issues with many kernel density estimators, described in greater detail in the following subsection.
+When building statistical models, researchers face a number of difficult decisions. Which variables should be included in the analysis? What functional form should the model assume? Should a parametric, non-parametric, or machine learning approach be taken? Many statistical model selection methods have been proposed to formally evaluate the validity of modeling decisions. This subsection presents a broad overview of those methods, their applicability, and relative advantages.
+
+Model selection techniques can largely be categorized into within-sample and cross-validation methods. Within-sample model selection evaluates how well the model fits the data that were used to estimate parameters of the model \citep{Greene}. Cross-validation, on the other hand, splits the sample into two parts: one used for estimating parameters, called the training set, and another used to evaluate the model's performance, called the validation set \citep{Arlot}. Cross-validation is often used when over-fitting is a concern. Over-fitting can occur when a flexible model specification is used, which can cause the estimated model to fit the training set very well but have difficulties making accurate predictions outside of the training set. However, cross-validation can be data intensive and less suitable to smaller datasets. Cross-validation methods have grown in popularity, especially among machine-learning methods, which tend to use very flexible specifications and are typically applied to large datasets.\footnote{For more examples of cross-validation applications, see \cite{Allen}, \cite{Golub}, and \cite{Kohavi}.}
+
+Economic studies often use within-sample model selection methods, presumably because data tend to be relatively limited \citep{Greene}. For classical (i.e., frequentist) statistical models, selection techniques tend to be based on the likelihood of the data given parameter estimates.\footnote{While $R^2$ and adjusted $R^2$ are often used to inform model selection, they do not lend themselves well to formal hypothesis testing because distributions relating $R^2$ between two models is not generally known, even asymptotically.} Likelihood ratio tests, which subsume $Z$-, $F$- and $\chi^2$ tests in linear models, compare likelihoods of a null model and alternative model which is nested in the null model, then conduct a formal hypothesis test between the two models \citep{Morgan}. For non-nested models, information criteria are often used for model selection. Commonly used information criteria include Akaike Information Criterion (AIC), described in \cite{Akaike}, and Schwarz-Bayesian Information Criterion (SBIC), described in \cite{Schwarz}. Both AIC and SBIC take into account likelihood of the data given parameter estimates and the number of parameters in the model, and SBIC places greater penalty on additional parameters. SBIC can be used to approximate the posterior model probability, described in greater detail later in this subsection.
+
+For Bayesian statistical models, which are the focus of this research, model selection has traditionally been conducted via posterior model probabilities. In general, for a set of exclusive models $\{M_1, ..., M_K\}$ and data $y$, the probability that model $M_k$ is the true model is given by
+\begin{equation}
+	\Pr(M_k|y) = \frac{m(y|M_k)p(M_k)}{\sum_{j=1}^K m(y|M_j)p(M_j)},
+\end{equation}
+where $m(y|M_j)$ is the marginal likelihood of model $M_j$ and $p(M_j)$ is the prior probability that model $M_j$ is the true model, specified by the researcher \citep{KassRaftery}. The marginal likelihood of model $M_j$ is defined as
+\begin{equation}
+m(y|M_j) = \int f(y|\theta_j, M_j) p(\theta_j|M_j)d\theta_j,
+\end{equation}
+where $f(y|\theta_j, M_j)$ is the likelihood of the data in model $M_j$ given parameters $\theta_j$, and $p(\theta_j|M_j)$ are prior assumptions over parameters $\theta_j$ in model $M_j$, defined by the researcher. As noted by \cite{KassRaftery}, this integral is taken over the entire parameter space; as the number of parameters in the model grows, direct integration of marginal likelihood becomes computationally infeasible due to the curse of dimensionality.
+
+Fortunately, methods have been developed to estimate marginal likelihood in a computationally efficient way when Gibbs or Metropolis-Hastings (M-H) samplers are used to draw samples from posterior distributions of parameters. \cite{Chib} notes that marginal likelihood can be written as 
+\begin{equation}
+	m(y|M_j) = \frac{f(y|\theta_j, M_j)p(\theta_j|M_j)}{p(\theta_j|y, M_j)},
+\end{equation}
+where $p(\theta_j|y, M_j)$ is the posterior density of parameters $\theta_j$. While the likelihood $f(y|\theta_j, M_j)$ and prior density $p(\theta_j|M_j)$ are easily calculable, the posterior density can be difficult to calculate in general. However, \cite{Chib} derived an estimate of posterior probabilities, and marginal likelihood by extension, when using a Gibbs sampler. \cite{ChibJeliazkov} extended this work to estimate marginal likelihood under a M-H sampler. Nonetheless, estimation of marginal likelihood remained difficult for Bayesian models not estimated with Gibbs or M-H samplers.
+
+\cite{KassRaftery} detail several methods for estimating marginal likelihood when Gibbs or M-H sampling are not used. Laplace's method forms a second-order approximation of the posterior density, with which marginal likelihood can be estimated. For sufficiently large numbers of observations, Laplace's method is both accurate and computationally efficient; however, accuracy is severely degraded when the number of observations is less than $5d$, where $d$ is the number of parameters in the model \citep{Slate}. While this requirement tends to be met by standard models and datasets, it can present issues with more flexible models, such as those presented in \cref{sec:SF}. Further, even when requirements are met, other estimators, such as those in \cite{Chib}, can have lower variance. SBIC, mentioned previously, can also be used to obtain consistent estimates of marginal likelihood, but are also less efficient for small sample sizes \cite{Bollen}. Other methods focus on using Monte Carlo integration to estimate marginal likelihood. Unfortunately, simple Monte Carlo integration, such as
+\begin{equation}
+	\hat{m}(y|M_j) = \left(\frac{1}{S} \sum_{s=1}^S \frac{1}{f(y|\theta_j^{[s]}, M_j)}\right)^{-1},
+\end{equation}
+where $\theta_j^{[s]}$ is the $s$th sample from the posterior of model $M_j$, is not stable because inverse likelihood does not have finite variance \citep{NewtonRaferty}. This problem can be circumvented via use of importance sampling or Gaussian quadrature, but these solutions can be computationally infeasible for models with moderately large numbers of parameters \citep{GenzKass}.
+
+Density estimation could theoretically be used to estimate the posterior density $p(\theta_j|y, M_j)$ and, by extension, marginal likelihood. However, this method has not been feasible historically due to practical issues with many kernel density estimators, described in greater detail in the following subsection.
 
 \subsection{Kernel Density Estimation}
 %Citations here:
@@ -44,6 +72,11 @@ Density estimation could theoretically be used to estimate marginal likelihood. 
 %Beran (adaptive rank estimator)
 
 %Idea for this section: Lay out KDE basics (formula), illustrate weakness (bias in density estimates), state how adaptive KDE fixes.
+
+Distributional approximation arises often in statistical analysis. Researchers will often have a sample of data drawn from an unknown density which they want to approximate, either as a whole or at specific points. Kernel density estimators are a non-parametric method of approximating such densities. Given a sample $x_1, ..., x_N$, a kernel density estimator for a function $f$ at a point $x$ is defined as
+\begin{equation}
+	\hat{f}_\varphi(x) = \frac{1}{N}
+\end{equation}
 
 \subsection{Markov Chain Monte Carlo Samplers}
 %Citations here:
@@ -62,7 +95,7 @@ The marginal likelihood of $M_k$ can be written as
 \end{equation}
 where $\theta$ are parameters of the model, $f(y|\theta, M_j)$ is the likelihood of the data, $p(\theta|M_j)$ is the value of the prior density, and $p(\theta|y, M_j)$ is the posterior density. As noted by \cite{Chib}, this identity holds for each $\theta$, and while the values of the likelihood and prior density are typically known (because they are specified to estimate the model), the value of the posterior density is usually unknown, motivating the development of many Markov Chain Monte Carlo (MCMC) techniques to sample from the posterior distribution. In practice, the marginal likelihood must be estimated at a point $\theta^*$ via estimation of the posterior density. As noted by \cite{Chib}, using $\theta^*$ from a high-density region of the posterior can reduce the variance of marginal likelihood estimates.
 
-While a number of methods have been developed to estimate the value of the posterior density in certain cases, a simple and general approach is to use kernel density estimation (KDE), which can be used to construct and estimate values of a density function from samples of a random variable. Since all MCMC methods produce samples of $\theta|y, M_k$, this method can be used for any MCMC algorithm. Howevef, there are two fundamental issues that complicate this approach. First, many standard KDE procedures produce biased estimates of the density function, systematically underestimating values in high-density regions and overestimating values in low-density regions \citep{SilvermanDE}. Fortunately, this is easily remedied via use of more sophisticated KDE methods, such as adaptive KDE.
+While a number of methods have been developed to estimate the value of the posterior density in certain cases, a simple and general approach is to use kernel density estimation (KDE), which can be used to construct and estimate values of a density function from samples of a random variable. Since all MCMC methods produce samples of $\theta|y, M_k$, this method can be used for any MCMC algorithm. However, there are two fundamental issues that complicate this approach. First, many standard KDE procedures produce biased estimates of the density function, systematically underestimating values in high-density regions and overestimating values in low-density regions \citep{SilvermanDE}. Fortunately, this is easily remedied via use of more sophisticated KDE methods, such as adaptive KDE.
 
 The other issue complicating the use of KDE to estimate posterior densities is based in the curse of dimensionality. In practice, the posterior density is often a function of several parameters, and KDE becomes less reliable as the number of dimensions and is often completely infeasible for more than five dimensions. To illustrate a solution, first denote the parameter vector as $\theta = (\theta_1, \theta_2, ..., \theta_P)',$ where $P$ is the total number of parameters. Using laws of conditional probability (and now omitting the conditional on model $M_k$), we can write the marginal likelihood as
 \begin{subequations}
@@ -191,6 +224,8 @@ Both estimation models were used against both data generating processes. Each mo
 Each of the estimation models was able to successfully select its own data generation process the majority of the time. The average model selection probability of the probit model under the probit data generation process was 0.679, and the probit marginal likelihood exceeded the logit marginal likelihood 96\% of the time in that case. Conversely, the average model selection probability of the logit model under the logit data generation process was 0.541, and the logit was more likely than the probit in 67\% of the simulations. While this result may initially seem underwhelming, it is made more impressive the remarkable similarity in probit and logit curves, as shown in \Cref{fig:Probit-Logit-Fit}.\footnote{These curves were produced using maximum likelihood estimates for each model against simulated data to illustrate similarities of the two curves in practical empirical modeling.}  Further, as mentioned in the previous subsection, model comparison between logit and probit models has presented a struggle for both classical and Bayesian methods. As shown in this example, iterative KDE opens the possibility of comparing these models in a statistically meaningful way.
 
 \section{Parametric and Non-Parametric Stochastic Frontiers}
+
+\label{sec:SF}
 
 Stochastic frontier models, developed in the seminal paper \cite{AignerLovellSchmidt}, estimate production frontiers under an error specification with one- and two-sided components. Specifically, the model assumes output can be described by
 \begin{equation}

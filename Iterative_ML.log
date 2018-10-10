@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.8.18)  7 AUG 2018 11:08
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.8.18)  10 OCT 2018 15:57
 entering extended mode
 **./Iterative_ML.tex
 (Iterative_ML.tex
@@ -249,100 +249,87 @@ Package grfext Info: Graphics extension search list:
 (grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
 G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
-)
-Underfull \hbox (badness 1430) in paragraph at lines 55--56
+) [1{C:/Users/tmcken/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
+
+
+] [2]
+Underfull \hbox (badness 1430) in paragraph at lines 88--89
 \OT1/cmr/m/n/10 Bayesian frame-work can be com-pared via their
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [1{C:/Users/tmcken/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
-
-
-]
-Underfull \hbox (badness 10000) in paragraph at lines 85--86
+Underfull \hbox (badness 10000) in paragraph at lines 118--119
 []\OT1/cmr/m/n/10 Re-estimate the model, set-ting
  []
 
-
-Underfull \hbox (badness 1540) in paragraph at lines 95--96
+[3]
+Underfull \hbox (badness 1540) in paragraph at lines 128--129
 \OT1/cmr/m/n/10 This sec-tion presents sim-u-la-tion re-sults to first
  []
 
 
-Underfull \hbox (badness 2285) in paragraph at lines 95--96
+Underfull \hbox (badness 2285) in paragraph at lines 128--129
 \OT1/cmr/m/n/10 il-lus-trate the un-bi-ased, lower-variance es-ti-mates
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 97--97
+Underfull \hbox (badness 10000) in paragraph at lines 130--130
 []\OT1/cmr/bx/n/12 Multivariate Nor-mal Lin-ear
  []
 
 (tables/Table1.tex)
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [2]
-Underfull \hbox (badness 1609) in paragraph at lines 106--109
+Underfull \hbox (badness 1609) in paragraph at lines 139--142
 \OT1/cmr/m/n/10 con-stant columns of ones and two in-de-pen-dent
  []
 
-
-Underfull \vbox (badness 4805) has occurred while \output is active []
-
- [3]
-(tables/Table2.tex) [4]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-(tables/Table3.tex) [5] <Probit-Logit-Fitted.pdf, id=29, 289.08pt x 289.08pt>
+[4] [5] (tables/Table2.tex) (tables/Table3.tex) [6] [7]
+<Probit-Logit-Fitted.pdf, id=37, 289.08pt x 289.08pt>
 File: Probit-Logit-Fitted.pdf Graphic file (type pdf)
 
 <use Probit-Logit-Fitted.pdf>
-Package pdftex.def Info: Probit-Logit-Fitted.pdf used on input line 186.
+Package pdftex.def Info: Probit-Logit-Fitted.pdf used on input line 219.
 (pdftex.def)             Requested size: 229.8775pt x 229.87483pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 193--193
+Underfull \hbox (badness 10000) in paragraph at lines 226--226
 []\OT1/cmr/bx/n/14.4 Parametric and Non-
  []
 
-[6 <./Probit-Logit-Fitted.pdf>]
-Underfull \hbox (badness 1810) in paragraph at lines 207--208
+
+Underfull \hbox (badness 1810) in paragraph at lines 242--243
 []\OT1/cmr/m/n/10 Parametric spec-i-fi-ca-tions of $\OML/cmm/m/it/10 f$ \OT1/cm
 r/m/n/10 have tra-di-tion-
  []
 
-(Iterative_ML.bbl) [7
-
-] (Iterative_ML.aux) ) 
+(Iterative_ML.bbl [8 <./Probit-Logit-Fitted.pdf>]) [9] (Iterative_ML.aux) ) 
 Here is how much of TeX's memory you used:
- 4596 strings out of 493323
- 79363 string characters out of 3129581
- 161805 words of memory out of 3000000
- 8092 multiletter control sequences out of 15000+200000
+ 4637 strings out of 493323
+ 79963 string characters out of 3129581
+ 162805 words of memory out of 3000000
+ 8133 multiletter control sequences out of 15000+200000
  8222 words of font info for 30 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 39i,11n,28p,1902b,258s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Users/tmcken/AppData/Local/Programs/MiKTeX 2.9/fonts/
-type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/tmcken/AppData/Local/Programs/MiK
-TeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/tmcken/AppData/Loca
-l/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/tmcke
-n/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C
+ 39i,11n,28p,1902b,260s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/
+Users/tmcken/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
+mbx12.pfb><C:/Users/tmcken/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public
+/amsfonts/cm/cmex10.pfb><C:/Users/tmcken/AppData/Local/Programs/MiKTeX 2.9/font
+s/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/tmcken/AppData/Local/Programs/M
+iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/tmcken/AppData/Loc
+al/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/tmcke
+n/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C
 :/Users/tmcken/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
-/cmr10.pfb><C:/Users/tmcken/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/publi
-c/amsfonts/cm/cmr12.pfb><C:/Users/tmcken/AppData/Local/Programs/MiKTeX 2.9/font
-s/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/tmcken/AppData/Local/Programs/Mi
-KTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/tmcken/AppData/Local
-/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/tmcken/A
-ppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Us
-ers/tmcken/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cms
-y10.pfb><C:/Users/tmcken/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/a
-msfonts/cm/cmsy7.pfb><C:/Users/tmcken/AppData/Local/Programs/MiKTeX 2.9/fonts/t
-ype1/public/amsfonts/cm/cmti10.pfb>
-Output written on Iterative_ML.pdf (7 pages, 200182 bytes).
+/cmr12.pfb><C:/Users/tmcken/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/publi
+c/amsfonts/cm/cmr17.pfb><C:/Users/tmcken/AppData/Local/Programs/MiKTeX 2.9/font
+s/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/tmcken/AppData/Local/Programs/MiK
+TeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/tmcken/AppData/Local/
+Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/tmcken/Ap
+pData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/U
+sers/tmcken/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cm
+sy7.pfb><C:/Users/tmcken/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/a
+msfonts/cm/cmti10.pfb>
+Output written on Iterative_ML.pdf (9 pages, 231050 bytes).
 PDF statistics:
- 84 PDF objects out of 1000 (max. 8388607)
+ 94 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
