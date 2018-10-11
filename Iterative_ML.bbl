@@ -91,6 +91,12 @@ Kohavi, R. et~al. (1995).
   model selection.
 \newblock In {\em IJCAI}, Volume~14, pp.\  1137--1145. Montreal, Canada.
 
+\bibitem[\protect\citeauthoryear{Meng and Wong}{Meng and Wong}{1996}]{MengWong}
+Meng, X.-L. and W.~H. Wong (1996).
+\newblock Simulating ratios of normalizing constants via a simple identity: a
+  theoretical exploration.
+\newblock {\em Statistica Sinica\/}, 831--860.
+
 \bibitem[\protect\citeauthoryear{Morgan}{Morgan}{1939}]{Morgan}
 Morgan, W. (1939).
 \newblock A test for the significance of the difference between the two
@@ -110,6 +116,20 @@ Newton, M.~A. and A.~E. Raftery (1994).
 Schwarz, G. et~al. (1978).
 \newblock Estimating the dimension of a model.
 \newblock {\em The annals of statistics\/}~{\em 6\/}(2), 461--464.
+
+\bibitem[\protect\citeauthoryear{Scott}{Scott}{2015}]{Scott}
+Scott, D.~W. (2015).
+\newblock {\em Multivariate density estimation: theory, practice, and
+  visualization}.
+\newblock John Wiley \& Sons.
+
+\bibitem[\protect\citeauthoryear{Sheather and Jones}{Sheather and
+  Jones}{1991}]{SheatherJones}
+Sheather, S.~J. and M.~C. Jones (1991).
+\newblock A reliable data-based bandwidth selection method for kernel density
+  estimation.
+\newblock {\em Journal of the Royal Statistical Society. Series B
+  (Methodological)\/}, 683--690.
 
 \bibitem[\protect\citeauthoryear{Silverman}{Silverman}{1986}]{SilvermanDE}
 Silverman, B. (1986).

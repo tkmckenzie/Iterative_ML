@@ -300,4 +300,29 @@
   publisher = {Taylor \& Francis Group},
 }
 
+@Article{NewtonRaferty,
+  author    = {Newton, Michael A and Raftery, Adrian E},
+  title     = {Approximate Bayesian inference with the weighted likelihood bootstrap},
+  journal   = {Journal of the Royal Statistical Society. Series B (Methodological)},
+  year      = {1994},
+  pages     = {3--48},
+  publisher = {JSTOR},
+}
+
+@Book{Scott,
+  title     = {Multivariate density estimation: theory, practice, and visualization},
+  publisher = {John Wiley \& Sons},
+  year      = {2015},
+  author    = {Scott, David W},
+}
+
+@Article{SheatherJones,
+  author    = {Sheather, Simon J and Jones, Michael C},
+  title     = {A reliable data-based bandwidth selection method for kernel density estimation},
+  journal   = {Journal of the Royal Statistical Society. Series B (Methodological)},
+  year      = {1991},
+  pages     = {683--690},
+  publisher = {JSTOR},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}

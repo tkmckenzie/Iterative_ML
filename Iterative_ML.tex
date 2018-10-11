@@ -3,6 +3,7 @@
 
 \usepackage{fullpage}
 \usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage{graphicx}
 \usepackage{float}
 \usepackage{natbib}
@@ -12,6 +13,7 @@
 
 \newcommand{\img}[1]{\includegraphics[width=3in]{#1}}
 \newcommand{\ep}{\varepsilon}
+\newcommand{\RR}{\mathbb{R}}
 
 \begin{document}
 	
@@ -63,6 +65,18 @@ where $p(\theta_j|y, M_j)$ is the posterior density of parameters $\theta_j$. Wh
 \end{equation}
 where $\theta_j^{[s]}$ is the $s$th sample from the posterior of model $M_j$, is not stable because inverse likelihood does not have finite variance \citep{NewtonRaferty}. This problem can be circumvented via use of importance sampling or Gaussian quadrature, but these solutions can be computationally infeasible for models with moderately large numbers of parameters \citep{GenzKass}.
 
+Finally, \cite{MengWong} propose using bridge sampling as a method of approximating marginal likelihood. For moderately-sized models, bridge sampling can produce low variance estimates that outperform many, if not all, of the previously mentioned marginal likelihood estimation techniques. The authors derive and utilize the following identity:
+\begin{equation}
+	\label{eq:bridgeIdentity}
+	m(y|M_j) = \frac{\int p(y|\theta_j, M_j)p(\theta_j|M_j)h_j(\theta_j)g_j(\theta_j) d\theta_j}{\int h_j(\theta_j)g_j(\theta_j)p(\theta_j|y, M_j) d\theta_j},
+\end{equation}
+where $g_j$ is called the proposal distribution for model $M_j$ and $h_j$ is called the bridge function for model $M_j$. To approximate the integrals in \cref{eq:bridgeIdentity}, one can draw $N_1$ samples from the posterior distribution $p(\theta_j|y, M_j)$, denoting the $s$th sample $\theta_{j,y}^{[s]}$, and $N_2$ samples from the proposal distribution $g(\theta)$, denoting the $s$th sample $\theta_{j,g}^{[s]}$. Then, marginal likelihood can be estimated with
+\begin{equation}
+	\label{eq:bridgeEstimate}
+	\hat{m}(y|M_j) = \frac{\frac{1}{N_2}\sum_{s=1}^{N_2} p\left(y|\theta_{j,g}^{[s]}, M_j\right)p\left(\theta_{j,g}^{[s]}|M_j\right)h_j\left(\theta_{j,g}^{[s]}\right)}{\frac{1}{N_1}\sum_{s=1}^{N_1} h_j\left(\theta_{j,y}^{[s]}\right)g_j\left(\theta_{j,y}^{[s]}\right)},
+\end{equation}
+
+
 Density estimation could theoretically be used to estimate the posterior density $p(\theta_j|y, M_j)$ and, by extension, marginal likelihood. However, this method has not been feasible historically due to practical issues with many kernel density estimators, described in greater detail in the following subsection.
 
 \subsection{Kernel Density Estimation}
@@ -73,10 +87,17 @@ Density estimation could theoretically be used to estimate the posterior density
 
 %Idea for this section: Lay out KDE basics (formula), illustrate weakness (bias in density estimates), state how adaptive KDE fixes.
 
-Distributional approximation arises often in statistical analysis. Researchers will often have a sample of data drawn from an unknown density which they want to approximate, either as a whole or at specific points. Kernel density estimators are a non-parametric method of approximating such densities. Given a sample $x_1, ..., x_N$, a kernel density estimator for a function $f$ at a point $x$ is defined as
+Distributional approximation arises often in statistical analysis. Researchers will often have a sample of data drawn from an unknown density which they want to approximate, either as a whole or at specific points. Kernel density estimators are a non-parametric method of approximating such densities. Given a sample $x_1, ..., x_N$ where each $x_i\in\RR^k$ for $k\geq1$, a kernel density estimator for a function $f$ at a point $x$ is defined as
 \begin{equation}
-	\hat{f}_\varphi(x) = \frac{1}{N}
+	\hat{f}_\lambda(x) = \frac{1}{N}\sum_{i=1}^N K_\lambda(x - x_i),
 \end{equation}
+where $K_\lambda$ is a kernel chosen by the researcher, parameterized by $\lambda$ \citep{SilvermanDE}. A normal distribution is often used as a kernel, so that
+\begin{equation}
+	K_\lambda(z) = K_H(z) = \det(2\pi H)^{-\frac12} \exp\left(-\frac12 z' H^{-1} z\right).
+\end{equation}
+The matrix $H\in\RR^{k\times k}$ is called the bandwidth matrix and must be positive definite.\footnote{There are a number of methods that can be used to select the bandwidth matrix. For more reading, see \cite{SilvermanDE}, \cite{Scott}, and \cite{SheatherJones}.}
+
+Unfortunately, standard kernel density estimators such as that presented above
 
 \subsection{Markov Chain Monte Carlo Samplers}
 %Citations here:

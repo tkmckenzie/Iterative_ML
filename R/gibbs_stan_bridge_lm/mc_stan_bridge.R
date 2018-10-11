@@ -1,4 +1,4 @@
-setwd("~/git/Iterative_ML/R/gibbs_stan_lm")
+setwd("~/git/Iterative_ML/R/gibbs_stan_bridge_lm")
 
 rm(list = ls())
 
