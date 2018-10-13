@@ -325,4 +325,58 @@
   publisher = {JSTOR},
 }
 
+@Article{MengWong,
+  author    = {Meng, Xiao-Li and Wong, Wing Hung},
+  title     = {Simulating ratios of normalizing constants via a simple identity: a theoretical exploration},
+  journal   = {Statistica Sinica},
+  year      = {1996},
+  pages     = {831--860},
+  publisher = {JSTOR},
+}
+
+@Misc{ScottSain,
+  author    = {Scott, DW and Sain, SR},
+  title     = {Multi-dimensional density estimation Handbook of Statistics vol 23 Data Mining and Computational Statistics ed CR Rao and EJ Wegman},
+  year      = {2004},
+  publisher = {Amsterdam: Elsevier},
+}
+
+@InProceedings{LiuLafferty,
+  author    = {Liu, Han and Lafferty, John and Wasserman, Larry},
+  title     = {Sparse nonparametric density estimation in high dimensions using the rodeo},
+  booktitle = {Artificial Intelligence and Statistics},
+  year      = {2007},
+  pages     = {283--290},
+}
+
+@Article{NUTS,
+  author  = {Hoffman, Matthew D and Gelman, Andrew},
+  title   = {The No-U-turn sampler: adaptively setting path lengths in Hamiltonian Monte Carlo.},
+  journal = {Journal of Machine Learning Research},
+  year    = {2014},
+  volume  = {15},
+  number  = {1},
+  pages   = {1593--1623},
+}
+
+@Article{Gilks,
+  author    = {Gilks, Wally R and Best, NG and Tan, KKC},
+  title     = {Adaptive rejection Metropolis sampling within Gibbs sampling},
+  journal   = {Applied Statistics},
+  year      = {1995},
+  pages     = {455--472},
+  publisher = {JSTOR},
+}
+
+@Article{Lenth,
+  author    = {Lenth, Russell V},
+  title     = {Some practical guidelines for effective sample size determination},
+  journal   = {The American Statistician},
+  year      = {2001},
+  volume    = {55},
+  number    = {3},
+  pages     = {187--193},
+  publisher = {Taylor \& Francis},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}

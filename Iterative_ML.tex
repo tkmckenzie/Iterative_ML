@@ -10,6 +10,7 @@
 \usepackage[capitalise,noabbrev]{cleveref}
 \usepackage{enumitem}
 \usepackage{multirow}
+\usepackage{breqn}
 
 \newcommand{\img}[1]{\includegraphics[width=3in]{#1}}
 \newcommand{\ep}{\varepsilon}
@@ -32,6 +33,7 @@
 \section{Literature Review}
 
 \subsection{Model Selection}
+\label{sec:ModelSelection}
 %Citations here: 
 %Classical: Greene, Morgan (LR Test), Akaike, Schwarz (SBIC), Bollen (performance of AIC/SBIC in small samples)
 %Cross-validation: Allen, Golub, Kohavi (machine learning), Arlot (survey of methods)
@@ -55,29 +57,36 @@ where $f(y|\theta_j, M_j)$ is the likelihood of the data in model $M_j$ given pa
 
 Fortunately, methods have been developed to estimate marginal likelihood in a computationally efficient way when Gibbs or Metropolis-Hastings (M-H) samplers are used to draw samples from posterior distributions of parameters. \cite{Chib} notes that marginal likelihood can be written as 
 \begin{equation}
+	\label{eq:MLChib}
 	m(y|M_j) = \frac{f(y|\theta_j, M_j)p(\theta_j|M_j)}{p(\theta_j|y, M_j)},
 \end{equation}
 where $p(\theta_j|y, M_j)$ is the posterior density of parameters $\theta_j$. While the likelihood $f(y|\theta_j, M_j)$ and prior density $p(\theta_j|M_j)$ are easily calculable, the posterior density can be difficult to calculate in general. However, \cite{Chib} derived an estimate of posterior probabilities, and marginal likelihood by extension, when using a Gibbs sampler. \cite{ChibJeliazkov} extended this work to estimate marginal likelihood under a M-H sampler. Nonetheless, estimation of marginal likelihood remained difficult for Bayesian models not estimated with Gibbs or M-H samplers.
 
-\cite{KassRaftery} detail several methods for estimating marginal likelihood when Gibbs or M-H sampling are not used. Laplace's method forms a second-order approximation of the posterior density, with which marginal likelihood can be estimated. For sufficiently large numbers of observations, Laplace's method is both accurate and computationally efficient; however, accuracy is severely degraded when the number of observations is less than $5d$, where $d$ is the number of parameters in the model \citep{Slate}. While this requirement tends to be met by standard models and datasets, it can present issues with more flexible models, such as those presented in \cref{sec:SF}. Further, even when requirements are met, other estimators, such as those in \cite{Chib}, can have lower variance. SBIC, mentioned previously, can also be used to obtain consistent estimates of marginal likelihood, but are also less efficient for small sample sizes \cite{Bollen}. Other methods focus on using Monte Carlo integration to estimate marginal likelihood. Unfortunately, simple Monte Carlo integration, such as
+\cite{KassRaftery} detail several methods for estimating marginal likelihood when Gibbs or M-H sampling are not used. Laplace's method forms a second-order approximation of the posterior density, with which marginal likelihood can be estimated. For sufficiently large numbers of observations, Laplace's method is both accurate and computationally efficient; however, accuracy is severely degraded when the number of observations is less than $5d$, where $d$ is the number of parameters in the model \citep{Slate}. While this requirement tends to be met by standard models and datasets, it can present issues with more flexible models, such as those presented in \cref{sec:SF}. Further, even when requirements are met, other estimators, such as those in \cite{Chib}, can have lower variance. SBIC, mentioned previously, can also be used to obtain consistent estimates of marginal likelihood, but are also less efficient for small sample sizes \cite{Bollen}. Other methods focus on using Monte Carlo integration to estimate marginal likelihood. Unfortunately, simple Monte Carlo integration, such as the harmonic mean estimator
 \begin{equation}
 	\hat{m}(y|M_j) = \left(\frac{1}{S} \sum_{s=1}^S \frac{1}{f(y|\theta_j^{[s]}, M_j)}\right)^{-1},
 \end{equation}
 where $\theta_j^{[s]}$ is the $s$th sample from the posterior of model $M_j$, is not stable because inverse likelihood does not have finite variance \citep{NewtonRaferty}. This problem can be circumvented via use of importance sampling or Gaussian quadrature, but these solutions can be computationally infeasible for models with moderately large numbers of parameters \citep{GenzKass}.
 
-Finally, \cite{MengWong} propose using bridge sampling as a method of approximating marginal likelihood. For moderately-sized models, bridge sampling can produce low variance estimates that outperform many, if not all, of the previously mentioned marginal likelihood estimation techniques. The authors derive and utilize the following identity:
+Finally, \cite{MengWong} propose using bridge sampling as a method of approximating marginal likelihood. For moderately-sized models, bridge sampling can produce low variance estimates that outperform many, if not all, of the previously mentioned marginal likelihood estimation techniques. The authors derive and utilize the following identity (model notation is now dropped for simplicity):
 \begin{equation}
 	\label{eq:bridgeIdentity}
-	m(y|M_j) = \frac{\int p(y|\theta_j, M_j)p(\theta_j|M_j)h_j(\theta_j)g_j(\theta_j) d\theta_j}{\int h_j(\theta_j)g_j(\theta_j)p(\theta_j|y, M_j) d\theta_j},
+	%m(y|M_j) = \frac{\int p(y|\theta_j, M_j)p(\theta_j|M_j)h_j(\theta_j)g_j(\theta_j) d\theta_j}{\int h_j(\theta_j)g_j(\theta_j)p(\theta_j|y, M_j) d\theta_j},
+	m(y) = \frac{\int p(y|\theta)p(\theta)h(\theta)g(\theta) d\theta}{\int h(\theta)g(\theta)p(\theta|y) d\theta},
 \end{equation}
-where $g_j$ is called the proposal distribution for model $M_j$ and $h_j$ is called the bridge function for model $M_j$. To approximate the integrals in \cref{eq:bridgeIdentity}, one can draw $N_1$ samples from the posterior distribution $p(\theta_j|y, M_j)$, denoting the $s$th sample $\theta_{j,y}^{[s]}$, and $N_2$ samples from the proposal distribution $g(\theta)$, denoting the $s$th sample $\theta_{j,g}^{[s]}$. Then, marginal likelihood can be estimated with
+where $g$ is the proposal distribution and $h$ is called the bridge function. To approximate the integrals in \cref{eq:bridgeIdentity}, one can draw $N_1$ samples from the posterior distribution $p(\theta|y)$, denoting the $s$th sample $\theta_{y}^{[s]}$, and $N_2$ samples from the proposal distribution $g(\theta)$, denoting the $s$th sample $\theta_{g}^{[s]}$. Then, marginal likelihood can be estimated with
 \begin{equation}
 	\label{eq:bridgeEstimate}
-	\hat{m}(y|M_j) = \frac{\frac{1}{N_2}\sum_{s=1}^{N_2} p\left(y|\theta_{j,g}^{[s]}, M_j\right)p\left(\theta_{j,g}^{[s]}|M_j\right)h_j\left(\theta_{j,g}^{[s]}\right)}{\frac{1}{N_1}\sum_{s=1}^{N_1} h_j\left(\theta_{j,y}^{[s]}\right)g_j\left(\theta_{j,y}^{[s]}\right)},
+	\hat{m}(y) = \frac{\frac{1}{N_2}\sum_{s=1}^{N_2} p\left(y|\theta_{g}^{[s]}\right)p\left(\theta_{g}^{[s]}\right)h_j\left(\theta_{g}^{[s]}\right)}{\frac{1}{N_1}\sum_{s=1}^{N_1} h\left(\theta_{y}^{[s]}\right)g\left(\theta_{y}^{[s]}\right)}.
 \end{equation}
+While choosing the proposal distribution $g$ is relatively straightforward (typically an approximation of the posterior), selecting the bridge function $h$ is more involved. \cite{MengWong} derive an optimal bridge function, given by
+\begin{equation}
+	\label{eq:bridgeFunction}
+	h(\theta) = \left(r_1 p(y|\theta) p(\theta) + r_2 \hat{m}(y) g(\theta)\right)^{-1},
+\end{equation}
+where $r_1 = N_1 / (N_1 + N_2)$ and $r_2 = N_2 / (N_1 + N_2)$. Note that the marginal likelihood $\hat{m}_y$ appears in $h(\theta)$, and an iterative approach can be used to find the value of the marginal likelihood that satisfies \cref{eq:bridgeEstimate} and \cref{eq:bridgeFunction}. While this relationship holds in theory, problems can arise in practice due to numerical underflow and overflow. When the number of parameters in the model is large, several of the distributions in \cref{eq:bridgeEstimate} and \cref{eq:bridgeFunction} can take on very small values. As a result, terms in the the sums in the numerator and denominator of \cref{eq:bridgeEstimate} can take on extreme values and, since those terms are summed together, cannot be mediated with numerical methods like log-transformation. These numerical issues can ultimately bias estimates of marginal likelihood, as exemplified in \cref{sec:BridgeSimulation}.
 
-
-Density estimation could theoretically be used to estimate the posterior density $p(\theta_j|y, M_j)$ and, by extension, marginal likelihood. However, this method has not been feasible historically due to practical issues with many kernel density estimators, described in greater detail in the following subsection.
+Overall, it can be difficult to accurately estimate marginal likelihood for models with relatively few observations and many parameters using previously established techniques. Kernel density estimation, which to the best of my knowledge has not been used for marginal likelihood estimation, could theoretically be used to estimate the posterior density $p(\theta_j|y, M_j)$ and, by extension, marginal likelihood, as in \cref{eq:MLChib}. However, this method has not been feasible historically due to practical issues with many kernel density estimators, described in greater detail in the following subsection.
 
 \subsection{Kernel Density Estimation}
 %Citations here:
@@ -97,14 +106,23 @@ where $K_\lambda$ is a kernel chosen by the researcher, parameterized by $\lambd
 \end{equation}
 The matrix $H\in\RR^{k\times k}$ is called the bandwidth matrix and must be positive definite.\footnote{There are a number of methods that can be used to select the bandwidth matrix. For more reading, see \cite{SilvermanDE}, \cite{Scott}, and \cite{SheatherJones}.}
 
-Unfortunately, standard kernel density estimators such as that presented above
+Unfortunately, standard kernel density estimators such as that presented above can produce biased estimates in finite samples \cite{SilvermanDE}. These estimators tend to underestimate density in high-density regions and overestimate density in low-density regions. Methods like adaptive kernel density estimation have been developed to produce unbiased density estimates in finite samples \citep{Portnoy}. Whereas standard kernel density estimation holds the bandwidth matrix constant over the domain, adaptive kernel density estimators allow bandwidth to vary based on a rule that chooses smaller bandwidths for high-density regions and larger bandwidths for low-density regions.
+
+The curse of dimensionality presents problems for kernel density estimation in general. Specifically, the number of sample points $N$ needed to achieve acceptable density estimates (that is, the expectation of the estimate is with a neighborhood of its true value) grows as $O\left(N^{-4/(4+d)}\ln(N)\right)$, where $d$ is the number of dimensions \citep{LiuLafferty}. A number of methods have been proposed to mediate the effect of the curse of dimensionality. If density only needs to be estimated at a small number of points and conditional densities can be efficiently sampled, the definition of conditional probability can be used to break the joint density estimation into $d$ separate univariate density estimations, detailed in \cref{sec:Theory}.
 
 \subsection{Markov Chain Monte Carlo Samplers}
 %Citations here:
 %Gelfand & Smith (overview)
 %Chib & Greenberg (M-H), Geman (Gibbs), Tanner & Wong (data augmentation), Rubin (importance sampling)
 
+As alluded to in \cref{sec:ModelSelection}, in order to estimate Bayesian statistical models and to use Bayesian model selection, one must be able to sample from the posterior distribution of parameters given then data, written $p(\theta|y)$. For some models, the posterior has a known closed form, which can be sampled from directly; however, most models do not have a closed form, so other sampling methods must be used. Markov Chain Monte Carlo (MCMC) is a popular algorithm used to draw samples from the posterior distribution \citep{GelfandSmith}. MCMC constructs a Markov chain whose steady-state distribution is the posterior distribution. However, will generally not start at its steady state distribution and must therefore undergo a ``burn-in'' period where a number of steps are taken in Markov chain to bring it sufficiently close to its steady state.
+
+Gibbs and Metropolis-Hastings samplers are two early developed and widely used techniques. Gibbs sampling can be used when the researcher knows the conditional posterior distributions of each parameter given every other parameter (i.e., $p(\theta_i|\theta_{-i}, y)$ for each $i$, where $\theta_{-i}$ represents all parameters in $\theta$ except for $\theta_i$). Metropolis-Hastings, which draws new samples from a proposal distribution and accepts or rejects those based on value of the posterior, does not require knowledge of these conditional distributions and can therefore be more widely applicable. Unfortunately, both Gibbs and Metropolis-Hastings sampling produce posterior samples that have a high degree of autocorrelation. As a result, the information in a posterior sample grows relatively slowly as the number of sampling iterations increases. The notion of ``effective sample size'' has been introduced to determine the number of ostensibly independent draws from the posterior distribution \citep{Lenth}. Estimates and functions of estimated parameters will have lower variance as the number of effective samples increases.
+
+Many techniques have been developed to reduce autocorrelation within MCMC samples. Some of these solutions, such as \cite{Gilks}, extend Gibbs and Metropolis-Hastings samplers. Hamiltonian Monte Carlo (HMC) presents another solution to the autocorrelation problem and is distinct from Gibbs and Metropolis-Hastings. In general, HMC follows a particle through the parameter space, and the velocity of the particle varies with the gradient of the posterior distribution \citep{Girolami}. A central parameter in HMC is the number of steps a particle is allowed to take before its value is recorded as a sample from the posterior. The effectiveness of HMC strongly depends on the chosen step size; No U-Turn Sampling (NUTS) avoids arbitrary selection of the number of steps by stopping the particle and recording its value once it turns back towards its initial position \citep{NUTS}. NUTS has been shown to exhibit far less autocorrelation than many other MCMC algorithms, increasing the proportion of effective samples in a given sampling of the posterior distribution. NUTS has been implemented in the Stan software package, which is utilized by this research \citep{rstan}.
+
 \section{Theory and Method}
+\label{sec:Theory}
 
 As mentioned previously, models estimated in the Bayesian framework can be compared via their marginal likelihoods. For two models $M_j$ and $M_k$, the relative goodness-of-fit of $M_k$ over $M_j$, called the Bayes' factor, is the ratio of the marginal likelihoods of each model, expressed as
 \begin{equation}
@@ -118,7 +136,7 @@ where $\theta$ are parameters of the model, $f(y|\theta, M_j)$ is the likelihood
 
 While a number of methods have been developed to estimate the value of the posterior density in certain cases, a simple and general approach is to use kernel density estimation (KDE), which can be used to construct and estimate values of a density function from samples of a random variable. Since all MCMC methods produce samples of $\theta|y, M_k$, this method can be used for any MCMC algorithm. However, there are two fundamental issues that complicate this approach. First, many standard KDE procedures produce biased estimates of the density function, systematically underestimating values in high-density regions and overestimating values in low-density regions \citep{SilvermanDE}. Fortunately, this is easily remedied via use of more sophisticated KDE methods, such as adaptive KDE.
 
-The other issue complicating the use of KDE to estimate posterior densities is based in the curse of dimensionality. In practice, the posterior density is often a function of several parameters, and KDE becomes less reliable as the number of dimensions and is often completely infeasible for more than five dimensions. To illustrate a solution, first denote the parameter vector as $\theta = (\theta_1, \theta_2, ..., \theta_P)',$ where $P$ is the total number of parameters. Using laws of conditional probability (and now omitting the conditional on model $M_k$), we can write the marginal likelihood as
+The other issue complicating the use of KDE to estimate posterior densities is based in the curse of dimensionality. In practice, the posterior density is often a function of several parameters, and KDE becomes less reliable as the number of dimensions and is often completely infeasible for more than five dimensions. To illustrate a solution, first denote the parameter vector as $\theta = (\theta_1, \theta_2, ..., \theta_P)',$ where $P$ is the total number of parameters. Using the definition of conditional probability (and now omitting the conditional on model $M_k$), we can write the marginal likelihood as
 \begin{subequations}
 \begin{align}
 	p(\theta|y)
@@ -207,13 +225,38 @@ The sampler and estimates of the marginal likelihood were obtained via the metho
 
 Results of this simulation are shown in the second row of \Cref{tab:MVN-Probit}. Once again, the mean marginal likelihood estimates were not found to be significantly different at the 10\% level. The standard deviation of the iterative KDE method was about twice as large as that of the Gibbs-based method due to differences in the numbers of sampling iterations used by each method. The Gibbs sampler generally takes longer to converge than NUTS. In this case, 5,000 warm-up iterations were needed to ensure convergence of the Gibbs sampler, and 50,000 sampling iterations were drawn. On the other hand, NUTS only needed 500 warm-up iterations at most to achieve convergence. Unfortunately, the iterative KDE methodology becomes computationally infeasible for large numbers of sampling iterations due to limitations in adaptive KDE. Thus, only 5,000 sampling iterations were used in the iterative KDE method in this illustration. As a result, the variance of the Gibbs-based marginal likelihood estimation was lower than that of the iterative KDE method.
 
+\subsection{Large Multivariate Normal Linear Model, Comparison With Bridge Sampling}
+\label{sec:BridgeSimulation}
+
+As mentioned in \cref{sec:ModelSelection}, bridge sampling can encounter numerical issues for large numbers of parameters. This section provides an example of bias introduced by these numerical issues, and show that iterative KDE can provide unbiased estimates of marginal likelihood even for large models.
+
+A multivariate normal linear model with 50 slope coefficients was used in this section. Slope coefficients $\beta$ were randomly selected from the interval $[-10, 10]$. The matrix of inputs $X$ included 100 observations of one column of ones for model intercept and 49 other variables randomly generated from the interval $[-10, 10]$. Observations of the output $y$ were then generated as
+\begin{subequations}
+	\begin{align}
+	y &= X\beta + \ep\\
+	\ep &\sim N(0, 625\times I_{100}).
+	\end{align}
+\end{subequations}
+
+\input{tables/Bridge.tex}
+
+Using that data, the model was then estimated and marginal likelihoods calculated over 100 separate trials using Chib's method, iterative KDE, and bridge sampling. NUTS was used to draw samples from the posterior distribution for iterative KDE and bridge sampling, while Chib's method used Gibbs sampling. To avoid numerical issues in bridge sampling, marginal likelihood was computed as
+\begin{align*}
+\label{eq:bridgeCalculation}
+\hat{m}(y) &= \exp\Biggl(\ln(N_1)\\
+&+ \ln\Biggl(\sum_{s=1}^{N_2} \exp\biggl(&&\hspace*{-13.5em}\ln p\left(y|\theta_{g}^{[s]}\right) \\& &&\hspace*{-13.5em}+ \ln p\left(\theta_{g}^{[s]}\right) \\& &&\hspace*{-13.5em} + \ln h_j\left(\theta_{g}^{[s]}\right)\biggr)\Biggr)\\
+&- \ln(N_2)\\
+&- \ln\left(\sum_{s=1}^{N_1} \exp\left(\ln h\left(\theta_{y}^{[s]}\right) + \ln g\left(\theta_{y}^{[s]}\right)\right)\right)\Biggr).
+\end{align*}
+Estimates of the mean and standard deviation of these repeated trials are shown in \cref{tab:bridge}. As can be seen for the first three columns, bridge sampling has much lower variance than Chib's method or iterative KDE but produces lower marginal likelihood estimates on average in this example. The fourth and fifth columns treat marginal likelihoods from Chib's method as ground truth and compare them to estimates from iterative KDE and bridge sampling. While there was not a significant difference of means between iterative KDE and Chib's method, there was significant evidence of a difference in means between bridge sampling and Chib's method. This bias appears to be the result of numerical overflow; the sum $\sum_{s=1}^{N_1} \exp\left(\ln h\left(\theta_{y}^{[s]}\right) + \ln g\left(\theta_{y}^{[s]}\right)\right)$ regularly approached machine limits in the bridge sampling calculation. Conversely, the conditional density estimates in iterative KDE were well within machine limits and could be kept in log terms through the entire calculation, effectively eliminating the potential for numerical problems to arise.
+
 \subsection{Comparison of Probit and Logit Models: An Example from \cite{Chib}}
 
 \input{tables/Table2.tex}
 
 In his seminal work, \cite{Chib} tested several specifications of a binary probit model using data describing prostatic nodal involvement among 53 prostate cancer patients. To test between those probit specifications, one can use a methodology identical to that in the previous subsection. However, one may also wish to test the choice of link function that transforms the latent variable $z$ into a probability of incidence. Specifically, rather than using a probit model, which uses the cumulative normal as a link function, one could use a logit model, which uses the sigmoid function as a link. The choice of one of these specifications over the other is often at the whim of the researcher, and it can be difficult to test between the specifications both in classical and Bayesian frameworks. If using classical statistics, the two specifications are not nested, so methods like likelihood-ratio tests are not valid. On the other hand, logit models can not be estimated via Gibbs sampling (no conditional distributions exist) and can be difficult in M-H sampling, making it hard or impossible to use methods like those presented in \cite{Chib} and \cite{ChibJeliazkov} to estimate marginal likelihoods. Fortunately, both logit and probit models can be estimated in NUTS, so iterative KDE can be used to compare and test those specifications.
 
-For both the logit and probit models, the priors used were the same as those used by \cite{Chib}: each $\beta_k$ was assumed to be independent and normally distributed with mean 0.75 and standard deviation of 5. As in \cite{Chib}, the models were estimated using 500 warm-up and 5,000 sampling iterations. Each model was run 100 times in both specifications and marginal likelihoods were estimated using iterative KDE. Marginal likelihood estimates for each specification used in \cite{Chib} under probit and logit link functions are shown in \Cref{tab:Logit-Probit-Chib}. A test of whether mean of the probit simulations was equal to the estimate presented by Chib, with the alternative hypothesis of inequality, was performed and $p$-values are shown in the final column of \Cref{tab:Logit-Probit-Chib}. We can first notice that none of the probit means were found to be significantly different than those presented by Chib at the 10\% level. Next, the logit link function performed better than its probit counterpart in each specification. Finally, the best fitting specification was still $C + \log(x_2) + x_3 + x_4$ as in \cite{Chib}, though the logit form fit better than the probit by a sizable margin.
+For both the logit and probit models, the priors used were the same as those used by \cite{Chib}: each $\beta_k$ was assumed to be independent and normally distributed with mean 0.75 and standard deviation of 5. As in \cite{Chib}, the models were estimated using 500 warm-up and 5,000 sampling iterations. Each model was run 100 times in both specifications and marginal likelihoods were estimated using iterative KDE. Marginal likelihood estimates for each specification used in \cite{Chib} under probit and logit link functions are shown in \Cref{tab:Logit-Probit-Chib}. A test of whether mean of the probit simulations was equal to the estimate presented by Chib, with the alternative hypothesis of inequality, was performed and $p$-values are shown in the final column of \Cref{tab:Logit-Probit-Chib}. We can first notice that none of the probit means were found to be significantly different than those presented by Chib at the 10\% level. Next, the logit link function performed better than its probit counterpart in each specification. Finally, the best fitting specification was still $C + \ln(x_2) + x_3 + x_4$ as in \cite{Chib}, though the logit form fit better than the probit by a sizable margin.
 
 \subsection{Comparison of Probit and Logit Models: Simulation Results}
 
@@ -256,7 +299,7 @@ where $y_i$ is log-output, $x_i$ are inputs, $f$ is some function that transform
 \begin{equation}
 	f(v) = \frac2\sigma \phi\left(\frac{v}\sigma\right)\left(1 - \Phi\left(\frac{v\lambda}{\sigma}\right)\right),
 \end{equation}
-where $\sigma^2 = \sigma_\ep^2 + \sigma_\delta^2$, $\lambda = \sigma_\delta / \sigma_\ep$, and $\phi$ and $\Phi$ are standard normal density and distribution functions, respectively. A density function can also be derived if $-\delta$ followed an exponential distribution.
+where $\sigma^2 = \sigma_\ep^2 + \sigma_\delta^2$, $\lambda = \sigma_\delta / \sigma_\ep$, and $\phi$ and $\Phi$ are standard normal density and distribution functions, respectively. A density function could also be derived if $-\delta$ followed an exponential distribution.
 
 Even with the exact form of the density function of the error composition, estimation of stochastic frontier models is notoriously difficult in a classical framework. Both maximum likelihood and method of moments routines suffer from numerical instability with these models, making it difficult to estimate parameters or even determine if those algorithms have properly converged. 
 

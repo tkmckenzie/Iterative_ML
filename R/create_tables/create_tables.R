@@ -85,6 +85,42 @@ table = print.xtable(table,
                      include.colnames = FALSE)
 cat(table, file = "../../tables/Table1.tex")
 
+##############################
+#Bridge: Comparison of iterative KDE, Gibbs, Bridge sampling
+table.matrix = matrix(NA, nrow = 4, ncol = 5)
+table.matrix[1,] = c("", "Iterative", "", "IKDE = Chib", "Bridge = Chib")
+table.matrix[2,] = c("Chib", "KDE", "Bridge", "$p$-value", "$p$-value")
+
+load("../gibbs_stan_bridge_lm/gibbs_mc_results.RData")
+table.matrix[3:4, 1] = c(round(mean(log.marginal.results[1,]), round.digits), paste0("(", round(sd(log.marginal.results[1,]), round.digits), ")"))
+gibbs.results = log.marginal.results[1,]
+
+load("../gibbs_stan_bridge_lm/stan_mc_results.RData")
+table.matrix[3:4, 2] = c(round(mean(log.marginal.results[1,]), round.digits), paste0("(", round(sd(log.marginal.results[1,]), round.digits), ")"))
+stan.results = log.marginal.results[1,]
+
+load("../gibbs_stan_bridge_lm/stan_bridge_mc_results.RData")
+table.matrix[3:4, 3] = c(round(mean(log.marginal.results[1,]), round.digits), paste0("(", round(sd(log.marginal.results[1,]), round.digits), ")"))
+bridge.results = log.marginal.results[1,]
+
+p.stan = t.test(gibbs.results, stan.results)$p.value
+p.bridge = t.test(gibbs.results, bridge.results)$p.value
+table.matrix[3, 4] = paste0("\\multirow{2}{*}{", round(p.stan, round.digits), "}")
+table.matrix[3, 5] = paste0("\\multirow{2}{*}{$", round(p.bridge * 10^(-floor(log(p.bridge, base = 10))), round.digits), "\\times 10^{", floor(log(p.bridge, base = 10)), "}$}")
+
+table = xtable(table.matrix,
+               align = c("l", "c", "|c", "|c", "|c", "|c"),
+               caption = "Comparison of Chib, Iterative KDE, and Bridge Sampling",
+               label = "tab:bridge")
+table = print.xtable(table,
+                     floating.environment = "table*",
+                     table.placement = NULL,
+                     hline.after = c(2, 2, 4),
+                     # add.to.row = list(pos = list(3), command = "\\cline{1-3}"),
+                     sanitize.text.function = identity,
+                     include.rownames = FALSE,
+                     include.colnames = FALSE)
+cat(table, file = "../../tables/Bridge.tex")
 
 ##############################
 #Table 2: Comparison of Probit and Logit Models: An Example from \cite{Chib}

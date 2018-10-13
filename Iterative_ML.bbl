@@ -52,11 +52,31 @@ Du, P., C.~F. Parmeter, and J.~S. Racine (2013).
   shape constraints.
 \newblock {\em Statistica Sinica\/}, 1347--1371.
 
+\bibitem[\protect\citeauthoryear{Gelfand and Smith}{Gelfand and
+  Smith}{1990}]{GelfandSmith}
+Gelfand, A.~E. and A.~F. Smith (1990).
+\newblock Sampling-based approaches to calculating marginal densities.
+\newblock {\em Journal of the American statistical association\/}~{\em
+  85\/}(410), 398--409.
+
 \bibitem[\protect\citeauthoryear{Genz and Kass}{Genz and Kass}{1997}]{GenzKass}
 Genz, A. and R.~E. Kass (1997).
 \newblock Subregion-adaptive integration of functions having a dominant peak.
 \newblock {\em Journal of Computational and Graphical Statistics\/}~{\em
   6\/}(1), 92--111.
+
+\bibitem[\protect\citeauthoryear{Gilks, Best, and Tan}{Gilks
+  et~al.}{1995}]{Gilks}
+Gilks, W.~R., N.~Best, and K.~Tan (1995).
+\newblock Adaptive rejection metropolis sampling within gibbs sampling.
+\newblock {\em Applied Statistics\/}, 455--472.
+
+\bibitem[\protect\citeauthoryear{Girolami and Calderhead}{Girolami and
+  Calderhead}{2011}]{Girolami}
+Girolami, M. and B.~Calderhead (2011).
+\newblock Riemann manifold langevin and hamiltonian monte carlo methods.
+\newblock {\em Journal of the Royal Statistical Society: Series B (Statistical
+  Methodology)\/}~{\em 73\/}(2), 123--214.
 
 \bibitem[\protect\citeauthoryear{Golub, Heath, and Wahba}{Golub
   et~al.}{1979}]{Golub}
@@ -91,6 +111,18 @@ Kohavi, R. et~al. (1995).
   model selection.
 \newblock In {\em IJCAI}, Volume~14, pp.\  1137--1145. Montreal, Canada.
 
+\bibitem[\protect\citeauthoryear{Lenth}{Lenth}{2001}]{Lenth}
+Lenth, R.~V. (2001).
+\newblock Some practical guidelines for effective sample size determination.
+\newblock {\em The American Statistician\/}~{\em 55\/}(3), 187--193.
+
+\bibitem[\protect\citeauthoryear{Liu, Lafferty, and Wasserman}{Liu
+  et~al.}{2007}]{LiuLafferty}
+Liu, H., J.~Lafferty, and L.~Wasserman (2007).
+\newblock Sparse nonparametric density estimation in high dimensions using the
+  rodeo.
+\newblock In {\em Artificial Intelligence and Statistics}, pp.\  283--290.
+
 \bibitem[\protect\citeauthoryear{Meng and Wong}{Meng and Wong}{1996}]{MengWong}
 Meng, X.-L. and W.~H. Wong (1996).
 \newblock Simulating ratios of normalizing constants via a simple identity: a
@@ -110,6 +142,12 @@ Newton, M.~A. and A.~E. Raftery (1994).
   bootstrap.
 \newblock {\em Journal of the Royal Statistical Society. Series B
   (Methodological)\/}, 3--48.
+
+\bibitem[\protect\citeauthoryear{Portnoy and Koenker}{Portnoy and
+  Koenker}{1989}]{Portnoy}
+Portnoy, S. and R.~Koenker (1989).
+\newblock Adaptive l-estimation for linear models.
+\newblock {\em The Annals of Statistics\/}, 362--381.
 
 \bibitem[\protect\citeauthoryear{Schwarz et~al.}{Schwarz
   et~al.}{1978}]{Schwarz}

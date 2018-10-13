@@ -124,7 +124,7 @@ while (log.error > tol){
   numerator = sum(exp(log.lik.prop + log.prior.prop - log(s.1 * lik.prop * prior.prop + s.2 * exp(log.marginal.lik) * dg.prop))) * N.1
   denominator = sum(exp(log.dg.post - log(s.1 * lik.post * prior.post + s.2 * exp(log.marginal.lik) * dg.post))) * N.2
   
-  log.marginal.lik.new = log(numerator) - log(denominator)
+  log.marginal.lik.new = log(N.1) + log(numerator) - log(N.2) - log(denominator)
   
   log.error = abs(log.marginal.lik - log.marginal.lik.new)
   log.marginal.lik = log.marginal.lik.new
