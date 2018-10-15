@@ -5,6 +5,22 @@ setwd("~/git/Iterative_ML/R/stan_sf_data")
 
 rm(list = ls())
 
+#Priors
+sigma_u_prior_shape = 1
+sigma_u_prior_rate = 1
+sigma_v_prior_shape = 1
+sigma_v_prior_rate = 1
+beta_const_prior_sd = 10
+beta_prior_sd = 1
+
+save(sigma_u_prior_shape,
+     sigma_u_prior_rate,
+     sigma_v_prior_shape,
+     sigma_v_prior_rate,
+     beta_const_prior_sd,
+     beta_prior_sd,
+     file = "stan_par_translog_fits/priors.RData")
+
 load("data.RData")
 # load("stan_par_translog_fits/restricted_params.RData")
 
@@ -20,18 +36,33 @@ sample.iter = 5000
 adapt.delta = 0.9
 max.treedepth = 12
 
-# burn.iter = 1
-# sample.iter = 1
-
 #Unconditional run:
-load("stan_par_sf.dso")
-stan.data = list(N = nrow(X), k = ncol(X), X = X, y = y)
-stan.fit = stan("stan_par_sf.stan", data = stan.data,
+stan.model.file = "stan_par_sf.stan"
+stan.dso.file = gsub(".stan$", ".dso", stan.model.file)
+
+stan.data = list(N = nrow(X),
+                 k = ncol(X),
+                 X = X,
+                 y = y,
+                 beta_const_prior_sd = beta_const_prior_sd,
+                 beta_prior_sd = beta_prior_sd,
+                 sigma_u_prior_shape = sigma_u_prior_shape,
+                 sigma_u_prior_rate = sigma_u_prior_shape,
+                 sigma_v_prior_shape = sigma_v_prior_shape,
+                 sigma_v_prior_rate = sigma_v_prior_shape)
+
+if (!(stan.dso.file %in% list.files())){
+  stan.dso = stan(stan.model.file, data = stan.data,
+                  chains = 1, iter = 1, warmup = 1, refresh = 0)
+  save(stan.dso, file = stan.dso.file)
+} else{
+  load(stan.dso.file)
+}
+
+stan.fit = stan(stan.model.file, data = stan.data,
                 control = list(adapt_delta = adapt.delta, max_treedepth = max.treedepth),
-                fit = stan.fit,
                 chains = 1, iter = burn.iter + sample.iter, warmup = burn.iter)
 
-# save(stan.fit, file = "stan_par_sf.dso")
 save(stan.fit, file = "stan_par_translog_fits/stan_par_sf_unconditional.RData")
 
 traceplot(stan.fit)
@@ -50,86 +81,141 @@ save(sigma.u.restricted, sigma.v.restricted, beta.restricted, beta.const.restric
 
 #Conditional runs:
 #sigma.u
-load("stan_par_sf_restr_sigma_u.dso")
+stan.model.file = "stan_par_sf_restr_sigma_u.stan"
+stan.dso.file = gsub(".stan$", ".dso", stan.model.file)
+
 stan.data = list(N = nrow(X), k = ncol(X), X = X, y = y,
+                 beta_const_prior_sd = beta_const_prior_sd,
+                 beta_prior_sd = beta_prior_sd,
+                 sigma_v_prior_shape = sigma_v_prior_shape,
+                 sigma_v_prior_rate = sigma_v_prior_shape,
                  sigma_u = sigma.u.restricted)
-stan.fit = stan("stan_par_sf_restr_sigma_u.stan", data = stan.data,
+
+if (!(stan.dso.file %in% list.files())){
+  stan.dso = stan(stan.model.file, data = stan.data,
+                  chains = 1, iter = 1, warmup = 1, refresh = 0)
+  save(stan.dso, file = stan.dso.file)
+} else{
+  load(stan.dso.file)
+}
+
+stan.fit = stan(stan.model.file, data = stan.data,
                 control = list(adapt_delta = adapt.delta, max_treedepth = max.treedepth),
-                fit = stan.fit,
                 init = list(list(beta_const = beta.const.restricted,
                                  beta = beta.restricted,
                                  sigma_v = sigma.v.restricted)),
                 chains = 1, iter = burn.iter + sample.iter, warmup = burn.iter)
 
-# save(stan.fit, file = "stan_par_sf_restr_sigma_u.dso")
 save(stan.fit, file = "stan_par_translog_fits/stan_par_sf_restr_sigma_u.RData")
 
 #sigma.u, sigma.v
-load("stan_par_sf_restr_sigma_uv.dso")
+stan.model.file = "stan_par_sf_restr_sigma_uv.stan"
+stan.dso.file = gsub(".stan$", ".dso", stan.model.file)
+
 stan.data = list(N = nrow(X), k = ncol(X), X = X, y = y,
+                 beta_const_prior_sd = beta_const_prior_sd,
+                 beta_prior_sd = beta_prior_sd,
                  sigma_u = sigma.u.restricted,
                  sigma_v = sigma.v.restricted)
-stan.fit = stan("stan_par_sf_restr_sigma_uv.stan", data = stan.data,
+
+if (!(stan.dso.file %in% list.files())){
+  stan.dso = stan(stan.model.file, data = stan.data,
+                  chains = 1, iter = 1, warmup = 1, refresh = 0)
+  save(stan.dso, file = stan.dso.file)
+} else{
+  load(stan.dso.file)
+}
+
+stan.fit = stan(stan.model.file, data = stan.data,
                 control = list(adapt_delta = adapt.delta, max_treedepth = max.treedepth),
-                fit = stan.fit,
                 init = list(list(beta_const = beta.const.restricted,
                                  beta = beta.restricted)),
                 chains = 1, iter = burn.iter + sample.iter, warmup = burn.iter)
 
-# save(stan.fit, file = "stan_par_sf_restr_sigma_uv.dso")
 save(stan.fit, file = "stan_par_translog_fits/stan_par_sf_restr_sigma_uv.RData")
 
 #sigma.u, sigma.v, partial beta
-#sigma.u, sigma.v, partial beta
 for (k.restricted in 1:(ncol(X) - 1)){
   if (k.restricted < (ncol(X) - 1)){
-    load("stan_par_sf_restr_sigma_uv_beta_partial.dso")
+    stan.model.file = "stan_par_sf_restr_sigma_uv_beta_partial.stan"
+    stan.dso.file = gsub(".stan$", ".dso", stan.model.file)
+    
     stan.data = list(N = nrow(X),
                      k_restricted = k.restricted, k_free = ncol(X) - k.restricted,
                      X = X, y = y,
+                     beta_const_prior_sd = beta_const_prior_sd,
+                     beta_prior_sd = beta_prior_sd,
                      sigma_u = sigma.u.restricted,
                      sigma_v = sigma.v.restricted,
                      beta_restricted = as.array(beta.restricted[1:k.restricted]))
-    stan.fit = stan("stan_par_sf_restr_sigma_uv_beta_partial.stan", data = stan.data,
+    
+    if (!(stan.dso.file %in% list.files())){
+      stan.dso = stan(stan.model.file, data = stan.data,
+                      chains = 1, iter = 1, warmup = 1, refresh = 0)
+      save(stan.dso, file = stan.dso.file)
+    } else{
+      load(stan.dso.file)
+    }
+    
+    stan.fit = stan(stan.model.file, data = stan.data,
                     control = list(adapt_delta = adapt.delta, max_treedepth = max.treedepth),
-                    fit = stan.fit,
                     init = list(list(beta_const = beta.const.restricted,
                                      beta_free = beta.restricted[-(1:k.restricted)])),
                     chains = 1, iter = burn.iter + sample.iter, warmup = burn.iter)
     
-    # save(stan.fit, file = "stan_par_sf_restr_sigma_uv_beta_partial.dso")
     save(stan.fit, file = sprintf("stan_par_translog_fits/stan_par_sf_restr_sigma_uv_beta_partial_%i.RData", k.restricted))
   } else{
-    load("stan_par_sf_restr_sigma_uv_beta_partial_singlefree.dso")
+    stan.model.file = "stan_par_sf_restr_sigma_uv_beta_partial_singlefree.stan"
+    stan.dso.file = gsub(".stan$", ".dso", stan.model.file)
+    
     stan.data = list(N = nrow(X),
                      k_restricted = k.restricted, k_free = ncol(X) - k.restricted,
                      X = X, y = y,
+                     beta_const_prior_sd = beta_const_prior_sd,
+                     beta_prior_sd = beta_prior_sd,
                      sigma_u = sigma.u.restricted,
                      sigma_v = sigma.v.restricted,
                      beta_restricted = as.array(beta.restricted[1:k.restricted]))
-    stan.fit = stan("stan_par_sf_restr_sigma_uv_beta_partial_singlefree.stan", data = stan.data,
+    
+    if (!(stan.dso.file %in% list.files())){
+      stan.dso = stan(stan.model.file, data = stan.data,
+                      chains = 1, iter = 1, warmup = 1, refresh = 0)
+      save(stan.dso, file = stan.dso.file)
+    } else{
+      load(stan.dso.file)
+    }
+    
+    stan.fit = stan(stan.model.file, data = stan.data,
                     control = list(adapt_delta = adapt.delta, max_treedepth = max.treedepth),
-                    fit = stan.fit,
                     init = list(list(beta_const = beta.const.restricted,
                                      beta_free = beta.restricted[-(1:k.restricted)])),
                     chains = 1, iter = burn.iter + sample.iter, warmup = burn.iter)
     
-    # save(stan.fit, file = "stan_par_sf_restr_sigma_uv_beta_partial_singlefree.dso")
     save(stan.fit, file = sprintf("stan_par_translog_fits/stan_par_sf_restr_sigma_uv_beta_partial_%i.RData", k.restricted))
   }
 }
 
 #sigma.u, sigma.v, beta (not including beta_const)
-load("stan_par_sf_restr_sigma_uv_beta.dso")
+stan.model.file = "stan_par_sf_restr_sigma_uv_beta.stan"
+stan.dso.file = gsub(".stan$", ".dso", stan.model.file)
+
 stan.data = list(N = nrow(X), k = ncol(X), X = X, y = y,
+                 beta_const_prior_sd = beta_const_prior_sd,
                  sigma_u = sigma.u.restricted,
                  sigma_v = sigma.v.restricted,
                  beta = beta.restricted)
-stan.fit = stan("stan_par_sf_restr_sigma_uv_beta.stan", data = stan.data,
+
+if (!(stan.dso.file %in% list.files())){
+  stan.dso = stan(stan.model.file, data = stan.data,
+                  chains = 1, iter = 1, warmup = 1, refresh = 0)
+  save(stan.dso, file = stan.dso.file)
+} else{
+  load(stan.dso.file)
+}
+
+stan.fit = stan(stan.model.file, data = stan.data,
                 control = list(adapt_delta = adapt.delta, max_treedepth = max.treedepth),
-                fit = stan.fit,
                 init = list(list(beta_const = beta.const.restricted)),
                 chains = 1, iter = burn.iter + sample.iter, warmup = burn.iter)
 
-# save(stan.fit, file = "stan_par_sf_restr_sigma_uv_beta.dso")
 save(stan.fit, file = "stan_par_translog_fits/stan_par_sf_restr_sigma_uv_beta.RData")

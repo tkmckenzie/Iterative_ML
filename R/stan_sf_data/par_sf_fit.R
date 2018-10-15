@@ -7,21 +7,43 @@ rm(list = ls())
 
 load("data.RData")
 
+#Priors
+sigma_u_prior_shape = 1
+sigma_u_prior_rate = 1
+sigma_v_prior_shape = 1
+sigma_v_prior_rate = 1
+beta_const_prior_sd = 10
+beta_prior_sd = 1
+
 #MCMC Parameters
 burn.iter = 15000
 sample.iter = 5000
 
-# burn.iter = 1
-# sample.iter = 1
+stan.model.file = "stan_par_sf.stan"
+stan.dso.file = gsub(".stan$", ".dso", stan.model.file)
 
-load("stan_par_sf.dso")
+stan.data = list(N = nrow(X),
+                 k = ncol(X),
+                 X = X,
+                 y = y,
+                 beta_const_prior_sd = beta_const_prior_sd,
+                 beta_prior_sd = beta_prior_sd,
+                 sigma_u_prior_shape = sigma_u_prior_shape,
+                 sigma_u_prior_rate = sigma_u_prior_shape,
+                 sigma_v_prior_shape = sigma_v_prior_shape,
+                 sigma_v_prior_rate = sigma_v_prior_shape)
 
-stan.data = list(N = nrow(X), k = ncol(X), X = X, y = y)
-stan.fit = stan("stan_par_sf.stan", data = stan.data,
+if (!(stan.dso.file %in% list.files())){
+  stan.dso = stan(stan.model.file, data = stan.data,
+                  chains = 1, iter = 1, warmup = 1, refresh = 0)
+  save(stan.dso, file = stan.dso.file)
+} else{
+  load(stan.dso.file)
+}
+
+stan.fit = stan(stan.model.file, data = stan.data,
                 control = list(adapt_delta = 0.99, max_treedepth = 12),
-                fit = stan.fit,
                 chains = 1, iter = burn.iter + sample.iter, warmup = burn.iter)
-# save(stan.fit, file = "stan_par_sf.dso")
 
 save(stan.fit, file = "stan_par_fits/stan_par_sf_unconditional.RData")
 load("stan_par_fits/stan_par_sf_unconditional.RData")

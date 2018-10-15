@@ -1,10 +1,6 @@
 This is BibTeX, Version 0.99dThe top-level auxiliary file: Iterative_ML.aux
 The style file: chicago.bst
 Database file #1: Iterative_ML.bib
-Repeated entry---line 352 of file Iterative_ML.bib
- : @article{NUTS
- :              ,
-I'm skipping whatever remains of this entry
 Warning--no number and no volume in ParmeterRacine
 Warning--no number and no volume in Gilks
 Warning--can't use both volume and number fields in Kohavi
@@ -12,4 +8,4 @@ Warning--no number and no volume in MengWong
 Warning--no number and no volume in NewtonRaferty
 Warning--no number and no volume in Portnoy
 Warning--no number and no volume in SheatherJones
-(There was 1 error message)
+(There were 7 warnings)

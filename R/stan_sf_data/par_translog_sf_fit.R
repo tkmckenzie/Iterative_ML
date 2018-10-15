@@ -14,23 +14,46 @@ X = cbind(X, X^2,
 
 k = ncol(X)
 
+#Priors
+sigma_u_prior_shape = 1
+sigma_u_prior_rate = 1
+sigma_v_prior_shape = 1
+sigma_v_prior_rate = 1
+beta_const_prior_sd = 10
+beta_prior_sd = 1
+
 #MCMC Parameters
-burn.iter = 45000
+burn.iter = 15000
 sample.iter = 5000
 
-# burn.iter = 1
-# sample.iter = 1
+stan.model.file = "stan_par_sf.stan"
+stan.dso.file = gsub(".stan$", ".dso", stan.model.file)
 
-load("stan_par_sf.dso")
+stan.data = list(N = nrow(X),
+                 k = ncol(X),
+                 X = X,
+                 y = y,
+                 beta_const_prior_sd = beta_const_prior_sd,
+                 beta_prior_sd = beta_prior_sd,
+                 sigma_u_prior_shape = sigma_u_prior_shape,
+                 sigma_u_prior_rate = sigma_u_prior_shape,
+                 sigma_v_prior_shape = sigma_v_prior_shape,
+                 sigma_v_prior_rate = sigma_v_prior_shape)
 
-stan.data = list(N = nrow(X), k = ncol(X), X = X, y = y)
-stan.fit = stan("stan_par_sf.stan", data = stan.data,
+if (!(stan.dso.file %in% list.files())){
+  stan.dso = stan(stan.model.file, data = stan.data,
+                  chains = 1, iter = 1, warmup = 1, refresh = 0)
+  save(stan.dso, file = stan.dso.file)
+} else{
+  load(stan.dso.file)
+}
+
+stan.fit = stan(stan.model.file, data = stan.data,
                 control = list(adapt_delta = 0.99, max_treedepth = 12),
                 chains = 1, iter = burn.iter + sample.iter, warmup = burn.iter)
-# save(stan.fit, file = "stan_par_sf.dso")
 
-save(stan.fit, file = "stan_par_translog_fits/stan_par_translog_sf_unconditional.RData")
-load("stan_par_translog_fits/stan_par_translog_sf_unconditional.RData")
+save(stan.fit, file = "stan_par_translog_fits/stan_par_sf_unconditional.RData")
+load("stan_par_translog_fits/stan_par_sf_unconditional.RData")
 
 stan.extract = extract(stan.fit)
 
@@ -94,24 +117,6 @@ log.lik.func = function(epsilon, sigma.u, sigma.v){
   lambda = sigma.u / sigma.v
   
   return(length(epsilon) * (log(2) - log(sigma)) + dnorm(epsilon / sigma, log = TRUE) + pnorm(epsilon * lambda / sigma, log = TRUE, lower.tail = FALSE))
-}
-normal.kernel = function(x, alpha, H.inv){
-  return(alpha^2 * exp(-0.5 * t(x) %*% H.inv %*% x))
-}
-normal.cov = function(alpha, H.inv){
-  result = matrix(NA, nrow = N, ncol = N)
-  for (i in 1:(N - 1)){
-    result[i, i] = alpha^2
-    
-    for (j in (i + 1):N){
-      temp.result = normal.kernel(X[i,] - X[j,], alpha, H.inv)
-      result[i, j] = temp.result
-      result[j, i] = temp.result
-    }
-  }
-  result[N, N] = alpha^2
-  
-  return(result)
 }
 
 sigma.u.restricted = mean(stan.extract$sigma_u)

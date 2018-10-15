@@ -60,7 +60,7 @@ Fortunately, methods have been developed to estimate marginal likelihood in a co
 	\label{eq:MLChib}
 	m(y|M_j) = \frac{f(y|\theta_j, M_j)p(\theta_j|M_j)}{p(\theta_j|y, M_j)},
 \end{equation}
-where $p(\theta_j|y, M_j)$ is the posterior density of parameters $\theta_j$. While the likelihood $f(y|\theta_j, M_j)$ and prior density $p(\theta_j|M_j)$ are easily calculable, the posterior density can be difficult to calculate in general. However, \cite{Chib} derived an estimate of posterior probabilities, and marginal likelihood by extension, when using a Gibbs sampler. \cite{ChibJeliazkov} extended this work to estimate marginal likelihood under a M-H sampler. Nonetheless, estimation of marginal likelihood remained difficult for Bayesian models not estimated with Gibbs or M-H samplers.
+where $p(\theta_j|y, M_j)$ is the posterior density of parameters $\theta_j$. First, one can see from this relationship that the inclusion of additional parameters does not come without cost to marginal likelihood; when priors are reasonably diffuse, values of the prior density $p(\theta_j|M_j)$ for each individual parameter tend to be less than one, decreasing marginal likelihood. If the additional predictive power offered by the inclusion of another parameter does not outweigh its cost through the prior density, there will be a net decrease in marginal likelihood. Second, while the likelihood $f(y|\theta_j, M_j)$ and prior density $p(\theta_j|M_j)$ are easily calculable, the posterior density can be difficult to calculate in general. However, \cite{Chib} derived an estimate of posterior probabilities, and marginal likelihood by extension, when using a Gibbs sampler. \cite{ChibJeliazkov} extended this work to estimate marginal likelihood under a M-H sampler. Nonetheless, estimation of marginal likelihood remained difficult for Bayesian models not estimated with Gibbs or M-H samplers.
 
 \cite{KassRaftery} detail several methods for estimating marginal likelihood when Gibbs or M-H sampling are not used. Laplace's method forms a second-order approximation of the posterior density, with which marginal likelihood can be estimated. For sufficiently large numbers of observations, Laplace's method is both accurate and computationally efficient; however, accuracy is severely degraded when the number of observations is less than $5d$, where $d$ is the number of parameters in the model \citep{Slate}. While this requirement tends to be met by standard models and datasets, it can present issues with more flexible models, such as those presented in \cref{sec:SF}. Further, even when requirements are met, other estimators, such as those in \cite{Chib}, can have lower variance. SBIC, mentioned previously, can also be used to obtain consistent estimates of marginal likelihood, but are also less efficient for small sample sizes \cite{Bollen}. Other methods focus on using Monte Carlo integration to estimate marginal likelihood. Unfortunately, simple Monte Carlo integration, such as the harmonic mean estimator
 \begin{equation}
@@ -89,6 +89,7 @@ where $r_1 = N_1 / (N_1 + N_2)$ and $r_2 = N_2 / (N_1 + N_2)$. Note that the mar
 Overall, it can be difficult to accurately estimate marginal likelihood for models with relatively few observations and many parameters using previously established techniques. Kernel density estimation, which to the best of my knowledge has not been used for marginal likelihood estimation, could theoretically be used to estimate the posterior density $p(\theta_j|y, M_j)$ and, by extension, marginal likelihood, as in \cref{eq:MLChib}. However, this method has not been feasible historically due to practical issues with many kernel density estimators, described in greater detail in the following subsection.
 
 \subsection{Kernel Density Estimation}
+\label{sec:KDE}
 %Citations here:
 %Silverman (most density estimation, including standard, adaptive, etc.)
 %Portnoy (application of adaptive KDE and some references)
@@ -159,6 +160,8 @@ So, the value of the posterior density can be estimated using the following proc
 		\end{enumerate}
 	\item Find the sum of each of the estimated partial log-densities to arrive at an estimate for the overall log-posterior density, denoted $\ln \hat{p}(\theta^*|y)$.
 \end{enumerate}
+
+Before moving on, it can be useful to note this iterative formulation sheds some insight on the interpretation of the log posterior density. We can think of $p(\theta_i|\theta_{i+1}^*, ..., \theta_P^*, y)$ as being inversely related to additional information provided by $\theta_i$ to the model, given values of parameters $\theta_{i+1}^*, ..., \theta_P^*$. If the value of $p(\theta_i|\theta_{i+1}^*, ..., \theta_P^*, y)$ is relatively large, then $\theta_i$ provides relatively little information beyond that provided by $\theta_{i+1}, ..., \theta_P$. Thus, if the value of the posterior density as whole is low, there relatively little redundancy between parameters in the model. This serves as yet another penalty of adding parameters to a model, on top of penalties coming from prior assumptions as previously mentioned.
 
 This iterative formulation is by no means novel (a similar formulation was used in \cite{Chib} and \cite{ChibJeliazkov} for Gibbs and Metropolis-Hastings (M-H) samplers, respectively), nor is the method to estimate densities. However, when combined with new MCMC methods, such as No U-Turn Sampling (NUTS), which offer better mixing than  traditional samplers, the described methodology can offer lower-variance unbiased estimates of marginal likelihood compared with Gibbs and M-H samplers for the same number of sampling iterations (and even for similar computational run-times in some cases). Further, since MCMC algorithms like NUTS can be practically used to estimate a more general class of models than Gibbs or M-H samplers, the described methodology can be used to compare models that would otherwise be incomparable with traditional MCMC samplers. The following section presents simulation results that compare the described methodology with methods presented by \cite{Chib} for models that can be estimated with Gibbs sampling to provide evidence that the proposed method can produce unbiased estimates of marginal likelihood. The research then continues to compare models that are difficult or impossible to fit using Gibbs or M-H sampling.
 
@@ -293,17 +296,58 @@ Each of the estimation models was able to successfully select its own data gener
 
 Stochastic frontier models, developed in the seminal paper \cite{AignerLovellSchmidt}, estimate production frontiers under an error specification with one- and two-sided components. Specifically, the model assumes output can be described by
 \begin{equation}
-	y_i = f(x_i) + \ep_i + \delta_i,
+	y_i = T(X_i) + \ep_i + \delta_i,
 \end{equation}
-where $y_i$ is log-output, $x_i$ are inputs, $f$ is some function that transforms inputs to outputs, $\ep_i$ is a two-sided error component (e.g., coming from a normal distribution), and $\delta_i$ is a negative one-sided error component (e.g., coming from a half-normal or exponential distribution). Estimation is simplified when the density of the sum of one- and two-sided error components is known. As detailed in \cite{AignerLovellSchmidt}, when $\ep\sim N(0, \sigma_\ep^2)$ and $\delta\sim N^-(0, \sigma_\delta^2)$, then the error term $v = \ep + \delta$ has the density function
+where $y_i$ is log-output, $x_i$ are inputs, $T$ is some function that transforms inputs to outputs, $\ep_i$ is a two-sided error component (e.g., coming from a normal distribution), and $\delta_i$ is a negative one-sided error component (e.g., coming from a half-normal or exponential distribution). Estimation is simplified when the density of the sum of one- and two-sided error components is known. As detailed in \cite{AignerLovellSchmidt}, when $\ep\sim N(0, \sigma_\ep^2)$ and $\delta\sim N^-(0, \sigma_\delta^2)$, then the error term $v = \ep + \delta$ has the density function
 \begin{equation}
-	f(v) = \frac2\sigma \phi\left(\frac{v}\sigma\right)\left(1 - \Phi\left(\frac{v\lambda}{\sigma}\right)\right),
+	\label{eq:sfDensity}
+	f_{NPHN}(v; \sigma_u, \sigma_v) = \frac2\sigma \phi\left(\frac{v}\sigma\right)\left(1 - \Phi\left(\frac{v\lambda}{\sigma}\right)\right),
 \end{equation}
-where $\sigma^2 = \sigma_\ep^2 + \sigma_\delta^2$, $\lambda = \sigma_\delta / \sigma_\ep$, and $\phi$ and $\Phi$ are standard normal density and distribution functions, respectively. A density function could also be derived if $-\delta$ followed an exponential distribution.
+where $\sigma^2 = \sigma_\ep^2 + \sigma_\delta^2$, $\lambda = \sigma_\delta / \sigma_\ep$, and $\phi$ and $\Phi$ are standard normal density and distribution functions, respectively. The density function $f_{NPHN}$ represents a random variable which is the result of a normal plus half-normal (NPHN) random variables, and we can write $V\sim NPHN(\sigma_u, \sigma_v)$ if $V$ follows the NPHN distribution with parameters $\sigma_u$ and $\sigma_v$.
 
-Even with the exact form of the density function of the error composition, estimation of stochastic frontier models is notoriously difficult in a classical framework. Both maximum likelihood and method of moments routines suffer from numerical instability with these models, making it difficult to estimate parameters or even determine if those algorithms have properly converged. 
+Even with the exact form of the density function of the error composition, estimation of stochastic frontier models is notoriously difficult in a classical framework. Both maximum likelihood and method of moments routines suffer from numerical instability with these models, making it difficult to estimate parameters or even determine if those algorithms have properly converged. Estimating these models in a Bayesian framework using Markov Chain Monte Carlo reduces instability as even a weakly informative prior can help with model identification \citep{VanDenBroeck}.
 
-Parametric specifications of $f$ have traditionally been used, typically in log-linear (each log-transformed input included) or translog (addition of all second-order log terms) form. Non-parametric forms of $f$ have also been recently proposed, such as in \cite{ParmeterRacine}, and typically involve a two-step procedure: First, the mean of the data is fit using some non-parametric method (such as kernel smoothing), then differences between the fitted curve and the observed data are assumed to be of the above form, from which parameters of the one- and two-sided distributions can be estimated. An integral problem with all classical kernel smoothing methods is the choice of the bandwidth matrix. A 
+Parametric specifications of $T$ have traditionally been used, typically in log-linear (each log-transformed input included) or translog (addition of all second-order log terms) form. Non-parametric forms of $T$ have also been recently proposed, such as in \cite{ParmeterRacine}, and typically involve a two-step procedure: First, the mean of the data is fit using some non-parametric method (such as kernel smoothing), then differences between the fitted curve and the observed data are assumed to be of the above form, from which parameters of the one- and two-sided distributions can be estimated. Unfortunately, this model cannot be used with likelihood-based model selection (and cannot even be estimated in a Bayesian framework) since the initial kernel smoothing step does not have an associated likelihood function. Cross-validation methods could be used, but as described in \cref{sec:ModelSelection}, those methods can be relatively data-intensive.
+
+Gaussian processes (GP) offer similar flexibility to kernel smoothing and can be estimated within a Bayesian framework \citep{Rasmussen}. Specifically, a typical GP model has the form
+\begin{subequations}
+\begin{align}
+	\label{eq:GPBase:theta} \theta &\sim g_\theta(\phi_\theta)\\ 
+	\label{eq:GPBase:sigma} \sigma &\sim g_\sigma(\phi_\sigma)\\ 
+	\label{eq:GPBase:f} T(X) &\sim N(0, K_\theta(X))\\ 
+	\label{eq:GPBase:y} y &\sim N(T(X), \sigma^2 I_N). 
+\end{align}
+\end{subequations}
+\Cref{eq:GPBase:theta} and \cref{eq:GPBase:sigma} state the model parameters $\theta$ and $\sigma$ have priors of a form chosen by the researcher. \Cref{eq:GPBase:f} forms a prior over predicted values of $y$ given inputs $X$ and relates those predictions together with covariance kernel $K_\theta$. For a continuous kernel, this formulation assumes that the predicted production function is also continuous. A common choice for $K_\theta$ is the normal kernel, discussed in \cref{sec:KDE}. Finally, \cref{eq:GPBase:y} states that observations of $y$ have a mean of their predicted value, $T(X)$, and are conditionally independent with constant variance. Estimation of a GP yields an estimate for the entire function $T$, whose distribution (in the output space) can be calculated at any point in its domain \citep{RasmussenWilliams}. Since GPs can be estimated in a Bayesian framework, they can be candidates in Bayesian model selection. It is important to note that the flexibility offered by GPs is not without cost in model selection; each predicted value of $T(X)$ represents a parameter in the model. As discussed in \cref{sec:ModelSelection}, each additional parameter included in the model tends to reduce overall marginal likelihood if the parameter does not offer sufficient extra predictive power.
+
+In fact, given the large number of parameters in GP models, it can be difficult, if not impossible, to accurately perform model selection for moderately sized samples using any previously established method. If the sample size is not large, cross-validation may not be feasible and methods using asymptotic results may not be appropriate. Bayesian model selection may be suitable in theory, but given the large number of parameters, existing methods of estimating marginal likelihood may not be reliable. Iterative kernel density estimation presents a technique for consistently estimating marginal likelihood in precisely this type of scenario.
+
+The typical GP model presented above can easily be extended to represent a stochastic frontier. Specifically, rather than assuming the difference between observed and predicted output is normally distributed, one can assume observed errors follow the NPHN distribution, whose density was presented in \cref{eq:sfDensity}. This research utilizes the following model:
+\begin{subequations}
+\label{eq:GPSF}
+\begin{align}
+	\alpha&\sim \Gamma^{-1}(1, 1)\\
+	H_{jj}&\sim \Gamma^{-1}(10, 1) \mbox{\ \ ;\ \ }j=1,...,k\\
+	H_{jl} &= 0 \mbox{\hspace*{4.3em} ;\ \ }j\neq l\\
+	\sigma_u&\sim \Gamma^{-1}(1, 1)\\
+	\sigma_v&\sim \Gamma^{-1}(1, 1)\\
+	T(X)&\sim N(0, K_{\alpha, H}(X))\\
+	y - T(X)&\sim NPHN(\sigma_u, \sigma_v),
+\end{align}
+\end{subequations}
+where $y$ is a $N\times 1$ vector of observations of log-output, $X$ is a $N\times k$ matrix of input observations, and $K_{\alpha, H}$ is a covariance matrix formed using the normal kernel, whose $jl$th element has the form
+\begin{equation}
+	\left(K_{\alpha, H}(X)\right)_{jl} = \alpha^2 \exp\left(X_j' H^{-1} X_l\right),
+\end{equation}
+where $X_j$ is the $j$th row of $X$. Priors were chosen to be relatively diffuse, with the exception of the prior on diagonal elements of the bandwidth matrix $H$, which was chosen so that the resulting GP would be flexible compared to log-linear and translog forms.
+
+To exemplify the ability to select between parametric and non-parametric stochastic frontier models, this research uses data describing cereal production in a variety of countries, made available by the World Bank \citep{WorldBank}. Specifically, the data include observations of 29 countries in 2006, using metric tons of cereal produced as the variable, and five input variables: area of land used for cereal production, total fertilizer consumption, total withdrawals of fresh water used for agriculture, average rainfall, and total number of people working in agriculture. These were used to estimate log-linear, translog, and GP stochastic frontier models. The priors used for the GP stochastic frontier model are exactly as shown in \cref{eq:GPSF}. For log-linear and translog models, constant terms were assumed to have a prior distribution of $N(0, 10)$, slope coefficients had prior distribution $N(0, 1)$, and $\sigma_u$ and $\sigma_v$ both had prior distribution $\Gamma^{-1}(1, 1)$. Mean efficiency estimates for each model are shown in \cref{tab:EfficiencyEstimates}.
+
+\input{tables/Table4.tex}
+
+Marginal likelihoods were calculated for each model using iterative kernel density estimation. Results are shown in \cref{tab:GPSF-ML}, along with numbers of parameters, log-likelihood, log prior, and log posterior densities at mean parameter estimates for each model. As expected, more flexible models result in higher log-likelihood. However, the benefits of predictive power are largely outweighed by penalties from the inclusion of additional parameters, as evidenced by the log-linear model having the highest marginal likelihood. The GP stochastic frontier model presented the second best fit despite having more parameters than the translog; not only did the GP model have better predictive power (as evidenced by higher log-likelihood), but the parameters also served less redundant purposes (as evidenced by lower log posterior). While the most parsimonious model performed best in this example, there are no doubt situations involving more complex relationships between inputs and outputs where benefits of additional flexibility in the functional form outweigh penalties.
+
+\input{tables/Table5.tex}
 
 \section{Conclusion}
 

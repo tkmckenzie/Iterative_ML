@@ -50,13 +50,15 @@ data{
 	real<lower=0> sigma_u;
 	real<lower=0> sigma_v;
 	
+	real<lower=0> beta_const_prior_sd;
+	
 	vector[k] beta;
 }
 parameters{
 	real beta_const;
 }
 model{
-	beta_const ~ normal(0, 10);
+	beta_const ~ normal(0, beta_const_prior_sd);
 	
 	target += normal_plus_halfnormal_lpdf(y - (beta_const + X * beta) | sqrt(sigma_u^2 + sigma_v^2), sigma_u / sigma_v);
 }

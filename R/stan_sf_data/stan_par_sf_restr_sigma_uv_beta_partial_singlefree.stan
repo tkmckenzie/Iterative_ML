@@ -51,6 +51,9 @@ data{
 	real<lower=0> sigma_u;
 	real<lower=0> sigma_v;
 	
+	real<lower=0> beta_const_prior_sd;
+	real<lower=0> beta_prior_sd;
+	
 	vector[k_restricted] beta_restricted;
 }
 parameters{
@@ -63,8 +66,8 @@ transformed parameters{
 	beta = append_row(beta_restricted, beta_free);
 }
 model{
-	beta_const ~ normal(0, 10);
-	beta_free ~ normal(0, 1);
+	beta_const ~ normal(0, beta_const_prior_sd);
+	beta_free ~ normal(0, beta_prior_sd);
 	
 	target += normal_plus_halfnormal_lpdf(y - (beta_const + X * beta) | sqrt(sigma_u^2 + sigma_v^2), sigma_u / sigma_v);
 }

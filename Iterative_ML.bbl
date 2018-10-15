@@ -149,6 +149,12 @@ Portnoy, S. and R.~Koenker (1989).
 \newblock Adaptive l-estimation for linear models.
 \newblock {\em The Annals of Statistics\/}, 362--381.
 
+\bibitem[\protect\citeauthoryear{Rasmussen}{Rasmussen}{2004}]{Rasmussen}
+Rasmussen, C.~E. (2004).
+\newblock Gaussian processes in machine learning.
+\newblock In {\em Advanced lectures on machine learning}, pp.\  63--71.
+  Springer.
+
 \bibitem[\protect\citeauthoryear{Schwarz et~al.}{Schwarz
   et~al.}{1978}]{Schwarz}
 Schwarz, G. et~al. (1978).
@@ -185,5 +191,23 @@ Slate, E.~H. (1994).
 {Stan Development Team} (2016).
 \newblock {RStan}: the {R} interface to {Stan}.
 \newblock R package version 2.14.1.
+
+\bibitem[\protect\citeauthoryear{{The World Bank}}{{The World
+  Bank}}{2018}]{WorldBank}
+{The World Bank} (2018).
+\newblock World development indicators.
+
+\bibitem[\protect\citeauthoryear{Van~den Broeck, Koop, Osiewalski, and
+  Steel}{Van~den Broeck et~al.}{1994}]{VanDenBroeck}
+Van~den Broeck, J., G.~Koop, J.~Osiewalski, and M.~F. Steel (1994).
+\newblock Stochastic frontier models: A bayesian perspective.
+\newblock {\em Journal of Econometrics\/}~{\em 61\/}(2), 273--303.
+
+\bibitem[\protect\citeauthoryear{Williams and Rasmussen}{Williams and
+  Rasmussen}{1996}]{RasmussenWilliams}
+Williams, C.~K. and C.~E. Rasmussen (1996).
+\newblock Gaussian processes for regression.
+\newblock In {\em Advances in neural information processing systems}, pp.\
+  514--520.
 
 \end{thebibliography}

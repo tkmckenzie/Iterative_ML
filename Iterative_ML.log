@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.6.2)  12 OCT 2018 17:21
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.6.2)  14 OCT 2018 20:05
 entering extended mode
 **./Iterative_ML.tex
 (Iterative_ML.tex
@@ -523,82 +523,69 @@ Underfull \hbox (badness 1609) in paragraph at lines 71--72
  []
 
 [2] [3]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Underfull \hbox (badness 1430) in paragraph at lines 127--128
+Underfull \hbox (badness 1430) in paragraph at lines 128--129
 \OT1/cmr/m/n/10 Bayesian frame-work can be com-pared via their
  []
 
 [4]
-Underfull \hbox (badness 10000) in paragraph at lines 157--158
+Underfull \hbox (badness 10000) in paragraph at lines 158--159
 []\OT1/cmr/m/n/10 Re-estimate the model, set-ting
  []
 
 
-Underfull \hbox (badness 1540) in paragraph at lines 167--168
+Underfull \hbox (badness 1540) in paragraph at lines 170--171
 \OT1/cmr/m/n/10 This sec-tion presents sim-u-la-tion re-sults to first
  []
 
 
-Underfull \hbox (badness 2285) in paragraph at lines 167--168
+Underfull \hbox (badness 2285) in paragraph at lines 170--171
 \OT1/cmr/m/n/10 il-lus-trate the un-bi-ased, lower-variance es-ti-mates
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 169--169
+[5]
+Underfull \hbox (badness 10000) in paragraph at lines 172--172
 []\OT1/cmr/bx/n/12 Multivariate Nor-mal Lin-ear
  []
 
 (tables/Table1.tex)
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [5]
-Underfull \hbox (badness 1609) in paragraph at lines 178--181
+Underfull \hbox (badness 1609) in paragraph at lines 181--184
 \OT1/cmr/m/n/10 con-stant columns of ones and two in-de-pen-dent
  []
 
-
-Underfull \vbox (badness 4805) has occurred while \output is active []
-
- [6]
-(tables/Bridge.tex) [7]
-Underfull \hbox (badness 1565) in paragraph at lines 250--252
+[6] [7] (tables/Bridge.tex)
+Underfull \hbox (badness 1565) in paragraph at lines 253--255
 \OT1/cmr/m/n/10 the sum $[][] [] []$ reg-u-
  []
 
-(tables/Table2.tex
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-) [8]
-(tables/Table3.tex)
-<Probit-Logit-Fitted.pdf, id=42, 289.08pt x 289.08pt>
+(tables/Table2.tex) [8] [9] (tables/Table3.tex)
+<Probit-Logit-Fitted.pdf, id=45, 289.08pt x 289.08pt>
 File: Probit-Logit-Fitted.pdf Graphic file (type pdf)
 <use Probit-Logit-Fitted.pdf>
-Package pdftex.def Info: Probit-Logit-Fitted.pdf  used on input line 283.
+Package pdftex.def Info: Probit-Logit-Fitted.pdf  used on input line 286.
 (pdftex.def)             Requested size: 229.8775pt x 229.87483pt.
- [9]
-Underfull \hbox (badness 10000) in paragraph at lines 290--290
+
+Underfull \hbox (badness 10000) in paragraph at lines 293--293
 []\OT1/cmr/bx/n/14.4 Parametric and Non-
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-
-Underfull \hbox (badness 1810) in paragraph at lines 306--307
-[]\OT1/cmr/m/n/10 Parametric spec-i-fi-ca-tions of $\OML/cmm/m/it/10 f$ \OT1/cm
+ [10 <./Probit-Logit-Fitted.pdf>]
+Underfull \hbox (badness 1515) in paragraph at lines 310--311
+[]\OT1/cmr/m/n/10 Parametric spec-i-fi-ca-tions of $\OML/cmm/m/it/10 T$ \OT1/cm
 r/m/n/10 have tra-di-tion-
  []
 
-[10 <./Probit-Logit-Fitted.pdf>] (Iterative_ML.bbl [11]) [12
+[11] (tables/Table4.tex) (tables/Table5.tex) (Iterative_ML.bbl [12] [13]
+[14]) [15
 
 ] (Iterative_ML.aux) ) 
 Here is how much of TeX's memory you used:
- 14495 strings out of 493305
- 262898 string characters out of 3138860
- 297969 words of memory out of 3000000
- 17949 multiletter control sequences out of 15000+200000
+ 14531 strings out of 493305
+ 263614 string characters out of 3138860
+ 300633 words of memory out of 3000000
+ 17979 multiletter control sequences out of 15000+200000
  538992 words of font info for 50 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,11n,63p,1902b,275s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -617,9 +604,9 @@ ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program File
 s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 
 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/font
 s/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Iterative_ML.pdf (12 pages, 264044 bytes).
+Output written on Iterative_ML.pdf (15 pages, 277801 bytes).
 PDF statistics:
- 111 PDF objects out of 1000 (max. 8388607)
+ 121 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 

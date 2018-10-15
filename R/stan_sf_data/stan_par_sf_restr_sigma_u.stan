@@ -48,6 +48,12 @@ data{
 	matrix[N, k] X;
 	
 	real<lower=0> sigma_u;
+	
+	real<lower=0> beta_const_prior_sd;
+	real<lower=0> beta_prior_sd;
+	
+	real<lower=0> sigma_v_prior_shape;
+	real<lower=0> sigma_v_prior_rate;
 }
 parameters{
 	real beta_const;
@@ -56,9 +62,9 @@ parameters{
 	real<lower=0> sigma_v;
 }
 model{
-	beta_const ~ normal(0, 10);
-	beta ~ normal(0, 1);
-	sigma_v ~ normal(0, 1);
+	beta_const ~ normal(0, beta_const_prior_sd);
+	beta ~ normal(0, beta_prior_sd);
+	sigma_v ~ inv_gamma(sigma_v_prior_shape, sigma_v_prior_rate);
 	
 	target += normal_plus_halfnormal_lpdf(y - (beta_const + X * beta) | sqrt(sigma_u^2 + sigma_v^2), sigma_u / sigma_v);
 }

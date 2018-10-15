@@ -200,3 +200,136 @@ table = print.xtable(table,
                      include.rownames = FALSE,
                      include.colnames = FALSE)
 cat(table, file = "../../tables/Table3.tex")
+
+##############################
+#Table 4: Efficiency estimates
+load("../stan_sf_data/data.RData")
+num.countries = length(countries)
+
+table.matrix = matrix(NA, nrow = num.countries + 2, ncol = 4)
+table.matrix[1,] = c("\\multicolumn{1}{c}{}", "\\multicolumn{1}{c}{}", "\\multicolumn{1}{c}{Efficiency}", "\\multicolumn{1}{c}{}")
+table.matrix[2,] = c("\\multicolumn{1}{c}{Country}", "\\multicolumn{1}{c}{Log-linear}", "\\multicolumn{1}{c}{Translog}", "\\multicolumn{1}{c}{GP}")
+table.matrix[3:nrow(table.matrix),1] = countries
+
+#Log-linear
+u.mean = function(i){
+  epsilon = y - (stan.extract$beta_const[i] + X %*% stan.extract$beta[i,])
+  sigma.u = stan.extract$sigma_u[i]
+  sigma.v = stan.extract$sigma_v[i]
+  
+  sigma.sq = sigma.u^2 + sigma.v^2
+  sigma = sqrt(sigma.sq)
+  
+  mu.star = -sigma.u^2 * epsilon / sigma.sq
+  sigma.sq.star = sigma.u^2 * sigma.v^2 / sigma.sq
+  sigma.star = sqrt(sigma.sq.star)
+  
+  lambda = sigma.u / sigma.v
+  
+  eval.point = epsilon * lambda / sigma
+  
+  # return(mu.star + sigma.star * dnorm(-mu.star / sigma.star) / (1 - pnorm(-mu.star / sigma.star)))
+  return(-sigma.star * (dnorm(eval.point) / (1 - pnorm(eval.point)) - eval.point))
+}
+
+load("../stan_sf_data/stan_par_fits/stan_par_sf_unconditional.RData")
+stan.extract = extract(stan.fit)
+sample.iter = stan.fit@sim$iter - stan.fit@sim$warmup
+
+u.posterior = t(sapply(1:sample.iter, u.mean))
+table.matrix[3:nrow(table.matrix),2] = round(apply(exp(u.posterior), 2, mean), round.digits)
+
+#Translog
+load("../stan_sf_data/stan_par_translog_fits/stan_par_sf_unconditional.RData")
+stan.extract = extract(stan.fit)
+sample.iter = stan.fit@sim$iter - stan.fit@sim$warmup
+
+X.temp = X
+
+combos = combn(ncol(X), 2)
+X = cbind(X, X^2,
+          sapply(1:ncol(combos), function(i) X[,combos[1,i]] * X[,combos[2,i]]))
+
+u.posterior = t(sapply(1:sample.iter, u.mean))
+table.matrix[3:nrow(table.matrix),3] = round(apply(exp(u.posterior), 2, mean), round.digits)
+
+X = X.temp
+
+#GP
+load("../stan_sf_data/stan_gp_fits/priors.RData")
+u.mean = function(i){
+  epsilon = y - stan.extract$f[i,] - y.mean
+  sigma.u = stan.extract$sigma_u[i]
+  sigma.v = stan.extract$sigma_v[i]
+  
+  sigma.sq = sigma.u^2 + sigma.v^2
+  sigma = sqrt(sigma.sq)
+  
+  mu.star = -sigma.u^2 * epsilon / sigma.sq
+  sigma.sq.star = sigma.u^2 * sigma.v^2 / sigma.sq
+  sigma.star = sqrt(sigma.sq.star)
+  
+  lambda = sigma.u / sigma.v
+  
+  eval.point = epsilon * lambda / sigma
+  
+  # return(mu.star + sigma.star * dnorm(-mu.star / sigma.star) / (1 - pnorm(-mu.star / sigma.star)))
+  return(-sigma.star * (dnorm(eval.point) / (1 - pnorm(eval.point)) - eval.point))
+}
+
+load("../stan_sf_data/stan_gp_fits/stan_gp_sf_unconditional.RData")
+stan.extract = extract(stan.fit)
+sample.iter = stan.fit@sim$iter - stan.fit@sim$warmup
+
+u.posterior = t(sapply(1:sample.iter, u.mean))
+
+table.matrix[3:nrow(table.matrix),4] = round(apply(exp(u.posterior), 2, mean), round.digits)
+
+#Write LaTeX table
+table = xtable(table.matrix,
+               align = c("l", "l", "|c", "|c", "|c"),
+               caption = "Mean Efficiency Estimates",
+               label = "tab:EfficiencyEstimates")
+table = print.xtable(table,
+                     floating.environment = "table*",
+                     table.placement = NULL,
+                     hline.after = c(2, 2, nrow(table.matrix)),
+                     add.to.row = list(pos = list(1), command = "\\cline{2-4}"),
+                     sanitize.text.function = identity,
+                     include.rownames = FALSE,
+                     include.colnames = FALSE)
+cat(table, file = "../../tables/Table4.tex")
+
+##############################
+#Table 5: Marginal likelihood results
+table.matrix = matrix(NA, nrow = 5, ncol = 6)
+table.matrix[1,] = c("", "", "Log", "Log", "Log", "Log Marginal")
+table.matrix[2,] = c("Model", "\\# Parameters", "Likelihood", "Prior", "Posterior", "Likelihood")
+
+load("../stan_sf_data/data.RData")
+
+source("../stan_sf_data/par_sf_fit_ml_calc.R")
+table.matrix[3,] = c("Log-Linear", ncol(X) + 3, round(log.lik, round.digits), round(log.prior, round.digits), round(log.posterior, round.digits), round(log.lik + log.prior - log.posterior, round.digits))
+setwd("~/git/Iterative_ML/R/create_tables")
+
+source("../stan_sf_data/par_translog_sf_fit_ml_calc.R")
+table.matrix[4,] = c("Translog", ncol(X) + 3, round(log.lik, round.digits), round(log.prior, round.digits), round(log.posterior, round.digits), round(log.lik + log.prior - log.posterior, round.digits))
+setwd("~/git/Iterative_ML/R/create_tables")
+
+source("../stan_sf_data/gp_sf_fit_ml_calc.R")
+table.matrix[5,] = c("GP", nrow(X) + ncol(X) + 3, round(log.lik, round.digits), round(log.prior, round.digits), round(log.posterior, round.digits), round(log.lik + log.prior - log.posterior, round.digits))
+setwd("~/git/Iterative_ML/R/create_tables")
+
+#Write LaTeX table
+table = xtable(table.matrix,
+               align = c("l", "l", "|c", "|c", "|c", "|c", "|c"),
+               caption = "Marginal Likelihood Estimates",
+               label = "tab:GPSF-ML")
+table = print.xtable(table,
+                     floating.environment = "table*",
+                     table.placement = NULL,
+                     hline.after = c(2, 2, nrow(table.matrix)),
+                     sanitize.text.function = identity,
+                     include.rownames = FALSE,
+                     include.colnames = FALSE)
+cat(table, file = "../../tables/Table5.tex")

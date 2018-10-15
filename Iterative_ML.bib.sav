@@ -1,0 +1,417 @@
+% Encoding: UTF-8
+
+@Article{Chib,
+  author    = {Chib, Siddhartha},
+  title     = {Marginal likelihood from the Gibbs output},
+  journal   = {Journal of the american statistical association},
+  year      = {1995},
+  volume    = {90},
+  number    = {432},
+  pages     = {1313--1321},
+  publisher = {Taylor \& Francis Group},
+}
+
+@Article{ChibJeliazkov,
+  author    = {Chib, Siddhartha and Jeliazkov, Ivan},
+  title     = {Marginal likelihood from the Metropolis--Hastings output},
+  journal   = {Journal of the American Statistical Association},
+  year      = {2001},
+  volume    = {96},
+  number    = {453},
+  pages     = {270--281},
+  publisher = {Taylor \& Francis},
+}
+
+@Article{NUTS,
+  author  = {Hoffman, Matthew D and Gelman, Andrew},
+  title   = {The No-U-turn sampler: adaptively setting path lengths in Hamiltonian Monte Carlo.},
+  journal = {Journal of Machine Learning Research},
+  year    = {2014},
+  volume  = {15},
+  number  = {1},
+  pages   = {1593--1623},
+}
+
+@Book{Berger,
+  title     = {Statistical decision theory and Bayesian analysis},
+  publisher = {Springer Science \& Business Media},
+  year      = {2013},
+  author    = {Berger, James O},
+}
+
+@Article{KassRaftery,
+  author    = {Kass, Robert E and Raftery, Adrian E},
+  title     = {Bayes factors},
+  journal   = {Journal of the american statistical association},
+  year      = {1995},
+  volume    = {90},
+  number    = {430},
+  pages     = {773--795},
+  publisher = {Taylor \& Francis Group},
+}
+
+@Article{Akaike,
+  author    = {Akaike, Hirotugu},
+  title     = {A new look at the statistical model identification},
+  journal   = {IEEE transactions on automatic control},
+  year      = {1974},
+  volume    = {19},
+  number    = {6},
+  pages     = {716--723},
+  publisher = {Ieee},
+}
+
+@Article{Schwarz,
+  author    = {Schwarz, Gideon and others},
+  title     = {Estimating the dimension of a model},
+  journal   = {The annals of statistics},
+  year      = {1978},
+  volume    = {6},
+  number    = {2},
+  pages     = {461--464},
+  publisher = {Institute of Mathematical Statistics},
+}
+
+@Book{Greene,
+  title     = {Econometric analysis},
+  publisher = {Pearson Education India},
+  year      = {2003},
+  author    = {Greene, William H},
+}
+
+@Article{Allen,
+  author    = {Allen, David M},
+  title     = {Mean square error of prediction as a criterion for selecting variables},
+  journal   = {Technometrics},
+  year      = {1971},
+  volume    = {13},
+  number    = {3},
+  pages     = {469--475},
+  publisher = {Taylor \& Francis Group},
+}
+
+@Article{Golub,
+  author    = {Golub, Gene H and Heath, Michael and Wahba, Grace},
+  title     = {Generalized cross-validation as a method for choosing a good ridge parameter},
+  journal   = {Technometrics},
+  year      = {1979},
+  volume    = {21},
+  number    = {2},
+  pages     = {215--223},
+  publisher = {Taylor \& Francis},
+}
+
+@InProceedings{Kohavi,
+  author       = {Kohavi, Ron and others},
+  title        = {A study of cross-validation and bootstrap for accuracy estimation and model selection},
+  booktitle    = {IJCAI},
+  year         = {1995},
+  volume       = {14},
+  number       = {2},
+  pages        = {1137--1145},
+  organization = {Montreal, Canada},
+}
+
+@Article{Arlot,
+  author    = {Arlot, Sylvain and Celisse, Alain and others},
+  title     = {A survey of cross-validation procedures for model selection},
+  journal   = {Statistics surveys},
+  year      = {2010},
+  volume    = {4},
+  pages     = {40--79},
+  publisher = {The author, under a Creative Commons Attribution License},
+}
+
+@Article{George,
+  author    = {George, Edward I and McCulloch, Robert E},
+  title     = {Variable selection via Gibbs sampling},
+  journal   = {Journal of the American Statistical Association},
+  year      = {1993},
+  volume    = {88},
+  number    = {423},
+  pages     = {881--889},
+  publisher = {Taylor \& Francis Group},
+}
+
+@InCollection{Geman,
+  author    = {Geman, Stuart and Geman, Donald},
+  title     = {Stochastic relaxation, Gibbs distributions, and the Bayesian restoration of images},
+  booktitle = {Readings in Computer Vision},
+  publisher = {Elsevier},
+  year      = {1987},
+  pages     = {564--584},
+}
+
+@Article{TannerWong,
+  author    = {Tanner, Martin A and Wong, Wing Hung},
+  title     = {The calculation of posterior distributions by data augmentation},
+  journal   = {Journal of the American statistical Association},
+  year      = {1987},
+  volume    = {82},
+  number    = {398},
+  pages     = {528--540},
+  publisher = {Taylor \& Francis Group},
+}
+
+@Article{Rubin,
+  author    = {Rubin, Donald B},
+  title     = {Using the SIR algorithm to simulate posterior distributions},
+  journal   = {Bayesian statistics},
+  year      = {1988},
+  volume    = {3},
+  pages     = {395--402},
+  publisher = {Oxford University Press},
+}
+
+@Article{GelfandSmith,
+  author    = {Gelfand, Alan E and Smith, Adrian FM},
+  title     = {Sampling-based approaches to calculating marginal densities},
+  journal   = {Journal of the American statistical association},
+  year      = {1990},
+  volume    = {85},
+  number    = {410},
+  pages     = {398--409},
+  publisher = {Taylor \& Francis Group},
+}
+
+@Article{ChibGreenberg,
+  author    = {Chib, Siddhartha and Greenberg, Edward},
+  title     = {Understanding the metropolis-hastings algorithm},
+  journal   = {The american statistician},
+  year      = {1995},
+  volume    = {49},
+  number    = {4},
+  pages     = {327--335},
+  publisher = {Taylor \& Francis Group},
+}
+
+@Book{Silverman,
+  title     = {Density estimation for statistics and data analysis},
+  publisher = {Routledge},
+  year      = {2018},
+  author    = {Silverman, Bernard W},
+}
+
+@Article{Portnoy,
+  author    = {Portnoy, Stephen and Koenker, Roger},
+  title     = {Adaptive L-estimation for linear models},
+  journal   = {The Annals of Statistics},
+  year      = {1989},
+  pages     = {362--381},
+  publisher = {JSTOR},
+}
+
+@Article{Beran,
+  author    = {Beran, Rudolf},
+  title     = {Asymptotically efficient adaptive rank estimates in location models},
+  journal   = {The Annals of Statistics},
+  year      = {1974},
+  pages     = {63--74},
+  publisher = {JSTOR},
+}
+
+@Misc{SilvermanDE,
+  author    = {Silverman, BS},
+  title     = {Density Estimation for Statistical Analysis},
+  year      = {1986},
+  publisher = {New York: Chapman and Hall},
+}
+
+@Misc{rstan,
+  author = {{Stan Development Team}},
+  title  = {{RStan}: the {R} interface to {Stan}},
+  year   = {2016},
+  note   = {R package version 2.14.1},
+  url    = {http://mc-stan.org/},
+}
+
+@Article{AignerLovellSchmidt,
+  author    = {Aigner, Dennis and Lovell, CA Knox and Schmidt, Peter},
+  title     = {Formulation and estimation of stochastic frontier production function models},
+  journal   = {Journal of econometrics},
+  year      = {1977},
+  volume    = {6},
+  number    = {1},
+  pages     = {21--37},
+  publisher = {Elsevier},
+}
+
+@Article{ParmeterRacine,
+  author    = {Du, Pang and Parmeter, Christopher F and Racine, Jeffrey S},
+  title     = {Nonparametric kernel regression with multiple predictors and multiple shape constraints},
+  journal   = {Statistica Sinica},
+  year      = {2013},
+  pages     = {1347--1371},
+  publisher = {JSTOR},
+}
+
+@Article{VanDenBroeck,
+  author    = {Van den Broeck, Julien and Koop, Gary and Osiewalski, Jacek and Steel, Mark FJ},
+  title     = {Stochastic frontier models: A Bayesian perspective},
+  journal   = {Journal of Econometrics},
+  year      = {1994},
+  volume    = {61},
+  number    = {2},
+  pages     = {273--303},
+  publisher = {Elsevier},
+}
+
+@Article{Morgan,
+  author    = {Morgan, WA},
+  title     = {A test for the significance of the difference between the two variances in a sample from a normal bivariate population},
+  journal   = {Biometrika},
+  year      = {1939},
+  volume    = {31},
+  number    = {1/2},
+  pages     = {13--19},
+  publisher = {JSTOR},
+}
+
+@Article{Bollen,
+  author    = {Bollen, Kenneth A and Ray, Surajit and Zavisca, Jane and Harden, Jeffrey J},
+  title     = {A comparison of Bayes factor approximation methods including two new methods},
+  journal   = {Sociological Methods \& Research},
+  year      = {2012},
+  volume    = {41},
+  number    = {2},
+  pages     = {294--324},
+  publisher = {Sage Publications Sage CA: Los Angeles, CA},
+}
+
+@Article{Slate,
+  author    = {Slate, Elizabeth H},
+  title     = {Parameterizations for natural exponential families with quadratic variance functions},
+  journal   = {Journal of the American Statistical Association},
+  year      = {1994},
+  volume    = {89},
+  number    = {428},
+  pages     = {1471--1482},
+  publisher = {Taylor \& Francis Group},
+}
+
+@Article{GenzKass,
+  author    = {Genz, Alan and Kass, Robert E},
+  title     = {Subregion-adaptive integration of functions having a dominant peak},
+  journal   = {Journal of Computational and Graphical Statistics},
+  year      = {1997},
+  volume    = {6},
+  number    = {1},
+  pages     = {92--111},
+  publisher = {Taylor \& Francis Group},
+}
+
+@Article{NewtonRaferty,
+  author    = {Newton, Michael A and Raftery, Adrian E},
+  title     = {Approximate Bayesian inference with the weighted likelihood bootstrap},
+  journal   = {Journal of the Royal Statistical Society. Series B (Methodological)},
+  year      = {1994},
+  pages     = {3--48},
+  publisher = {JSTOR},
+}
+
+@Book{Scott,
+  title     = {Multivariate density estimation: theory, practice, and visualization},
+  publisher = {John Wiley \& Sons},
+  year      = {2015},
+  author    = {Scott, David W},
+}
+
+@Article{SheatherJones,
+  author    = {Sheather, Simon J and Jones, Michael C},
+  title     = {A reliable data-based bandwidth selection method for kernel density estimation},
+  journal   = {Journal of the Royal Statistical Society. Series B (Methodological)},
+  year      = {1991},
+  pages     = {683--690},
+  publisher = {JSTOR},
+}
+
+@Article{MengWong,
+  author    = {Meng, Xiao-Li and Wong, Wing Hung},
+  title     = {Simulating ratios of normalizing constants via a simple identity: a theoretical exploration},
+  journal   = {Statistica Sinica},
+  year      = {1996},
+  pages     = {831--860},
+  publisher = {JSTOR},
+}
+
+@Misc{ScottSain,
+  author    = {Scott, DW and Sain, SR},
+  title     = {Multi-dimensional density estimation Handbook of Statistics vol 23 Data Mining and Computational Statistics ed CR Rao and EJ Wegman},
+  year      = {2004},
+  publisher = {Amsterdam: Elsevier},
+}
+
+@InProceedings{LiuLafferty,
+  author    = {Liu, Han and Lafferty, John and Wasserman, Larry},
+  title     = {Sparse nonparametric density estimation in high dimensions using the rodeo},
+  booktitle = {Artificial Intelligence and Statistics},
+  year      = {2007},
+  pages     = {283--290},
+}
+
+@Article{Hoffman2014,
+  author  = {Hoffman, Matthew D and Gelman, Andrew},
+  title   = {The No-U-turn sampler: adaptively setting path lengths in Hamiltonian Monte Carlo.},
+  journal = {Journal of Machine Learning Research},
+  year    = {2014},
+  volume  = {15},
+  number  = {1},
+  pages   = {1593--1623},
+}
+
+@Article{Gilks,
+  author    = {Gilks, Wally R and Best, NG and Tan, KKC},
+  title     = {Adaptive rejection Metropolis sampling within Gibbs sampling},
+  journal   = {Applied Statistics},
+  year      = {1995},
+  pages     = {455--472},
+  publisher = {JSTOR},
+}
+
+@Article{Lenth,
+  author    = {Lenth, Russell V},
+  title     = {Some practical guidelines for effective sample size determination},
+  journal   = {The American Statistician},
+  year      = {2001},
+  volume    = {55},
+  number    = {3},
+  pages     = {187--193},
+  publisher = {Taylor \& Francis},
+}
+
+@Article{Girolami,
+  author    = {Girolami, Mark and Calderhead, Ben},
+  title     = {Riemann manifold langevin and hamiltonian monte carlo methods},
+  journal   = {Journal of the Royal Statistical Society: Series B (Statistical Methodology)},
+  year      = {2011},
+  volume    = {73},
+  number    = {2},
+  pages     = {123--214},
+  publisher = {Wiley Online Library},
+}
+
+@InCollection{Rasmussen,
+  author    = {Rasmussen, Carl Edward},
+  title     = {Gaussian processes in machine learning},
+  booktitle = {Advanced lectures on machine learning},
+  publisher = {Springer},
+  year      = {2004},
+  pages     = {63--71},
+}
+
+@InProceedings{RasmussenWilliams,
+  author    = {Williams, Christopher KI and Rasmussen, Carl Edward},
+  title     = {Gaussian processes for regression},
+  booktitle = {Advances in neural information processing systems},
+  year      = {1996},
+  pages     = {514--520},
+}
+
+@Misc{WorldBank,
+  author = {{The World Bank}},
+  title  = {Life},
+  year   = {2018},
+  url    = {http://databank.worldbank.org/data/reports.aspx?source=world-development-indicators},
+}
+
+@Comment{jabref-meta: databaseType:bibtex;}

@@ -245,7 +245,7 @@
   publisher = {JSTOR},
 }
 
-@Article{VenDenBroeck,
+@Article{VanDenBroeck,
   author    = {Van den Broeck, Julien and Koop, Gary and Osiewalski, Jacek and Steel, Mark FJ},
   title     = {Stochastic frontier models: A Bayesian perspective},
   journal   = {Journal of Econometrics},
@@ -349,7 +349,7 @@
   pages     = {283--290},
 }
 
-@Article{NUTS,
+@Article{Hoffman2014,
   author  = {Hoffman, Matthew D and Gelman, Andrew},
   title   = {The No-U-turn sampler: adaptively setting path lengths in Hamiltonian Monte Carlo.},
   journal = {Journal of Machine Learning Research},
@@ -377,6 +377,41 @@
   number    = {3},
   pages     = {187--193},
   publisher = {Taylor \& Francis},
+}
+
+@Article{Girolami,
+  author    = {Girolami, Mark and Calderhead, Ben},
+  title     = {Riemann manifold langevin and hamiltonian monte carlo methods},
+  journal   = {Journal of the Royal Statistical Society: Series B (Statistical Methodology)},
+  year      = {2011},
+  volume    = {73},
+  number    = {2},
+  pages     = {123--214},
+  publisher = {Wiley Online Library},
+}
+
+@InCollection{Rasmussen,
+  author    = {Rasmussen, Carl Edward},
+  title     = {Gaussian processes in machine learning},
+  booktitle = {Advanced lectures on machine learning},
+  publisher = {Springer},
+  year      = {2004},
+  pages     = {63--71},
+}
+
+@InProceedings{RasmussenWilliams,
+  author    = {Williams, Christopher KI and Rasmussen, Carl Edward},
+  title     = {Gaussian processes for regression},
+  booktitle = {Advances in neural information processing systems},
+  year      = {1996},
+  pages     = {514--520},
+}
+
+@Misc{WorldBank,
+  author = {{The World Bank}},
+  title  = {World development indicators},
+  year   = {2018},
+  url    = {http://databank.worldbank.org/data/reports.aspx?source=world-development-indicators},
 }
 
 @Comment{jabref-meta: databaseType:bibtex;}
