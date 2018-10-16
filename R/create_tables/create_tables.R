@@ -238,6 +238,7 @@ sample.iter = stan.fit@sim$iter - stan.fit@sim$warmup
 
 u.posterior = t(sapply(1:sample.iter, u.mean))
 table.matrix[3:nrow(table.matrix),2] = round(apply(exp(u.posterior), 2, mean), round.digits)
+mean(apply(exp(u.posterior), 2, mean))
 
 #Translog
 load("../stan_sf_data/stan_par_translog_fits/stan_par_sf_unconditional.RData")
@@ -252,6 +253,8 @@ X = cbind(X, X^2,
 
 u.posterior = t(sapply(1:sample.iter, u.mean))
 table.matrix[3:nrow(table.matrix),3] = round(apply(exp(u.posterior), 2, mean), round.digits)
+
+mean(apply(exp(u.posterior), 2, mean))
 
 X = X.temp
 
@@ -282,8 +285,9 @@ stan.extract = extract(stan.fit)
 sample.iter = stan.fit@sim$iter - stan.fit@sim$warmup
 
 u.posterior = t(sapply(1:sample.iter, u.mean))
-
 table.matrix[3:nrow(table.matrix),4] = round(apply(exp(u.posterior), 2, mean), round.digits)
+
+mean(apply(exp(u.posterior), 2, mean))
 
 #Write LaTeX table
 table = xtable(table.matrix,
@@ -327,7 +331,7 @@ table = xtable(table.matrix,
                label = "tab:GPSF-ML")
 table = print.xtable(table,
                      floating.environment = "table*",
-                     table.placement = NULL,
+                     table.placement = "!h",
                      hline.after = c(2, 2, nrow(table.matrix)),
                      sanitize.text.function = identity,
                      include.rownames = FALSE,
