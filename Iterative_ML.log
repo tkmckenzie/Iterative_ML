@@ -1,12 +1,12 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.8.18)  16 OCT 2018 15:53
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.6.2)  17 OCT 2018 07:02
 entering extended mode
 **./Iterative_ML.tex
 (Iterative_ML.tex
 LaTeX2e <2017-04-15>
-Babel <3.10> and hyphenation patterns for 75 language(s) loaded.
-("C:\Users\tmcken\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\article.cls"
+Babel <3.18> and hyphenation patterns for 75 language(s) loaded.
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\article.cls"
 Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
-("C:\Users\tmcken\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\size10.clo"
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\size10.clo"
 File: size10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
@@ -20,34 +20,28 @@ File: size10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 \abovecaptionskip=\skip41
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
-) ("C:\Program Files\MiKTeX 2.9\tex\latex\preprint\fullpage.sty"
+)
+(C:\Users\tkmckenzie\AppData\Roaming\MiKTeX\2.9\tex\latex\preprint\fullpage.sty
 Package: fullpage 1999/02/23 1.1 (PWD)
 \FP@margin=\skip43
-)
-("C:\Users\tmcken\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsmath\amsmath.s
-ty"
-Package: amsmath 2016/11/05 v2.16a AMS math features
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsmath.sty"
+Package: amsmath 2017/09/02 v2.17a AMS math features
 \@mathmargin=\skip44
 
 For additional information on amsmath, use the `?' option.
-
-("C:\Users\tmcken\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsmath\amstext.s
-ty"
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amstext.sty"
 Package: amstext 2000/06/29 v2.01 AMS text
 
-("C:\Users\tmcken\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsmath\amsgen.st
-y"
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsgen.sty"
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks14
 \ex@=\dimen103
 ))
-("C:\Users\tmcken\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsmath\amsbsy.st
-y"
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsbsy.sty"
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 \pmbraise@=\dimen104
 )
-("C:\Users\tmcken\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsmath\amsopn.st
-y"
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsopn.sty"
 Package: amsopn 2016/03/08 v2.02 operator names
 )
 \inf@bad=\count87
@@ -88,115 +82,95 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
 LaTeX Info: Redefining \[ on input line 2817.
 LaTeX Info: Redefining \] on input line 2818.
 )
-("C:\Users\tmcken\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\amssymb.
-sty"
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\amssymb.sty"
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
 
-("C:\Users\tmcken\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\amsfonts
-.sty"
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\amsfonts.sty"
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 ))
-("C:\Users\tmcken\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\graphicx
-.sty"
-Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
+Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
 
-("C:\Users\tmcken\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\keyval.s
-ty"
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks19
 )
-("C:\Users\tmcken\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\graphics
-.sty"
-Package: graphics 2017/04/14 v1.1b Standard LaTeX Graphics (DPC,SPQR)
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
+Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
 
-("C:\Users\tmcken\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\trig.sty
-"
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\trig.sty"
 Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
 )
-("C:\Users\tmcken\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics-cfg\grap
-hics.cfg"
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics-cfg\graphics.cfg"
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 99.
 
-("C:\Users\tmcken\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics-def\pdft
-ex.def"
-File: pdftex.def 2017/01/12 v0.06k Graphics/color for pdfTeX
-
-("C:\Users\tmcken\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\infwar
-err.sty"
-Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
-)
-("C:\Users\tmcken\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\ltxcmd
-s.sty"
-Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
-)
-\Gread@gobject=\count99
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics-def\pdftex.def"
+File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
 ))
 \Gin@req@height=\dimen112
 \Gin@req@width=\dimen113
 )
-("C:\Users\tmcken\AppData\Local\Programs\MiKTeX 2.9\tex\latex\float\float.sty"
+("C:\Program Files\MiKTeX 2.9\tex\latex\float\float.sty"
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count100
+\c@float@type=\count99
 \float@exts=\toks20
 \float@box=\box28
 \@float@everytoks=\toks21
 \@floatcapt=\box29
-) ("C:\Users\tmcken\AppData\Local\Programs\MiKTeX 2.9\tex\latex\natbib\natbib.s
-ty"
+)
+(C:\Users\tkmckenzie\AppData\Roaming\MiKTeX\2.9\tex\latex\natbib\natbib.sty
 Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibhang=\skip47
 \bibsep=\skip48
 LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count101
-) ("C:\Program Files\MiKTeX 2.9\tex\latex\cleveref\cleveref.sty"
-Package: cleveref 2018/02/08 v0.21.1 Intelligent cross-referencing
-Package cleveref Info: always capitalise cross-reference names on input line 77
-56.
-Package cleveref Info: always capitalise cross-reference names on input line 77
-83.
-Package cleveref Info: no abbreviation of names on input line 7783.
+\c@NAT@ctr=\count100
 )
-("C:\Users\tmcken\AppData\Local\Programs\MiKTeX 2.9\tex\latex\enumitem\enumitem
-.sty"
+(C:\Users\tkmckenzie\AppData\Roaming\MiKTeX\2.9\tex\latex\cleveref\cleveref.sty
+Package: cleveref 2018/03/27 v0.21.4 Intelligent cross-referencing
+Package cleveref Info: always capitalise cross-reference names on input line 78
+25.
+Package cleveref Info: always capitalise cross-reference names on input line 78
+52.
+Package cleveref Info: no abbreviation of names on input line 7852.
+)
+(C:\Users\tkmckenzie\AppData\Roaming\MiKTeX\2.9\tex\latex\enumitem\enumitem.sty
 Package: enumitem 2011/09/28 v3.5.2 Customized lists
 \labelindent=\skip49
 \enit@outerparindent=\dimen114
 \enit@toks=\toks22
 \enit@inbox=\box30
-\enitdp@description=\count102
-)
-("C:\Users\tmcken\AppData\Local\Programs\MiKTeX 2.9\tex\latex\multirow\multirow
-.sty"
+\enitdp@description=\count101
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\multirow\multirow.sty"
 Package: multirow 2016/11/25 v2.2 Span multiple rows of a table
 \multirow@colwidth=\skip50
-\multirow@cntb=\count103
+\multirow@cntb=\count102
 \multirow@dima=\skip51
 \bigstrutjot=\dimen115
 )
-("C:\Users\tmcken\AppData\Local\Programs\MiKTeX 2.9\tex\latex\breqn\breqn.sty"
-("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\expl3.sty"
-Package: expl3 2017/09/18 L3 programming layer (loader) 
+(C:\Users\tkmckenzie\AppData\Roaming\MiKTeX\2.9\tex\latex\breqn\breqn.sty
+(C:\Users\tkmckenzie\AppData\Roaming\MiKTeX\2.9\tex\latex\l3kernel\expl3.sty
+Package: expl3 2018-09-24 L3 programming layer (loader) 
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\expl3-code.tex"
-Package: expl3 2017/09/18 L3 programming layer (code)
-\c_max_int=\count104
-\l_tmpa_int=\count105
-\l_tmpb_int=\count106
-\g_tmpa_int=\count107
-\g_tmpb_int=\count108
-\g__intarray_font_int=\count109
-\g__prg_map_int=\count110
-\c_log_iow=\count111
-\l_iow_line_count_int=\count112
-\l__iow_line_target_int=\count113
-\l__iow_one_indent_int=\count114
-\l__iow_indent_int=\count115
+(C:\Users\tkmckenzie\AppData\Roaming\MiKTeX\2.9\tex\latex\l3kernel\expl3-code.t
+ex
+Package: expl3 2018-09-24 L3 programming layer (code)
+\c_max_int=\count103
+\l_tmpa_int=\count104
+\l_tmpb_int=\count105
+\g_tmpa_int=\count106
+\g_tmpb_int=\count107
+\g__kernel_prg_map_int=\count108
+\c_log_iow=\count109
+\l_iow_line_count_int=\count110
+\l__iow_line_target_int=\count111
+\l__iow_one_indent_int=\count112
+\l__iow_indent_int=\count113
 \c_zero_dim=\dimen116
 \c_max_dim=\dimen117
 \l_tmpa_dim=\dimen118
@@ -215,7 +189,10 @@ Package: expl3 2017/09/18 L3 programming layer (code)
 \l_tmpb_muskip=\muskip14
 \g_tmpa_muskip=\muskip15
 \g_tmpb_muskip=\muskip16
-\l_keys_choice_int=\count116
+\l_keys_choice_int=\count114
+\l__intarray_loop_int=\count115
+\c__intarray_sp_dim=\dimen122
+\g__intarray_font_int=\count116
 \c__fp_leading_shift_int=\count117
 \c__fp_middle_shift_int=\count118
 \c__fp_trailing_shift_int=\count119
@@ -225,9 +202,9 @@ Package: expl3 2017/09/18 L3 programming layer (code)
 \c__fp_Bigg_leading_shift_int=\count123
 \c__fp_Bigg_middle_shift_int=\count124
 \c__fp_Bigg_trailing_shift_int=\count125
-\c__fp_rand_size_int=\count126
-\c__fp_rand_four_int=\count127
-\c__fp_rand_eight_int=\count128
+\c__kernel_randint_max_int=\count126
+\g__fp_array_int=\count127
+\l__fp_array_loop_int=\count128
 \l__sort_length_int=\count129
 \l__sort_min_int=\count130
 \l__sort_top_int=\count131
@@ -239,75 +216,73 @@ Package: expl3 2017/09/18 L3 programming layer (code)
 \l__sort_A_int=\count137
 \l__sort_B_int=\count138
 \l__sort_C_int=\count139
-\l__tl_build_start_index_int=\count140
-\l__tl_build_index_int=\count141
-\l__tl_analysis_normal_int=\count142
-\l__tl_analysis_index_int=\count143
-\l__tl_analysis_nesting_int=\count144
-\l__tl_analysis_type_int=\count145
-\l__regex_internal_a_int=\count146
-\l__regex_internal_b_int=\count147
-\l__regex_internal_c_int=\count148
-\l__regex_balance_int=\count149
-\l__regex_group_level_int=\count150
-\l__regex_mode_int=\count151
-\c__regex_cs_in_class_mode_int=\count152
-\c__regex_cs_mode_int=\count153
-\l__regex_catcodes_int=\count154
-\l__regex_default_catcodes_int=\count155
-\c__regex_catcode_D_int=\count156
-\c__regex_catcode_S_int=\count157
-\c__regex_catcode_L_int=\count158
-\c__regex_catcode_O_int=\count159
-\c__regex_catcode_A_int=\count160
-\c__regex_all_catcodes_int=\count161
-\l__regex_show_lines_int=\count162
-\l__regex_min_state_int=\count163
-\l__regex_max_state_int=\count164
-\l__regex_left_state_int=\count165
-\l__regex_right_state_int=\count166
-\l__regex_capturing_group_int=\count167
-\l__regex_min_pos_int=\count168
-\l__regex_max_pos_int=\count169
-\l__regex_curr_pos_int=\count170
-\l__regex_start_pos_int=\count171
-\l__regex_success_pos_int=\count172
-\l__regex_curr_char_int=\count173
-\l__regex_curr_catcode_int=\count174
-\l__regex_last_char_int=\count175
-\l__regex_case_changed_char_int=\count176
-\l__regex_curr_state_int=\count177
-\l__regex_step_int=\count178
-\l__regex_min_active_int=\count179
-\l__regex_max_active_int=\count180
-\l__regex_replacement_csnames_int=\count181
-\l__regex_match_count_int=\count182
-\l__regex_min_submatch_int=\count183
-\l__regex_submatch_int=\count184
-\l__regex_zeroth_submatch_int=\count185
-\g__debug_trace_regex_int=\count186
+\l__tl_analysis_normal_int=\count140
+\l__tl_analysis_index_int=\count141
+\l__tl_analysis_nesting_int=\count142
+\l__tl_analysis_type_int=\count143
+\l__regex_internal_a_int=\count144
+\l__regex_internal_b_int=\count145
+\l__regex_internal_c_int=\count146
+\l__regex_balance_int=\count147
+\l__regex_group_level_int=\count148
+\l__regex_mode_int=\count149
+\c__regex_cs_in_class_mode_int=\count150
+\c__regex_cs_mode_int=\count151
+\l__regex_catcodes_int=\count152
+\l__regex_default_catcodes_int=\count153
+\c__regex_catcode_D_int=\count154
+\c__regex_catcode_S_int=\count155
+\c__regex_catcode_L_int=\count156
+\c__regex_catcode_O_int=\count157
+\c__regex_catcode_A_int=\count158
+\c__regex_all_catcodes_int=\count159
+\l__regex_show_lines_int=\count160
+\l__regex_min_state_int=\count161
+\l__regex_max_state_int=\count162
+\l__regex_left_state_int=\count163
+\l__regex_right_state_int=\count164
+\l__regex_capturing_group_int=\count165
+\l__regex_min_pos_int=\count166
+\l__regex_max_pos_int=\count167
+\l__regex_curr_pos_int=\count168
+\l__regex_start_pos_int=\count169
+\l__regex_success_pos_int=\count170
+\l__regex_curr_char_int=\count171
+\l__regex_curr_catcode_int=\count172
+\l__regex_last_char_int=\count173
+\l__regex_case_changed_char_int=\count174
+\l__regex_curr_state_int=\count175
+\l__regex_step_int=\count176
+\l__regex_min_active_int=\count177
+\l__regex_max_active_int=\count178
+\l__regex_replacement_csnames_int=\count179
+\l__regex_match_count_int=\count180
+\l__regex_min_submatch_int=\count181
+\l__regex_submatch_int=\count182
+\l__regex_zeroth_submatch_int=\count183
+\g__regex_trace_regex_int=\count184
 \c_empty_box=\box31
 \l_tmpa_box=\box32
 \l_tmpb_box=\box33
 \g_tmpa_box=\box34
 \g_tmpb_box=\box35
-\l__box_top_dim=\dimen122
-\l__box_bottom_dim=\dimen123
-\l__box_left_dim=\dimen124
-\l__box_right_dim=\dimen125
-\l__box_top_new_dim=\dimen126
-\l__box_bottom_new_dim=\dimen127
-\l__box_left_new_dim=\dimen128
-\l__box_right_new_dim=\dimen129
+\l__box_top_dim=\dimen123
+\l__box_bottom_dim=\dimen124
+\l__box_left_dim=\dimen125
+\l__box_right_dim=\dimen126
+\l__box_top_new_dim=\dimen127
+\l__box_bottom_new_dim=\dimen128
+\l__box_left_new_dim=\dimen129
+\l__box_right_new_dim=\dimen130
 \l__box_internal_box=\box36
 \l__coffin_internal_box=\box37
-\l__coffin_internal_dim=\dimen130
-\l__coffin_offset_x_dim=\dimen131
-\l__coffin_offset_y_dim=\dimen132
-\l__coffin_x_dim=\dimen133
-\l__coffin_y_dim=\dimen134
-\l__coffin_x_prime_dim=\dimen135
-\l__coffin_y_prime_dim=\dimen136
+\l__coffin_internal_dim=\dimen131
+\l__coffin_offset_x_dim=\dimen132
+\l__coffin_offset_y_dim=\dimen133
+\l__coffin_x_dim=\dimen134
+\l__coffin_y_dim=\dimen135
+\l__coffin_x_prime_dim=\dimen136
+\l__coffin_y_prime_dim=\dimen137
 \c_empty_coffin=\box38
 \l__coffin_aligned_coffin=\box39
 \l__coffin_aligned_internal_coffin=\box40
@@ -316,31 +291,33 @@ Package: expl3 2017/09/18 L3 programming layer (code)
 \l__coffin_display_coffin=\box43
 \l__coffin_display_coord_coffin=\box44
 \l__coffin_display_pole_coffin=\box45
-\l__coffin_display_offset_dim=\dimen137
-\l__coffin_display_x_dim=\dimen138
-\l__coffin_display_y_dim=\dimen139
-\l__coffin_bounding_shift_dim=\dimen140
-\l__coffin_left_corner_dim=\dimen141
-\l__coffin_right_corner_dim=\dimen142
-\l__coffin_bottom_corner_dim=\dimen143
-\l__coffin_top_corner_dim=\dimen144
-\l__coffin_scaled_total_height_dim=\dimen145
-\l__coffin_scaled_width_dim=\dimen146
+\l__coffin_display_offset_dim=\dimen138
+\l__coffin_display_x_dim=\dimen139
+\l__coffin_display_y_dim=\dimen140
+\g__file_internal_ior=\read1
+\l__coffin_bounding_shift_dim=\dimen141
+\l__coffin_left_corner_dim=\dimen142
+\l__coffin_right_corner_dim=\dimen143
+\l__coffin_bottom_corner_dim=\dimen144
+\l__coffin_top_corner_dim=\dimen145
+\l__coffin_scaled_total_height_dim=\dimen146
+\l__coffin_scaled_width_dim=\dimen147
+\l__seq_internal_a_int=\count185
+\l__seq_internal_b_int=\count186
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\l3pdfmode.def"
-File: l3pdfmode.def 2017/03/18 v L3 Experimental driver: PDF mode
+(C:\Users\tkmckenzie\AppData\Roaming\MiKTeX\2.9\tex\latex\l3kernel\l3pdfmode.de
+f
+File: l3pdfmode.def 2018-09-24 v L3 Experimental driver: PDF mode
 \l__driver_color_stack_int=\count187
-\l__driver_tmp_box=\box46
 ))
 Package: breqn 2018/09/14 v0.98f Breaking equations
 
-("C:\Users\tmcken\AppData\Local\Programs\MiKTeX 2.9\tex\latex\breqn\flexisym.st
-y"
+(C:\Users\tkmckenzie\AppData\Roaming\MiKTeX\2.9\tex\latex\breqn\flexisym.sty
 Package: flexisym 2017/01/27 v0.98e Make math characters macros
 LaTeX Info: Redefining \textprime on input line 300.
 LaTeX Info: Redefining \not on input line 358.
 
-("C:\Users\tmcken\AppData\Local\Programs\MiKTeX 2.9\tex\latex\breqn\cmbase.sym"
+(C:\Users\tkmckenzie\AppData\Roaming\MiKTeX\2.9\tex\latex\breqn\cmbase.sym
 File: cmbase.sym 2007/12/19 v0.92
 LaTeX Info: Redefining \hbar on input line 325.
 LaTeX Info: Redefining \surd on input line 327.
@@ -366,21 +343,19 @@ LaTeX Info: Redefining \cdots on input line 358.
 LaTeX Info: Redefining \vdots on input line 361.
 LaTeX Info: Redefining \ddots on input line 366.
 )
-("C:\Users\tmcken\AppData\Local\Programs\MiKTeX 2.9\tex\latex\breqn\mathstyle.s
-ty"
+(C:\Users\tkmckenzie\AppData\Roaming\MiKTeX\2.9\tex\latex\breqn\mathstyle.sty
 Package: mathstyle 2017/01/27 0.98e Tracking mathstyle implicitly
 LaTeX Info: Redefining \displaystyle on input line 93.
 LaTeX Info: Redefining \textstyle on input line 95.
 LaTeX Info: Redefining \scriptstyle on input line 97.
 LaTeX Info: Redefining \scriptscriptstyle on input line 99.
 LaTeX Info: Redefining \genfrac on input line 145.
-))
-("C:\Users\tmcken\AppData\Local\Programs\MiKTeX 2.9\tex\latex\tools\calc.sty"
+)) ("C:\Program Files\MiKTeX 2.9\tex\latex\tools\calc.sty"
 Package: calc 2014/10/28 v4.3 Infix arithmetic (KKT,FJ)
 \calc@Acount=\count188
 \calc@Bcount=\count189
-\calc@Adimen=\dimen147
-\calc@Bdimen=\dimen148
+\calc@Adimen=\dimen148
+\calc@Bdimen=\dimen149
 \calc@Askip=\skip58
 \calc@Bskip=\skip59
 LaTeX Info: Redefining \setlength on input line 80.
@@ -390,15 +365,15 @@ LaTeX Info: Redefining \addtolength on input line 81.
 )
 \inf@bad=\count191
 \maxint=\count192
-\listwidth=\dimen149
-\eqnumsep=\dimen150
-\eqmargin=\dimen151
+\listwidth=\dimen150
+\eqnumsep=\dimen151
+\eqmargin=\dimen152
 \eqlinespacing=\skip61
 \eqlineskip=\skip62
-\eqlineskiplimit=\dimen152
+\eqlineskiplimit=\dimen153
 \eqbinoffset=\muskip17
 \eqdelimoffset=\muskip18
-\eqindentstep=\dimen153
+\eqindentstep=\dimen154
 \eqstyle=\toks23
 \eqbreakdepth=\count193
 \eqinterlinepenalty=\count194
@@ -412,39 +387,39 @@ LaTeX Info: Redefining \addtolength on input line 81.
 \eqrightskip=\skip65
 \eq@vspan=\skip66
 \eq@binoffset=\muskip21
-\EQ@box=\box47
-\EQ@copy=\box48
-\EQ@numbox=\box49
-\eq@wdNum=\dimen154
-\GRP@numbox=\box50
-\grp@wdNum=\dimen155
+\EQ@box=\box46
+\EQ@copy=\box47
+\EQ@numbox=\box48
+\eq@wdNum=\dimen155
+\GRP@numbox=\box49
+\grp@wdNum=\dimen156
 \eq@lines=\count198
 \eq@curline=\count199
 \eq@badness=\count266
 \EQ@vims=\count267
-\eq@dp=\dimen156
-\eq@wdL=\dimen157
-\eq@wdT=\dimen158
-\eq@wdMin=\dimen159
-\grp@wdL=\dimen160
-\grp@wdR=\dimen161
-\grp@wdT=\dimen162
-\eq@wdRmax=\dimen163
-\eq@firstht=\dimen164
-\eq@wdCond=\dimen165
-\eq@indentstep=\dimen166
-\eq@linewidth=\dimen167
-\grp@linewidth=\dimen168
-\eq@hshift=\dimen169
-\eq@given@sidespace=\dimen170
-\mathindent=\dimen171
+\eq@dp=\dimen157
+\eq@wdL=\dimen158
+\eq@wdT=\dimen159
+\eq@wdMin=\dimen160
+\grp@wdL=\dimen161
+\grp@wdR=\dimen162
+\grp@wdT=\dimen163
+\eq@wdRmax=\dimen164
+\eq@firstht=\dimen165
+\eq@wdCond=\dimen166
+\eq@indentstep=\dimen167
+\eq@linewidth=\dimen168
+\grp@linewidth=\dimen169
+\eq@hshift=\dimen170
+\eq@given@sidespace=\dimen171
+\mathindent=\dimen172
 \eq@final@linecount=\count268
-\eq@wdR=\dimen172
+\eq@wdR=\dimen173
 \EQ@continue=\toks24
 \lr@level=\count269
 \GRP@queue=\toks25
-\GRP@box=\box51
-\GRP@wholebox=\box52
+\GRP@box=\box50
+\GRP@wholebox=\box51
 \darraycolsep=\skip67
 \cur@row=\count270
 \cur@col=\count271
@@ -464,32 +439,58 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 19.
 LaTeX Font Info:    ... okay on input line 19.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 19.
 LaTeX Font Info:    ... okay on input line 19.
- ("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
+
+(C:\Users\tkmckenzie\AppData\Roaming\MiKTeX\2.9\tex\context\base\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count272
-\scratchdimen=\dimen173
-\scratchbox=\box53
+\scratchdimen=\dimen174
+\scratchbox=\box52
 \nofMPsegments=\count273
 \nofMParguments=\count274
 \everyMPshowfont=\toks26
 \MPscratchCnt=\count275
-\MPscratchDim=\dimen174
+\MPscratchDim=\dimen175
 \MPnumerator=\count276
 \makeMPintoPDFobject=\count277
 \everyMPtoPDFconversion=\toks27
-)
-("C:\Users\tmcken\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\pdftex
-cmds.sty"
-Package: pdftexcmds 2017/03/19 v0.25 Utility functions of pdfTeX for LuaTeX (HO
-)
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-base.sty"
+Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
-("C:\Users\tmcken\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\ifluat
-ex.sty"
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
+Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\grfext.sty"
+Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\kvdefinekeys.sty"
+Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
+Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+)))
+("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\kvoptions.sty"
+Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\kvsetkeys.sty"
+Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\etexcmds.sty"
+Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifluatex.sty"
 Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
 Package ifluatex Info: LuaTeX not detected.
 )
-("C:\Users\tmcken\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\ifpdf.
-sty"
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\pdftexcmds.sty"
+Package: pdftexcmds 2018/01/21 v0.26 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifpdf.sty"
 Package: ifpdf 2017/03/15 v3.2 Provides the ifpdf switch
 )
 Package pdftexcmds Info: LuaTeX not detected.
@@ -497,129 +498,99 @@ Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
 )
-("C:\Users\tmcken\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek\epstopdf
--base.sty"
-Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
-
-("C:\Users\tmcken\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek\grfext.s
-ty"
-Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
-
-("C:\Users\tmcken\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\kvdefi
-nekeys.sty"
-Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
-))
-("C:\Users\tmcken\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek\kvoption
-s.sty"
-Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
-
-("C:\Users\tmcken\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\kvsetk
-eys.sty"
-Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
-
-("C:\Users\tmcken\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\etexcm
-ds.sty"
-Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
-Package etexcmds Info: Could not find \expanded.
-(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
-(etexcmds)             that some package has redefined \expanded.
-(etexcmds)             In the latter case, load this package earlier.
-)))
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 38.
 Package grfext Info: Graphics extension search list:
-(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
 G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 44.
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-("C:\Users\tmcken\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Try loading font information for U+msb on input line 44.
- ("C:\Users\tmcken\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd
-"
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [1{C:/Users/tmcken/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
+ [1{C:/Users/tkmckenzie/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
 
 
 ]
-[2]
-Underfull \hbox (badness 1609) in paragraph at lines 71--72
+LaTeX Font Info:    Try loading font information for U+msa on input line 48.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 48.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) [2]
+Underfull \hbox (badness 1609) in paragraph at lines 75--76
 \OT1/cmr/m/n/10 bridge sam-pling as a method of ap-prox-i-mat-ing
  []
 
 [3]
-Underfull \hbox (badness 1924) in paragraph at lines 121--122
+Underfull \hbox (badness 1924) in paragraph at lines 125--126
 \OT1/cmr/m/n/10 knows the con-di-tional pos-te-rior dis-tri-bu-tions of
  []
 
-
-Underfull \hbox (badness 1430) in paragraph at lines 128--129
+[4]
+Underfull \hbox (badness 1430) in paragraph at lines 132--133
 \OT1/cmr/m/n/10 Bayesian frame-work can be com-pared via their
  []
 
 
 Underfull \vbox (badness 3792) has occurred while \output is active []
 
- [4]
-Underfull \hbox (badness 10000) in paragraph at lines 158--159
+ [5]
+Underfull \hbox (badness 10000) in paragraph at lines 162--163
 []\OT1/cmr/m/n/10 Re-estimate the model, set-ting
  []
 
-[5]
-Underfull \hbox (badness 10000) in paragraph at lines 172--172
+
+Underfull \hbox (badness 10000) in paragraph at lines 176--176
 []\OT1/cmr/bx/n/12 Multivariate Nor-mal Lin-ear
  []
 
 (tables/Table1.tex)
-Underfull \hbox (badness 1082) in paragraph at lines 176--178
+Underfull \hbox (badness 1082) in paragraph at lines 180--182
 \OT1/cmr/m/n/10 These sim-u-la-tions be-gin with a stan-dard mul-ti-
  []
 
 
-Underfull \hbox (badness 1609) in paragraph at lines 181--184
+Underfull \hbox (badness 1609) in paragraph at lines 185--188
 \OT1/cmr/m/n/10 con-stant columns of ones and two in-de-pen-dent
  []
 
-[6]
+[6] [7] (tables/Bridge.tex)
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-
-(tables/Bridge.tex) [7]
-Underfull \vbox (badness 5563) has occurred while \output is active []
-
-
-Underfull \hbox (badness 1565) in paragraph at lines 254--256
+ [8]
+Underfull \hbox (badness 1565) in paragraph at lines 258--260
 \OT1/cmr/m/n/10 the sum $[][] [] []$ reg-u-
  []
 
-(tables/Table2.tex) [8]
-Underfull \hbox (badness 1571) in paragraph at lines 263--264
+(tables/Table2.tex)
+Underfull \hbox (badness 1571) in paragraph at lines 267--268
 \OT1/cmr/m/n/10 de-vel-op-ment, pre-sented in its en-tire-ity in Chib
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 5231) has occurred while \output is active []
 
  [9]
-(tables/Table3.tex) <Probit-Logit-Fitted.pdf, id=45, 289.08pt x 289.08pt>
+(tables/Table3.tex)
+<Probit-Logit-Fitted.pdf, id=45, 289.08pt x 289.08pt>
 File: Probit-Logit-Fitted.pdf Graphic file (type pdf)
-
 <use Probit-Logit-Fitted.pdf>
-Package pdftex.def Info: Probit-Logit-Fitted.pdf used on input line 287.
+Package pdftex.def Info: Probit-Logit-Fitted.pdf  used on input line 291.
 (pdftex.def)             Requested size: 229.8775pt x 229.87483pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 294--294
+ [10]
+Underfull \hbox (badness 10000) in paragraph at lines 298--298
 []\OT1/cmr/bx/n/14.4 Parametric and Non-
  []
 
-[10 <./Probit-Logit-Fitted.pdf>]
-Underfull \hbox (badness 1515) in paragraph at lines 313--314
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [11 <./Probit-Logit-Fitted.pdf>]
+Underfull \hbox (badness 1515) in paragraph at lines 317--318
 []\OT1/cmr/m/n/10 Parametric spec-i-fi-ca-tions of $\OML/cmm/m/it/10 T$ \OT1/cm
 r/m/n/10 have tra-di-tion-
  []
@@ -628,45 +599,43 @@ r/m/n/10 have tra-di-tion-
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-) [11] (tables/Table5.tex)
-Underfull \vbox (badness 5231) has occurred while \output is active []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
+)
+Underfull \vbox (badness 2158) has occurred while \output is active []
 
  [12]
-[13] (Iterative_ML.bbl [14]) [15
+(tables/Table5.tex)
+Underfull \vbox (badness 5231) has occurred while \output is active []
 
-] (Iterative_ML.aux) ) 
+ [13]
+(Iterative_ML.bbl
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [14])
+[15] (Iterative_ML.aux) ) 
 Here is how much of TeX's memory you used:
- 13440 strings out of 493323
- 252088 string characters out of 3129581
- 293332 words of memory out of 3000000
- 16877 multiletter control sequences out of 15000+200000
- 536926 words of font info for 48 fonts, out of 3000000 for 9000
+ 14533 strings out of 493305
+ 263653 string characters out of 3138860
+ 300681 words of memory out of 3000000
+ 17981 multiletter control sequences out of 15000+200000
+ 538992 words of font info for 50 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 40i,11n,35p,10397b,275s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Users/tmcken/AppData/Local/Programs/MiKTeX 2.9/fonts/
-type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/tmcken/AppData/Local/Programs/MiK
-TeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/tmcken/AppData/Loca
-l/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/tmcke
-n/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C
-:/Users/tmcken/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
-/cmmi8.pfb><C:/Users/tmcken/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/publi
-c/amsfonts/cm/cmr10.pfb><C:/Users/tmcken/AppData/Local/Programs/MiKTeX 2.9/font
-s/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/tmcken/AppData/Local/Programs/Mi
-KTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/tmcken/AppData/Loca
-l/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/tmcken/
-AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/U
-sers/tmcken/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cm
-r7.pfb><C:/Users/tmcken/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/am
-sfonts/cm/cmr8.pfb><C:/Users/tmcken/AppData/Local/Programs/MiKTeX 2.9/fonts/typ
-e1/public/amsfonts/cm/cmsy10.pfb><C:/Users/tmcken/AppData/Local/Programs/MiKTeX
- 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/tmcken/AppData/Local/Pr
-ograms/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/tmcken/Ap
-pData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-
-Output written on Iterative_ML.pdf (15 pages, 280176 bytes).
+ 41i,11n,63p,1957b,275s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfon
+ts/cm/cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cm
+ex10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb
+><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Prog
+ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files
+/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2
+.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/
+type1/public/amsfonts/cm/cmr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pub
+lic/amsfonts/cm/cmr5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfon
+ts/cm/cmr6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7
+.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/P
+rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program F
+iles/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKT
+eX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/f
+onts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on Iterative_ML.pdf (15 pages, 282460 bytes).
 PDF statistics:
  121 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
