@@ -1,4 +1,5 @@
 library(xtable)
+library(truncnorm)
 
 setwd("~/git/Iterative_ML/R/create_tables")
 
@@ -228,15 +229,29 @@ u.mean = function(i){
   
   eval.point = epsilon * lambda / sigma
   
-  # return(mu.star + sigma.star * dnorm(-mu.star / sigma.star) / (1 - pnorm(-mu.star / sigma.star)))
   return(-sigma.star * (dnorm(eval.point) / (1 - pnorm(eval.point)) - eval.point))
 }
+u.sample = function(i){
+  epsilon = y - (stan.extract$beta_const[i] + X %*% stan.extract$beta[i,])
+  sigma.u = stan.extract$sigma_u[i]
+  sigma.v = stan.extract$sigma_v[i]
+  
+  sigma.sq = sigma.u^2 + sigma.v^2
+  sigma = sqrt(sigma.sq)
+  
+  mu.star = -sigma.u^2 * epsilon / sigma.sq
+  sigma.sq.star = sigma.u^2 * sigma.v^2 / sigma.sq
+  sigma.star = sqrt(sigma.sq.star)
+  
+  return(-rtruncnorm(1, a = 0, mean = mu.star, sd = sigma.star))
+}
+
 
 load("../stan_sf_data/stan_par_fits/stan_par_sf_unconditional.RData")
 stan.extract = extract(stan.fit)
 sample.iter = stan.fit@sim$iter - stan.fit@sim$warmup
 
-u.posterior = t(sapply(1:sample.iter, u.mean))
+u.posterior = t(sapply(1:sample.iter, u.sample))
 table.matrix[3:nrow(table.matrix),2] = round(apply(exp(u.posterior), 2, mean), round.digits)
 mean(apply(exp(u.posterior), 2, mean))
 
@@ -251,7 +266,7 @@ combos = combn(ncol(X), 2)
 X = cbind(X, X^2,
           sapply(1:ncol(combos), function(i) X[,combos[1,i]] * X[,combos[2,i]]))
 
-u.posterior = t(sapply(1:sample.iter, u.mean))
+u.posterior = t(sapply(1:sample.iter, u.sample))
 table.matrix[3:nrow(table.matrix),3] = round(apply(exp(u.posterior), 2, mean), round.digits)
 
 mean(apply(exp(u.posterior), 2, mean))
@@ -276,15 +291,28 @@ u.mean = function(i){
   
   eval.point = epsilon * lambda / sigma
   
-  # return(mu.star + sigma.star * dnorm(-mu.star / sigma.star) / (1 - pnorm(-mu.star / sigma.star)))
   return(-sigma.star * (dnorm(eval.point) / (1 - pnorm(eval.point)) - eval.point))
+}
+u.sample = function(i){
+  epsilon = y - stan.extract$f[i,] - y.mean
+  sigma.u = stan.extract$sigma_u[i]
+  sigma.v = stan.extract$sigma_v[i]
+  
+  sigma.sq = sigma.u^2 + sigma.v^2
+  sigma = sqrt(sigma.sq)
+  
+  mu.star = -sigma.u^2 * epsilon / sigma.sq
+  sigma.sq.star = sigma.u^2 * sigma.v^2 / sigma.sq
+  sigma.star = sqrt(sigma.sq.star)
+  
+  return(-rtruncnorm(1, a = 0, mean = mu.star, sd = sigma.star))
 }
 
 load("../stan_sf_data/stan_gp_fits/stan_gp_sf_unconditional.RData")
 stan.extract = extract(stan.fit)
 sample.iter = stan.fit@sim$iter - stan.fit@sim$warmup
 
-u.posterior = t(sapply(1:sample.iter, u.mean))
+u.posterior = t(sapply(1:sample.iter, u.sample))
 table.matrix[3:nrow(table.matrix),4] = round(apply(exp(u.posterior), 2, mean), round.digits)
 
 mean(apply(exp(u.posterior), 2, mean))
@@ -296,7 +324,7 @@ table = xtable(table.matrix,
                label = "tab:EfficiencyEstimates")
 table = print.xtable(table,
                      floating.environment = "table*",
-                     table.placement = NULL,
+                     table.placement = "!h",
                      hline.after = c(2, 2, nrow(table.matrix)),
                      add.to.row = list(pos = list(1), command = "\\cline{2-4}"),
                      sanitize.text.function = identity,
