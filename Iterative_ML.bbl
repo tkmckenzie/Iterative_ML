@@ -5,12 +5,12 @@
 Aigner, D., C.~K. Lovell, and P.~Schmidt (1977).
 \newblock Formulation and estimation of stochastic frontier production function
   models.
-\newblock {\em Journal of econometrics\/}~{\em 6\/}(1), 21--37.
+\newblock {\em Journal of Econometrics\/}~{\em 6\/}(1), 21--37.
 
 \bibitem[\protect\citeauthoryear{Akaike}{Akaike}{1974}]{Akaike}
 Akaike, H. (1974).
 \newblock A new look at the statistical model identification.
-\newblock {\em IEEE transactions on automatic control\/}~{\em 19\/}(6),
+\newblock {\em IEEE Transactions on Automatic Control\/}~{\em 19\/}(6),
   716--723.
 
 \bibitem[\protect\citeauthoryear{Allen}{Allen}{1971}]{Allen}
@@ -23,7 +23,7 @@ Allen, D.~M. (1971).
   et~al.}{2010}]{Arlot}
 Arlot, S., A.~Celisse, et~al. (2010).
 \newblock A survey of cross-validation procedures for model selection.
-\newblock {\em Statistics surveys\/}~{\em 4}, 40--79.
+\newblock {\em Statistics Surveys\/}~{\em 4}, 40--79.
 
 \bibitem[\protect\citeauthoryear{Bollen, Ray, Zavisca, and Harden}{Bollen
   et~al.}{2012}]{Bollen}
@@ -34,14 +34,14 @@ Bollen, K.~A., S.~Ray, J.~Zavisca, and J.~J. Harden (2012).
 
 \bibitem[\protect\citeauthoryear{Chib}{Chib}{1995}]{Chib}
 Chib, S. (1995).
-\newblock Marginal likelihood from the gibbs output.
-\newblock {\em Journal of the american statistical association\/}~{\em
+\newblock Marginal likelihood from the {Gibbs} output.
+\newblock {\em Journal of the American Statistical Association\/}~{\em
   90\/}(432), 1313--1321.
 
 \bibitem[\protect\citeauthoryear{Chib and Jeliazkov}{Chib and
   Jeliazkov}{2001}]{ChibJeliazkov}
 Chib, S. and I.~Jeliazkov (2001).
-\newblock Marginal likelihood from the metropolis--hastings output.
+\newblock Marginal likelihood from the {Metropolis--Hastings} output.
 \newblock {\em Journal of the American Statistical Association\/}~{\em
   96\/}(453), 270--281.
 
@@ -56,7 +56,7 @@ Du, P., C.~F. Parmeter, and J.~S. Racine (2013).
   Smith}{1990}]{GelfandSmith}
 Gelfand, A.~E. and A.~F. Smith (1990).
 \newblock Sampling-based approaches to calculating marginal densities.
-\newblock {\em Journal of the American statistical association\/}~{\em
+\newblock {\em Journal of the American Statistical Association\/}~{\em
   85\/}(410), 398--409.
 
 \bibitem[\protect\citeauthoryear{Genz and Kass}{Genz and Kass}{1997}]{GenzKass}
@@ -68,15 +68,21 @@ Genz, A. and R.~E. Kass (1997).
 \bibitem[\protect\citeauthoryear{Gilks, Best, and Tan}{Gilks
   et~al.}{1995}]{Gilks}
 Gilks, W.~R., N.~Best, and K.~Tan (1995).
-\newblock Adaptive rejection metropolis sampling within gibbs sampling.
+\newblock Adaptive rejection {Metropolis} sampling within {Gibbs} sampling.
 \newblock {\em Applied Statistics\/}, 455--472.
 
 \bibitem[\protect\citeauthoryear{Girolami and Calderhead}{Girolami and
   Calderhead}{2011}]{Girolami}
 Girolami, M. and B.~Calderhead (2011).
-\newblock Riemann manifold langevin and hamiltonian monte carlo methods.
+\newblock Riemann manifold {Langevin} and {Hamiltonian Monte Carlo} methods.
 \newblock {\em Journal of the Royal Statistical Society: Series B (Statistical
   Methodology)\/}~{\em 73\/}(2), 123--214.
+
+\bibitem[\protect\citeauthoryear{Goldberg}{Goldberg}{1991}]{MachinePrecision}
+Goldberg, D. (1991).
+\newblock What every computer scientist should know about floating-point
+  arithmetic.
+\newblock {\em ACM Computing Surveys (CSUR)\/}~{\em 23\/}(1), 5--48.
 
 \bibitem[\protect\citeauthoryear{Golub, Heath, and Wahba}{Golub
   et~al.}{1979}]{Golub}
@@ -87,14 +93,14 @@ Golub, G.~H., M.~Heath, and G.~Wahba (1979).
 
 \bibitem[\protect\citeauthoryear{Greene}{Greene}{2003}]{Greene}
 Greene, W.~H. (2003).
-\newblock {\em Econometric analysis}.
-\newblock Pearson Education India.
+\newblock {\em Econometric Analysis}.
+\newblock Pearson Education.
 
 \bibitem[\protect\citeauthoryear{Hoffman and Gelman}{Hoffman and
   Gelman}{2014}]{NUTS}
 Hoffman, M.~D. and A.~Gelman (2014).
-\newblock The no-u-turn sampler: adaptively setting path lengths in hamiltonian
-  monte carlo.
+\newblock The {No-U-turn} sampler: {Adaptively} setting path lengths in
+  {Hamiltonian Monte Carlo}.
 \newblock {\em Journal of Machine Learning Research\/}~{\em 15\/}(1),
   1593--1623.
 
@@ -102,7 +108,7 @@ Hoffman, M.~D. and A.~Gelman (2014).
   Raftery}{1995}]{KassRaftery}
 Kass, R.~E. and A.~E. Raftery (1995).
 \newblock Bayes factors.
-\newblock {\em Journal of the american statistical association\/}~{\em
+\newblock {\em Journal of the American Statistical Association\/}~{\em
   90\/}(430), 773--795.
 
 \bibitem[\protect\citeauthoryear{Kohavi et~al.}{Kohavi et~al.}{1995}]{Kohavi}
@@ -125,7 +131,7 @@ Liu, H., J.~Lafferty, and L.~Wasserman (2007).
 
 \bibitem[\protect\citeauthoryear{Meng and Wong}{Meng and Wong}{1996}]{MengWong}
 Meng, X.-L. and W.~H. Wong (1996).
-\newblock Simulating ratios of normalizing constants via a simple identity: a
+\newblock Simulating ratios of normalizing constants via a simple identity: {A}
   theoretical exploration.
 \newblock {\em Statistica Sinica\/}, 831--860.
 
@@ -138,7 +144,7 @@ Morgan, W. (1939).
 \bibitem[\protect\citeauthoryear{Newton and Raftery}{Newton and
   Raftery}{1994}]{NewtonRaferty}
 Newton, M.~A. and A.~E. Raftery (1994).
-\newblock Approximate bayesian inference with the weighted likelihood
+\newblock Approximate {Bayesian} inference with the weighted likelihood
   bootstrap.
 \newblock {\em Journal of the Royal Statistical Society. Series B
   (Methodological)\/}, 3--48.
@@ -152,19 +158,19 @@ Portnoy, S. and R.~Koenker (1989).
 \bibitem[\protect\citeauthoryear{Rasmussen}{Rasmussen}{2004}]{Rasmussen}
 Rasmussen, C.~E. (2004).
 \newblock Gaussian processes in machine learning.
-\newblock In {\em Advanced lectures on machine learning}, pp.\  63--71.
+\newblock In {\em Advanced Lectures on Machine Learning}, pp.\  63--71.
   Springer.
 
 \bibitem[\protect\citeauthoryear{Schwarz et~al.}{Schwarz
   et~al.}{1978}]{Schwarz}
 Schwarz, G. et~al. (1978).
 \newblock Estimating the dimension of a model.
-\newblock {\em The annals of statistics\/}~{\em 6\/}(2), 461--464.
+\newblock {\em The Annals of Statistics\/}~{\em 6\/}(2), 461--464.
 
 \bibitem[\protect\citeauthoryear{Scott}{Scott}{2015}]{Scott}
 Scott, D.~W. (2015).
-\newblock {\em Multivariate density estimation: theory, practice, and
-  visualization}.
+\newblock {\em Multivariate Density Estimation: Theory, Practice, and
+  Visualization}.
 \newblock John Wiley \& Sons.
 
 \bibitem[\protect\citeauthoryear{Sheather and Jones}{Sheather and
@@ -200,14 +206,14 @@ Slate, E.~H. (1994).
 \bibitem[\protect\citeauthoryear{Van~den Broeck, Koop, Osiewalski, and
   Steel}{Van~den Broeck et~al.}{1994}]{VanDenBroeck}
 Van~den Broeck, J., G.~Koop, J.~Osiewalski, and M.~F. Steel (1994).
-\newblock Stochastic frontier models: A bayesian perspective.
+\newblock Stochastic frontier models: {A Bayesian} perspective.
 \newblock {\em Journal of Econometrics\/}~{\em 61\/}(2), 273--303.
 
 \bibitem[\protect\citeauthoryear{Williams and Rasmussen}{Williams and
   Rasmussen}{1996}]{RasmussenWilliams}
 Williams, C.~K. and C.~E. Rasmussen (1996).
 \newblock Gaussian processes for regression.
-\newblock In {\em Advances in neural information processing systems}, pp.\
+\newblock In {\em Advances in Neural Information Processing Systems}, pp.\
   514--520.
 
 \end{thebibliography}

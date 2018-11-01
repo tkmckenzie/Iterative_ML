@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.6.2)  17 OCT 2018 07:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.6.2)  31 OCT 2018 22:09
 entering extended mode
 **./Iterative_ML.tex
 (Iterative_ML.tex
@@ -505,7 +505,7 @@ Package grfext Info: Graphics extension search list:
 G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
 )
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 1960) has occurred while \output is active []
 
  [1{C:/Users/tkmckenzie/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
 
@@ -525,18 +525,18 @@ Underfull \hbox (badness 1609) in paragraph at lines 75--76
 \OT1/cmr/m/n/10 bridge sam-pling as a method of ap-prox-i-mat-ing
  []
 
-[3]
+[3] [4]
 Underfull \hbox (badness 1924) in paragraph at lines 125--126
 \OT1/cmr/m/n/10 knows the con-di-tional pos-te-rior dis-tri-bu-tions of
  []
 
-[4]
+
 Underfull \hbox (badness 1430) in paragraph at lines 132--133
 \OT1/cmr/m/n/10 Bayesian frame-work can be com-pared via their
  []
 
 
-Underfull \vbox (badness 3792) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [5]
 Underfull \hbox (badness 10000) in paragraph at lines 162--163
@@ -553,19 +553,15 @@ Underfull \hbox (badness 1082) in paragraph at lines 180--182
 \OT1/cmr/m/n/10 These sim-u-la-tions be-gin with a stan-dard mul-ti-
  []
 
-
+[6]
 Underfull \hbox (badness 1609) in paragraph at lines 185--188
 \OT1/cmr/m/n/10 con-stant columns of ones and two in-de-pen-dent
  []
 
-[6] [7] (tables/Bridge.tex)
-Underfull \vbox (badness 10000) has occurred while \output is active []
+[7] (tables/Bridge.tex)
+Underfull \vbox (badness 3977) has occurred while \output is active []
 
  [8]
-Underfull \hbox (badness 1565) in paragraph at lines 258--260
-\OT1/cmr/m/n/10 the sum $[][] [] []$ reg-u-
- []
-
 (tables/Table2.tex)
 Underfull \hbox (badness 1571) in paragraph at lines 267--268
 \OT1/cmr/m/n/10 de-vel-op-ment, pre-sented in its en-tire-ity in Chib
@@ -613,10 +609,10 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [14])
 [15] (Iterative_ML.aux) ) 
 Here is how much of TeX's memory you used:
- 14533 strings out of 493305
- 263653 string characters out of 3138860
- 300681 words of memory out of 3000000
- 17981 multiletter control sequences out of 15000+200000
+ 14536 strings out of 493305
+ 263725 string characters out of 3138860
+ 300717 words of memory out of 3000000
+ 17984 multiletter control sequences out of 15000+200000
  538992 words of font info for 50 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,11n,63p,1957b,275s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -635,7 +631,7 @@ rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program F
 iles/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKT
 eX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/f
 onts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Iterative_ML.pdf (15 pages, 282460 bytes).
+Output written on Iterative_ML.pdf (15 pages, 285160 bytes).
 PDF statistics:
  121 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
