@@ -6,17 +6,13 @@ setwd("~/git/Iterative_ML/R/stan_sf_data")
 rm(list = ls())
 
 #Priors
-sigma_u_prior_shape = 1
-sigma_u_prior_rate = 1
-sigma_v_prior_shape = 1
-sigma_v_prior_rate = 1
+sigma_u_prior_scale = 1
+sigma_v_prior_scale = 1
 beta_const_prior_sd = 10
 beta_prior_sd = 1
 
-save(sigma_u_prior_shape,
-     sigma_u_prior_rate,
-     sigma_v_prior_shape,
-     sigma_v_prior_rate,
+save(sigma_u_prior_scale,
+     sigma_v_prior_scale,
      beta_const_prior_sd,
      beta_prior_sd,
      file = "stan_par_translog_fits/priors.RData")
@@ -30,7 +26,7 @@ X = cbind(X, X^2,
           sapply(1:ncol(combos), function(i) X[,combos[1,i]] * X[,combos[2,i]]))
 
 #MCMC parameters
-burn.iter = 10000
+burn.iter = 15000
 sample.iter = 5000
 
 adapt.delta = 0.9
@@ -46,10 +42,8 @@ stan.data = list(N = nrow(X),
                  y = y,
                  beta_const_prior_sd = beta_const_prior_sd,
                  beta_prior_sd = beta_prior_sd,
-                 sigma_u_prior_shape = sigma_u_prior_shape,
-                 sigma_u_prior_rate = sigma_u_prior_shape,
-                 sigma_v_prior_shape = sigma_v_prior_shape,
-                 sigma_v_prior_rate = sigma_v_prior_shape)
+                 sigma_u_prior_scale = sigma_u_prior_scale,
+                 sigma_v_prior_scale = sigma_v_prior_scale)
 
 if (!(stan.dso.file %in% list.files())){
   stan.dso = stan(stan.model.file, data = stan.data,
@@ -87,8 +81,7 @@ stan.dso.file = gsub(".stan$", ".dso", stan.model.file)
 stan.data = list(N = nrow(X), k = ncol(X), X = X, y = y,
                  beta_const_prior_sd = beta_const_prior_sd,
                  beta_prior_sd = beta_prior_sd,
-                 sigma_v_prior_shape = sigma_v_prior_shape,
-                 sigma_v_prior_rate = sigma_v_prior_shape,
+                 sigma_v_prior_scale = sigma_v_prior_scale,
                  sigma_u = sigma.u.restricted)
 
 if (!(stan.dso.file %in% list.files())){

@@ -88,8 +88,8 @@ log.posterior = log.unconditional.posterior + sum(log.conditional.posterior)
 load("stan_par_translog_fits/priors.RData")
 log.prior = dnorm(beta.const.restricted, sd = beta_const_prior_sd, log = TRUE) +
   sum(dnorm(beta.restricted, sd = beta_prior_sd, log = TRUE)) +
-  dinvgamma(sigma.u.restricted, shape = sigma_u_prior_shape, rate = sigma_u_prior_rate, log = TRUE) +
-  dinvgamma(sigma.v.restricted, shape = sigma_v_prior_shape, rate = sigma_v_prior_rate, log = TRUE)
+  dcauchy(sigma.u.restricted, scale = sigma_u_prior_scale, log = TRUE) +
+  dcauchy(sigma.v.restricted, scale = sigma_v_prior_scale, log = TRUE)
 
 ##############################
 #Likelihood evaluation

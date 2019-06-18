@@ -37,8 +37,7 @@ if (!(stan.dso.file %in% list.files())){
 }
 
 stan.fit = stan(stan.model.file, data = stan.data,
-                control = list(adapt_delta = 0.9),
-                refresh = floor((burn.iter + sample.iter) / 100),
+                control = list(adapt_delta = 0.9, max_treedepth = 12),
                 chains = 1, iter = burn.iter + sample.iter, warmup = burn.iter)
 
 save(stan.fit, file = "stan_gp_fits/stan_gp_sf_unconditional.RData")

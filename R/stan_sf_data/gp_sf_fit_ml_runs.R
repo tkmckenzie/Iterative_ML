@@ -6,29 +6,21 @@ setwd("~/git/Iterative_ML/R/stan_sf_data")
 rm(list = ls())
 
 load("data.RData")
-load("stan_gp_fits/restricted_params.RData")
+# load("stan_gp_fits/restricted_params.RData")
 
 #Priors
-alpha_prior_shape = 1
-alpha_prior_rate = 1
-H_inv_diag_prior_shape = 10
-H_inv_diag_prior_rate = 1
-sigma_u_prior_shape = 1
-sigma_u_prior_rate = 1
-sigma_v_prior_shape = 1
-sigma_v_prior_rate = 1
+alpha_prior_scale = 1
+H_inv_diag_prior_scale = 1
+sigma_u_prior_scale = 1
+sigma_v_prior_scale = 1
 
 y.mean = mean(y)
 y = y - y.mean
 
-save(sigma_u_prior_shape,
-     sigma_u_prior_rate,
-     sigma_v_prior_shape,
-     sigma_v_prior_rate,
-     alpha_prior_shape,
-     alpha_prior_rate,
-     H_inv_diag_prior_shape,
-     H_inv_diag_prior_rate,
+save(sigma_u_prior_scale,
+     sigma_v_prior_scale,
+     alpha_prior_scale,
+     H_inv_diag_prior_scale,
      y.mean,
      file = "stan_gp_fits/priors.RData")
 
@@ -45,14 +37,10 @@ stan.model.file = "stan_gp_sf.stan"
 stan.dso.file = gsub(".stan$", ".dso", stan.model.file)
 
 stan.data = list(N = nrow(X), k = ncol(X), X = X, y = y,
-                 alpha_prior_shape = alpha_prior_shape,
-                 alpha_prior_rate = alpha_prior_rate,
-                 H_inv_diag_prior_shape = H_inv_diag_prior_shape,
-                 H_inv_diag_prior_rate = H_inv_diag_prior_rate,
-                 sigma_u_prior_shape = sigma_u_prior_shape,
-                 sigma_u_prior_rate = sigma_u_prior_shape,
-                 sigma_v_prior_shape = sigma_v_prior_shape,
-                 sigma_v_prior_rate = sigma_v_prior_shape)
+                 alpha_prior_scale = alpha_prior_scale,
+                 H_inv_diag_prior_scale = H_inv_diag_prior_scale,
+                 sigma_u_prior_scale = sigma_u_prior_scale,
+                 sigma_v_prior_scale = sigma_v_prior_scale)
 
 if (!(stan.dso.file %in% list.files())){
   stan.dso = stan(stan.model.file, data = stan.data,
@@ -71,8 +59,8 @@ save(stan.fit, file = "stan_gp_fits/stan_gp_sf_unconditional.RData")
 
 load("stan_gp_fits/stan_gp_sf_unconditional.RData")
 
-traceplot(stan.fit)
-# if (readline("Enter y to accept initial sample: ") != "y") stop("Initial sample rejected.")
+show(traceplot(stan.fit))
+if (readline("Enter y to accept initial sample: ") != "y") stop("Initial sample rejected.")
 
 #Restricted values:
 stan.extract = extract(stan.fit)
@@ -92,12 +80,9 @@ stan.model.file = "stan_gp_sf_restr_sigma_u.stan"
 stan.dso.file = gsub(".stan$", ".dso", stan.model.file)
 
 stan.data = list(N = nrow(X), k = ncol(X), X = X, y = y,
-                 alpha_prior_shape = alpha_prior_shape,
-                 alpha_prior_rate = alpha_prior_rate,
-                 H_inv_diag_prior_shape = H_inv_diag_prior_shape,
-                 H_inv_diag_prior_rate = H_inv_diag_prior_rate,
-                 sigma_v_prior_shape = sigma_v_prior_shape,
-                 sigma_v_prior_rate = sigma_v_prior_shape,
+                 alpha_prior_scale = alpha_prior_scale,
+                 H_inv_diag_prior_scale = H_inv_diag_prior_scale,
+                 sigma_v_prior_shape = sigma_v_prior_scale,
                  sigma_u = sigma.u.restricted)
 
 if (!(stan.dso.file %in% list.files())){
@@ -124,10 +109,8 @@ stan.model.file = "stan_gp_sf_restr_sigma_uv.stan"
 stan.dso.file = gsub(".stan$", ".dso", stan.model.file)
 
 stan.data = list(N = nrow(X), k = ncol(X), X = X, y = y,
-                 alpha_prior_shape = alpha_prior_shape,
-                 alpha_prior_rate = alpha_prior_rate,
-                 H_inv_diag_prior_shape = H_inv_diag_prior_shape,
-                 H_inv_diag_prior_rate = H_inv_diag_prior_rate,
+                 alpha_prior_scale = alpha_prior_scale,
+                 H_inv_diag_prior_scale = H_inv_diag_prior_scale,
                  sigma_u = sigma.u.restricted,
                  sigma_v = sigma.v.restricted)
 
@@ -155,10 +138,8 @@ for (k.restricted in 1:(ncol(X) - 1)){
                    k_restricted = k.restricted,
                    k_free = ncol(X) - k.restricted,
                    X = X, y = y,
-                   alpha_prior_shape = alpha_prior_shape,
-                   alpha_prior_rate = alpha_prior_rate,
-                   H_inv_diag_prior_shape = H_inv_diag_prior_shape,
-                   H_inv_diag_prior_rate = H_inv_diag_prior_rate,
+                   alpha_prior_scale = alpha_prior_scale,
+                   H_inv_diag_prior_scale = H_inv_diag_prior_scale,
                    sigma_u = sigma.u.restricted,
                    sigma_v = sigma.v.restricted,
                    H_inv_diag_restricted = as.array(H.inv.diag.restricted[1:k.restricted]))
@@ -210,8 +191,7 @@ stan.model.file = "stan_gp_sf_restr_sigma_uv_H_inv.stan"
 stan.dso.file = gsub(".stan$", ".dso", stan.model.file)
 
 stan.data = list(N = nrow(X), k = ncol(X), X = X, y = y,
-                 alpha_prior_shape = alpha_prior_shape,
-                 alpha_prior_rate = alpha_prior_rate,
+                 alpha_prior_scale = alpha_prior_scale,
                  sigma_u = sigma.u.restricted,
                  sigma_v = sigma.v.restricted,
                  H_inv_diag = H.inv.diag.restricted)
@@ -238,8 +218,7 @@ for (N.restricted in 1:(nrow(X) - 1)){
   stan.data = list(N_free = nrow(X) - N.restricted,
                    N_restricted = N.restricted,
                    k = ncol(X), X = X, y = y,
-                   alpha_prior_shape = alpha_prior_shape,
-                   alpha_prior_rate = alpha_prior_rate,
+                   alpha_prior_scale = alpha_prior_scale,
                    sigma_u = sigma.u.restricted,
                    sigma_v = sigma.v.restricted,
                    H_inv_diag = H.inv.diag.restricted,
@@ -290,8 +269,7 @@ stan.model.file = "stan_gp_sf_restr_sigma_uv_H_inv_eta.stan"
 stan.dso.file = gsub(".stan$", ".dso", stan.model.file)
 
 stan.data = list(N = nrow(X), k = ncol(X), X = X, y = y,
-                 alpha_prior_shape = alpha_prior_shape,
-                 alpha_prior_rate = alpha_prior_rate,
+                 alpha_prior_scale = alpha_prior_scale,
                  sigma_u = sigma.u.restricted,
                  sigma_v = sigma.v.restricted,
                  H_inv_diag = H.inv.diag.restricted,
