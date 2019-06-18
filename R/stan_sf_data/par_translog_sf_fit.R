@@ -15,10 +15,8 @@ X = cbind(X, X^2,
 k = ncol(X)
 
 #Priors
-sigma_u_prior_shape = 1
-sigma_u_prior_rate = 1
-sigma_v_prior_shape = 1
-sigma_v_prior_rate = 1
+sigma_u_prior_scale = 1
+sigma_v_prior_scale = 1
 beta_const_prior_sd = 10
 beta_prior_sd = 1
 
@@ -35,10 +33,8 @@ stan.data = list(N = nrow(X),
                  y = y,
                  beta_const_prior_sd = beta_const_prior_sd,
                  beta_prior_sd = beta_prior_sd,
-                 sigma_u_prior_shape = sigma_u_prior_shape,
-                 sigma_u_prior_rate = sigma_u_prior_shape,
-                 sigma_v_prior_shape = sigma_v_prior_shape,
-                 sigma_v_prior_rate = sigma_v_prior_shape)
+                 sigma_u_prior_scale = sigma_u_prior_scale,
+                 sigma_v_prior_scale = sigma_v_prior_scale)
 
 if (!(stan.dso.file %in% list.files())){
   stan.dso = stan(stan.model.file, data = stan.data,

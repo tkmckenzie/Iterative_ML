@@ -52,8 +52,7 @@ data{
 	real<lower=0> beta_const_prior_sd;
 	real<lower=0> beta_prior_sd;
 	
-	real<lower=0> sigma_v_prior_shape;
-	real<lower=0> sigma_v_prior_rate;
+	real<lower=0> sigma_v_prior_scale;
 }
 parameters{
 	real beta_const;
@@ -64,7 +63,7 @@ parameters{
 model{
 	beta_const ~ normal(0, beta_const_prior_sd);
 	beta ~ normal(0, beta_prior_sd);
-	sigma_v ~ inv_gamma(sigma_v_prior_shape, sigma_v_prior_rate);
+	sigma_v ~ cauchy(0, sigma_v_prior_scale);
 	
 	target += normal_plus_halfnormal_lpdf(y - (beta_const + X * beta) | sqrt(sigma_u^2 + sigma_v^2), sigma_u / sigma_v);
 }

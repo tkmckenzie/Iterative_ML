@@ -47,17 +47,13 @@ data{
 	vector[N] y;
 	matrix[N, k] X;
 	
-	real<lower=0> alpha_prior_shape;
-	real<lower=0> alpha_prior_rate;
+	real<lower=0> alpha_prior_scale;
 	
-	real<lower=0> H_inv_diag_prior_shape;
-	real<lower=0> H_inv_diag_prior_rate;
+	real<lower=0> H_inv_diag_prior_scale;
 	
-	real<lower=0> sigma_u_prior_shape;
-	real<lower=0> sigma_u_prior_rate;
+	real<lower=0> sigma_u_prior_scale;
 	
-	real<lower=0> sigma_v_prior_shape;
-	real<lower=0> sigma_v_prior_rate;
+	real<lower=0> sigma_v_prior_scale;
 }
 transformed data{
 	vector[N] zeros;
@@ -93,10 +89,10 @@ transformed parameters{
 	}
 }
 model{
-	alpha ~ inv_gamma(alpha_prior_shape, alpha_prior_rate);
-	H_inv_diag ~ inv_gamma(H_inv_diag_prior_shape, H_inv_diag_prior_rate);
-	sigma_u ~ inv_gamma(sigma_u_prior_shape, sigma_u_prior_rate);
-	sigma_v ~ inv_gamma(sigma_v_prior_shape, sigma_v_prior_rate);
+	alpha ~ cauchy(0, alpha_prior_scale);
+	H_inv_diag ~ cauchy(0, H_inv_diag_prior_scale);
+	sigma_u ~ cauchy(0, sigma_u_prior_scale);
+	sigma_v ~ cauchy(0, sigma_v_prior_scale);
 	
 	eta ~ normal(0, 1);
 	

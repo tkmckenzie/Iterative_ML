@@ -1,0 +1,40 @@
+C-D
+> log.lik
+[1] -2.383351
+
+> log.prior
+[1] -10.28461
+
+> log.posterior
+[1] 15.7469
+
+> log.lik + log.prior - log.posterior
+[1] -28.41487
+
+
+Translog
+> log.lik
+[1] 3.816823
+
+> log.prior
+[1] -24.03086
+
+> log.posterior
+[1] 47.76573
+
+> log.lik + log.prior - log.posterior
+[1] -67.97976
+
+
+GP
+> log.lik
+[1] -47.994
+
+> log.prior
+[1] -64.14456
+
+> log.posterior
+[1] -17.08149
+
+> log.lik + log.prior - log.posterior
+[1] -95.05707

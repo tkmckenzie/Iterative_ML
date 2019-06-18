@@ -47,8 +47,7 @@ data{
 	vector[N] y;
 	matrix[N, k] X;
 	
-	real<lower=0> alpha_prior_shape;
-	real<lower=0> alpha_prior_rate;
+	real<lower=0> alpha_prior_scale;
 	
 	real<lower=0> sigma_u;
 	real<lower=0> sigma_v;
@@ -84,7 +83,7 @@ transformed parameters{
 	}
 }
 model{
-	alpha ~ inv_gamma(alpha_prior_shape, alpha_prior_rate);
+	alpha ~ cauchy(0, alpha_prior_scale);
 	
 	eta ~ normal(0, 1);
 	

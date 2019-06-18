@@ -8,14 +8,10 @@ rm(list = ls())
 load("data.RData")
 
 #Priors
-alpha_prior_shape = 1
-alpha_prior_rate = 1
-H_inv_diag_prior_shape = 10
-H_inv_diag_prior_rate = 1
-sigma_u_prior_shape = 1
-sigma_u_prior_rate = 1
-sigma_v_prior_shape = 1
-sigma_v_prior_rate = 1
+alpha_prior_scale = 1
+H_inv_diag_prior_scale = 1
+sigma_u_prior_scale = 1
+sigma_v_prior_scale = 1
 
 y.mean = mean(y)
 y = y - y.mean
@@ -27,14 +23,10 @@ stan.model.file = "stan_gp_sf.stan"
 stan.dso.file = gsub(".stan$", ".dso", stan.model.file)
 
 stan.data = list(N = nrow(X), k = ncol(X), X = X, y = y,
-                 alpha_prior_shape = alpha_prior_shape,
-                 alpha_prior_rate = alpha_prior_rate,
-                 H_inv_diag_prior_shape = H_inv_diag_prior_shape,
-                 H_inv_diag_prior_rate = H_inv_diag_prior_rate,
-                 sigma_u_prior_shape = sigma_u_prior_shape,
-                 sigma_u_prior_rate = sigma_u_prior_shape,
-                 sigma_v_prior_shape = sigma_v_prior_shape,
-                 sigma_v_prior_rate = sigma_v_prior_shape)
+                 alpha_prior_scale = alpha_prior_scale,
+                 H_inv_diag_prior_scale = H_inv_diag_prior_scale,
+                 sigma_u_prior_scale = sigma_u_prior_scale,
+                 sigma_v_prior_scale = sigma_v_prior_scale)
 
 if (!(stan.dso.file %in% list.files())){
   stan.dso = stan(stan.model.file, data = stan.data,
